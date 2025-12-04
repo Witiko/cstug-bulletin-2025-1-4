@@ -1,0 +1,110 @@
+\let\oldlooseness=\looseness
+\RequirePackage{luatex85}
+\PassOptionsToPackage{shorthands=off}{babel}
+\makeatletter
+\disable@package@load{fontenc}
+\makeatother
+\documentclass{csbulletin}
+\selectlanguage{czech}
+\usepackage[utf8]{inputenc}
+\usepackage{luavlna, hologo}
+\usepackage[strict]{lua-widow-control}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=iso-numeric,
+  sortlocale=cs,
+  autolang=other,
+  bibencoding=UTF8,
+  mincitenames=2,
+  maxcitenames=2,
+  maxbibnames=3,
+]{biblatex}
+\addbibresource{uvodnik.bib}
+\usepackage[
+  implicit=false,
+  hidelinks,
+]{hyperref}
+
+% Pomocná makra
+\def\TUG{TUG}
+\def\TUGboat{TUGboat}
+\let\stress\emph
+\let\makro\texttt
+\makeatletter
+\DeclareRobustCommand{\La}{L\kern-.36em%
+        {\sbox\z@ T%
+         \vbox to\ht\z@{\hbox{\check@mathfonts
+                              \fontsize\sf@size\z@
+                              \math@fontsfalse\selectfont
+                              A}%
+                        \vss}%
+        }}
+\makeatother
+\def\AllTeX{(\La\kern-.075em)\kern-.075em\TeX}
+\ExplSyntaxOn
+\newcommand
+  \acro
+  [ 1 ]
+  {
+    \tl_set:Nn
+      \l_tmpa_tl
+      { #1 }
+    \regex_replace_all:nnN
+      { [^\d]+ }
+      { \c{textsc} \cB\{ \c{MakeLowercase} \cB\{ \0 \cE\} \cE\} }
+      \l_tmpa_tl
+    \regex_replace_all:nnN
+      { \d+ }
+      { \c{oldstylenums} \cB\{ \0 \cE\} }
+      \l_tmpa_tl
+    \tl_use:N
+      \l_tmpa_tl
+  }
+\ExplSyntaxOff
+
+\begin{document}
+
+% Metadata
+\title{Úvodní slovo}
+\EnglishTitle{Editorial}
+\author{Vít Starý Novotný}
+\podpis{Vít Starý Novotný, witiko@mail.muni.cz}
+\maketitle
+
+\vspace{-2em}
+
+Vážení a milí příznivci a příznivkyně \TeX u!
+
+\medskip
+
+Čtyřčíslo \emph{Zpravodaje}, které držíte v rukou, přináší řadu podnětných článků:
+
+\begin{itemize}
+\item \emph{Zpráva z konference \acro{TUG 2025}} od autora tohoto textu zachycuje jeho účast na letošní konferenci \acro{TUG}, která se po čtrnácti letech vrátila do indické Kéraly. Článek detailně popisuje průběh celého setkání, včetně poznámek z valného shromáždění \acro{TUG}u, které proběhlo v rámci konference.
+
+\item \emph{Publikace \LaTeX ových dokumentů na webu pomocí \TeX4ht a GitHub Actions} od Michala Hofticha rozvíjí jeho příspěvek~\cite{ossconf} z letošní konference OSSConf pořádané tradičně na Žilinské univerzitě v Žilině. Autor v něm představuje tři šablony pro nástroj \TeX4ht, který s jejich pomocí převádí \LaTeX ové dokumenty do formátu \acro{HTML} určeného pro webové publikace.
+
+\item \emph{Co se děje ve světě \ConTeXt u}, \emph{Vybrané \TeX ovské balíčky z rodiny games} a \emph{Sadzba zdrojového kódu v \LaTeX u pomocou balíka minted} navazují na tradici referátů~\cite{finalwork} studujících předmětu Elektronická příprava dokumentů, který na Fakultě informatiky Masarykovy univerzity již čtyřiadvacet let vyučuje předseda sdružení Petr Sojka.
+
+V prvním článku Jana Slámová představuje některé novinky z formátu \Hologo{ConTeXt}.
+Ve druhém Branislav Hitzinger přibližuje vybrané balíčky pro sazbu herních plánů deskových her~\cite{games}.
+Ve třetím Filip Blaho seznamuje začátečníky s \LaTeX ovým balíčkem minted pro sazbu zdrojového kódu a pokročilé čtenáře seznamuje s novinkami ve třetí verzi balíčku, která vyšla loni v září.
+\oldlooseness=-1
+\end{itemize}
+
+Věřím, že Vás obsah čísla potěší a že nám i nadále zachováte svou přízeň.
+
+\vspace{-1.2em}
+\section{Odkazy}
+\vspace{-0.4em}
+\printbibliography[heading=none]
+
+\makeatletter
+\csbul@podepis
+\makeatother
+
+\medskip
+
+P. S.: V tiráži si můžete všimnout, že redakce \emph{Zpravodaje} doznala od předešlého čísla významných personálních změn. Podrobněji se k nim vrátím v příštím čísle po valném shromáždění spolku, které by mělo nové složení redakce schválit.
+\end{document}
