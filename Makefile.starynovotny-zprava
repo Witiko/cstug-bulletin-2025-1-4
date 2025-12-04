@@ -3,7 +3,7 @@
 DOCKER = docker run --rm -u $(shell id -u):$(shell id -g) --env TEXMFVAR=/var/tmp/texmf-var -v "$$PWD"/..:/workdir -w /workdir/"$$(basename "$$PWD")"
 IMAGE = texlive/texlive:TL2024-historic-with-cache
 LATEXMK = latexmk -lualatex -f
-DOCUMENT = uvodnik.tex
+DOCUMENT = starynovotny-tug2025.tex
 
 all: $(basename $(DOCUMENT)).pdf
 
