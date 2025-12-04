@@ -1,0 +1,194 @@
+\RequirePackage{luatex85}
+\PassOptionsToPackage{shorthands=off}{babel}
+\makeatletter
+\disable@package@load{fontenc}
+\makeatother
+\let\oldlooseness=\looseness
+\documentclass{csbulletin}
+\selectlanguage{czech}
+\usepackage{afterpage}
+\usepackage{titlesec}
+\titlelabel{\thetitle\enspace}
+\makeatletter
+\ExplSyntaxOn
+\cs_new_protected:Npn
+  \sanskrit
+  {
+    \tl_set:Nn
+      \l_tmpa_tl
+      { 0.9 * }
+    \tl_put_right:NV
+      \l_tmpa_tl
+      \f@size
+    \fp_set:NV
+      \l_tmpa_fp
+      \l_tmpa_tl
+    \font\tmpfont={"Lohit Devanagari":mode=harf;script=Devanagari}~at~\fp_to_dim:N \l_tmpa_fp
+    \tmpfont
+  }
+\ExplSyntaxOff
+\makeatother
+\font\linguistix="NewCMUncial10-Book.otf"
+\usepackage{tikz}
+\def\slant#1#2{%
+  \tikz[baseline=(X.base), xslant=tan(#1)]
+    \node[inner sep=0pt, xslant=tan(#1)](X){#2};%
+}
+\usepackage{luavlna}
+\usepackage[strict]{lua-widow-control}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  citestyle=numeric-comp,
+  bibstyle=iso-numeric,
+  sortlocale=cs,
+  autolang=other,
+  bibencoding=UTF8,
+  mincitenames=2,
+  maxcitenames=2,
+  doi=true,
+  isbn=true,
+  shortnumeration=true,
+]{biblatex}
+\renewcommand\multicitedelim{\addsemicolon\space}
+\addbibresource{starynovotny-tug2025.bib}
+\usepackage[
+  implicit=false,
+  hidelinks,
+]{hyperref}
+\usepackage{hologo}
+
+\ExplSyntaxOn
+\newcommand
+  \acro
+  [ 1 ]
+  {
+    \tl_set:Nn
+      \l_tmpa_tl
+      { #1 }
+    \regex_replace_all:nnN
+      { [^\d]+ }
+      { \c{textsc} \cB\{ \c{MakeLowercase} \cB\{ \0 \cE\} \cE\} }
+      \l_tmpa_tl
+    \regex_replace_all:nnN
+      { \d+ }
+      { \c{oldstylenums} \cB\{ \0 \cE\} }
+      \l_tmpa_tl
+    \tl_use:N
+      \l_tmpa_tl
+  }
+\ExplSyntaxOff
+\newcommand\pkg{\textsf}
+\makeatletter
+\DeclareRobustCommand{\La}{L\kern-.36em%
+  {\sbox\z@ T%
+   \vbox to\ht\z@{\hbox{\check@mathfonts
+                        \fontsize\sf@size\z@
+                        \math@fontsfalse\selectfont
+                        A}%
+                  \vss}%
+  }}
+\DeclareRobustCommand{\Ka}{K\kern-.16em%
+  {\sbox\z@ T%
+   \vbox to\ht\z@{\hbox{\check@mathfonts
+                        \fontsize\sf@size\z@
+                        \math@fontsfalse\selectfont
+                        A}%
+                  \vss}%
+   \kern-.12em%
+  }}
+\makeatother
+\def\AllTeX{(\La\kern-.075em)\kern-.075em\TeX}
+\def\strankasclankem#1#2{\textbf{??}}
+\def\XDP{X\kern-0.25pt\raisebox{-2pt}{D}\kern-0.25pt P}
+
+\begin{document}
+
+\singlechars{czech}{AaIiVvOoUuSsZzKk}
+
+\title{Zpráva z konference TUG 2025}
+\EnglishTitle{Report from the TUG 2025 Conference}
+\author{Vít Starý Novotný}
+\podpis{Vít Starý Novotný, witiko@mail.muni.cz}
+\maketitle
+
+\vspace{-1.5em}
+
+Od pátku 18. do neděle 20.\,července se v indické Kérale po 14 letech\footnote{Pátral jsem v \href{https://dml.cz/handle/10338.dmlcz/148724}{archivu Zpravodaje} po zmínkách o \acro{TUG}u \acro{2011}, který se rovněž konal v Kérale. Mé pátrání ale nebylo korunováno úspěchem, nejspíš i kvůli překryvu s dvoukonferencí \TeX perience a Stakan~\cite{striz2011kniha, striz2011ucime}, kterou \CSTUG{} v témže roce spolupořádal v Železné rudě. Navzdory chybějícím publikacím ve Zpravodaji se ale konference zúčastnili Petr Sojka, který zde hovořil o vyhledávání matematiky~\cite{sojka2011why}, a Karel Skoupý, který ve dvou příspěvcích hovořil o implementaci datových struktur pomocí primitivů \hologo{eTeX}u~\cite{skoupy2021data} a o přípravě kapesních slovníků v \TeX u~\cite{skoupy2021typesetting}.} konala konference \acro{TUG 2025}. Autor přítomného textu se konference aktivně zúčastnil a ve zbytku článku referuje o průběhu konference.
+
+\medskip
+
+Ve čtvrtek ještě před oficiálním zahájením konference proběhl již tradičně workshop věnovaný tvorbě přístupných \acro{PDF} dokumentů podle standardu \acro{PDF/UA} v \LaTeX u. Workshop tentokrát proběhl v kampusu firmy \href{https://stmdocs.in/}{\acro{STM Docs}} -- generálního sponzora a organizátora konference. Po návratu z kampusu probíhala v konferenčním hotelu Hyatt Regency uvítací recepce.\footnote{Programu recepce se autor článku nezúčastnil a místo toho strávil den průzkumem města~\cite{starynovotny2025static}.}
+
+\medskip
+
+Konferenci oficiálně započal v pátek ráno Rob Schrauwen z dánského nakladatelství Elsevier, který ve své ,,keynote`` přednášce~\autocites{schrauwen2025true}[čas 13:00]{youtube2025day1a} hovořil o nedostatcích současných postupů pro značkování vědeckých dokumentů. V následující přednášce~\autocites{braun2025state}[čas 1:15:18]{youtube2025day1a} hovořil Erik Braun z německého spolku \acro{DANTE} o současném stavu webového archivu \TeX ového softwaru \acro{CTAN}.
+
+Dopolední sekce se věnovala popularizaci \LaTeX u. Nejprve hovořil Vrajarāja Govinda z Mezinárodní společnosti pro vědomí Kršny\footnote{Sanskrtské jméno je {\sanskrit कृष्ण}, což se vyslovuje Kršna: Souhlásky [š] i [n] jsou retroflexní, takže se při správné sanskrtské výslovnosti vysloví opřením špičky jazyka o střed horního patra. Při přepisu do češtiny se podle českých indologů u jmen bohů vychází ze sanskrtu. (Pozn. red.)} (\acro{ISKCON}) o využití \Hologo{XeLaTeX}u pro přípravu dokumentů ve svém ášramu~\autocites{govinda2025howa,govinda2025howb}[čas 18:48]{youtube2025day1b}. Následně přednášel Jean-Michel Hufflen z francouzského spolku \acro{GUT}enberg o svých zkušenostech z vysokoškolské výuky \LaTeX u~\autocites{hufflen2025whata,hufflen2025whatb}[čas 55:47]{youtube2025day1b}.
+
+Po obědě proběhlo skupinové focení u venkovního bazénu, vizte Obrázek~\ref{fig:group-photo}.
+
+\afterpage{\begin{figure}[t]
+\centering
+\vspace{-4pt}
+\setlength{\belowcaptionskip}{-12pt}
+\includegraphics[width=\linewidth]{figs/tug25-conf-group-photo.jpg}\\[-0.2cm]
+\caption{Skupinová fotografie účastníků~\cite{shaji2025tug}. Přetištěno se svolením vydavatele.}
+\label{fig:group-photo}
+\end{figure}}
+
+Odpolední sekce se věnovala přípravě přístupných \acro{PDF} dokumentů v \LaTeX u. Nejprve hovořili Frank Mittelbach a Ulrike Fischer z projektu \LaTeX, kteří ve svých přednáškách~\autocites{mittelbach2025how,fischer2025status,fischer2025news}[časy 1:38:35 a 2:23:00]{youtube2025day1b} poreferovali o současném stavu podpory standardu \acro{PDF/UA} v \LaTeX u. Sekci uzavřel Ross Moore z Macquarijské univerzity, který referoval o výzvách spojených s generováním přístupných bibliografií pomocí \LaTeX ového balíčku Bib\LaTeX~\autocites{moore2025tagginga,moore2025taggingb}[čas 2:59:20]{youtube2025day1b}.
+
+Večerní sekce se věnovala použití \TeX u ve větších systémech. Nejprve řečnil CV~Radhakrishnan, zakladatel firem River Valley Technologies a \acro{STM Docs} a spolku \acro{TUG} India, o archivaci malajálamských dokumentů a jejich převodu do výstupních formátů \acro{HTML} a \acro{PDF} skrz formáty \LaTeX{} a \acro{TEI}~\autocites{cv2025digitala,cv2025digitalb}[čas 3:45:52]{youtube2025day1b}. Sekci uzavřela Doris Behrendt z německého spolku \acro{DANTE}, která hovořila o použití \TeX u pro dynamickou sazbu matematiky v digitálním učebním materiálu pro výuku kryptologie pomocí javascriptové knihovny \Ka\TeX~\autocites{behrendt2025latexa,behrendt2025latexb}[čas 4:25:28]{youtube2025day1b}.
+
+Páteční program uzavřela dobrovolná noční prohlídka města autobusem.
+
+\medskip
+
+Sobotní ranní sekce se věnovala statické analýze \TeX u. Nejprve pojednával KV Rajeesh z \href{https://rachana.org.in/index.html}{Typografického institutu Rachana (\acro{RIT})}\footnote{Rajeesh publikoval v časopisu \emph{TUGboat}~\cite{rajeesh2025tuga} a na svém blogu~\cite{rajeesh2025tugb} vlastní zprávu z konference.} o přípravě OpenType fontu s vestavěným zvýrazňováním syntaxe \TeX u~\autocites{rajeesh2025opentypea,rajeesh2025opentypeb}[čas 11:27]{youtube2025day2}. Následně referoval autor článku o statické analýze programovacího jazyka expl3~\autocites{starynovotny2025expltoolsa,starynovotny2025expltoolsb}[čas 50:23]{youtube2025day2},\footnote{První verze této přednášky zazněla na loňském valném shromáždění \CSTUG u~\cite{starynovotny2024valna} a následně při příležitosti návštěvy Franka Mittelbacha v Brně~\cite{starynovotny2024frank}.} vizte Obrázek~\ref{fig:expltools}.
+
+\afterpage{\begin{figure}[t]
+\setlength{\belowcaptionskip}{-12pt}
+\hspace{16mm}\includegraphics[width=0.618\linewidth]{figs/vitek-behem-prednasky.jpg}\\[-0.85cm]
+\includegraphics[width=\linewidth]{figs/d2-t11-starynovotny-expltools-slides.pdf}\\[-1.21cm]
+\caption{Autor článku přednáší o statické analýze programů v jazyce expl3.}
+\label{fig:expltools}
+\end{figure}}
+
+Dopolední sekce byla vyhrazena pro příspěvky, které tematicky nezapadaly do žádné jiné sekce. Nejprve hovořili Saravanan Murugaiah a Mukesh Subramaniam z firmy C\&M Digitals o komerčním nástroji em\acro{DOX} pro konverzi \LaTeX ových dokumentů do formátu \acro{OOXML}~\autocites{saravanan2025typographic}[čas 1:36:08]{youtube2025day2}. Následně řečnil Salil B. o svém nápadu automaticky zaopatřit záhlaví tabulek symboly, které udávají seřazenost hodnot v jednotlivých sloupcích~\autocites{salilb2025constructing}[čas 2:15:45]{youtube2025day2}. To má usnadnit explorativní analýzu dat a upozornit autora i čtenáře na možné korelace v datech.
+
+Odpolední sekce se týkala lingvistiky. Nejprve SK Venkatesan\footnote{Česká norma přepisu a zápisu indických jmen je rozkolísaná. Proto u jmen účastníků používám formu, která je uvedena v konferenčním programu~\cite{tug2025program}.} z firmy \acro{TNQ} Tech porovnal vývoj alfabetických a logografických/slabičných písem na příkladech protoelamštiny a harappského písma~\autocites{venkates2025analphabetica}{venkates2025analphabeticb}[čas 3:02:14]{youtube2025day2}. Následně pojednávala Vaishnavi Murthy Yerkadithaya z firmy Monotype o standardizaci indického písma tigalari,\footnote{Písmo je součástí verze 17 standardu Unicode~\cite[Sekce~15.18]{unicode17}.} které se používá pro zápis tuluštiny, kannadštiny a sanskrtu~\autocites{yerkadithaya2025encoding}[čas 3:38:52]{youtube2025day2}. Sekci uzavřel {\sanskrit निरंजन} (Niranjan) přednáškou o \LaTeX ovém balíčku {\linguistix LinguisTiX} pro sazbu lingvistických textů~\autocites{niranjan2025linguisticsa}{niranjan2025linguisticsb}{venkates2025analphabeticb}[čas 4:14:40]{youtube2025day2}.\footnote{Projekt autora článku i {\linguistix LinguisTiX} finančně podpořil rozvojový fond \acro{TUG}u~\cite{tug2025grants}.}
+
+Večerní sekce byla o bibliografii. Nejprve Norman Gray z Glasgowské univerzity představil program Beastie, jenž může nahradit Bib\TeX{} a zároveň nabízí knihovnu funkcí v jazyce Scheme pro práci s \texttt{.bib} databázemi~\autocites{gray2025beastiea}{gray2025beastieb}{venkates2025analphabeticb}[čas 5:06:22]{youtube2025day2}. Následně referoval Martin J. Osborne z Torontské univerzity o nástroji \href{https://text2bib.org/}{\texttt{text2bib}} pro převod textových referencí do formátu \texttt{.bib}~\cite[čas 5:38:28]{youtube2025day2}.
+\oldlooseness=-1
+
+Sobotní program uzavřel sitárový koncert a taneční představení Kathakali.
+
+\medskip
+
+Nedělní ranní sekce se, podobně jako pondělní večerní, věnovala rozsáhlejším systémům poháněným \TeX em. Nejprve hovořil T Rishikesan Nair z~firmy \acro{STM~DOCS} o komerčním nástroji Primo pro přípravu, korektury a redakční úpravy časopiseckých článků~\autocites{nair2025efficientlya}[čas 00:13]{youtube2025day3}. Sekci uzavřel Erik Nijenhuis ze společnosti Xerdi, který hovořil o svém systému \XDP{} pro sazbu smluv pomocí \LaTeX u, Markdownu a \acro{YAML}u~\autocites{nijenhuis2025xerdia}{nijenhuis2025xerdib}[čas 35:40]{youtube2025day3}.
+
+Zbylé nedělní sekce neměly vyhraněná témata. V dopolední sekci podruhé vystoupila Doris Behrendt, která tentokrát představila každoroční akci Chaos Communication Camp pořádanou německým spolkem Chaos Computer Club (\acro{CCC}). Akce zahrnuje sekci \LaTeX{} Village zaměřenou na \TeX{} a související technologie~\autocites{behrendt2025latexc}[čas 1:08:10]{youtube2025day3}. Následně řečnila Veeraraghavan Balasubramanian z nakladatelství Elsevier o výzvách, kterým dnes čelí nakladatelé~\autocites{balasubramanian2025challengesa}{balasubramanian2025challengesb}[čas 1:50:12]{youtube2025day3}, čímž tematicky navázala na pondělní přednášku Roba Schrauwena.
+
+Po obědě proběhlo valné shromáždění \acro{TUG}u, na kterém bývalý předseda a současný člen výboru Boris Veytsman informoval o aktivitách sdružení, rozhodnutích výboru, stavu financí a vývoji členské základny~\cite{hefferton2025tug}. Mezi hlavní aktivity patřilo vydání \TeX{} Live 2025, podpora vývoje softwaru a financování účasti na konferencích. Výbor mj. udělil doživotní čestné členství Barbaře Beeton a Karlu Berrymu za jejich služby komunitě, zavedl zlevněné zkušební elektronické členství za 20 dolarů na první rok a rozhodl, že \acro{TUG 2026} se uskuteční v kanadské Albertě. Největší výdaje tradičně představuje tisk a distribuce časopisu \emph{TUGboat} a personální náklady. Počet členů dlouhodobě klesá a letos prorazil psychologickou hranici 1\,000 členů.
+\oldlooseness=-1
+
+V odpolední sekci vystoupil nejprve Boris Veytsman, který pojednával o svých makrech pro zanášení redakčních poznámek do \LaTeX ových dokumentů~\autocites{veytsman2025systema}{veytsman2025systemb}[čas 2:26:50]{youtube2025day3}. Následně přednášel Rahul Krishnan S o podpoře standardu \acro{PDF/UA} v komerčním nástroji Neptune pro přípravu, korektury a redakční úpravy časopiseckých článků~\autocites{krishnan2025implementinga}{krishnan2025implementingb}[čas 3:01:00]{youtube2025day3}. Sekci uzavřel Mathias Jakobsen ze společnosti Overleaf přednáškou o formální gramatice \LaTeX u, kterou používá \acro{WYSIWYG} mód textového editoru Overleaf~\cite{novotny2021overleaf} pro statickou analýzu struktury \LaTeX ových dokumentů~\autocites{jakobsen2025besta}{jakobsen2025bestb}[čas 3:26:20]{youtube2025day3}.
+
+\medskip
+
+Na závěr konference se uskutečnil workshop kéralského kaligrafa Narayana Bhattathiri, po kterém následoval banket.
+
+% https://tug.org/tug2025/participants.html
+% https://tug.org/tug2025/program.html
+% https://tug.org/TUGboat/Contents/contents46-2.html
+
+\begingroup
+\sloppy
+\printbibliography
+\endgroup
+
+\begin{summary}
+From Thursday, July 17, to Sunday, July 20, the \acro{TUG 2025} conference was held in Kerala, India, for the first time in 14 years. The author of this article took an active part in the conference and reports on its proceedings.
+\end{summary}
+\end{document}
