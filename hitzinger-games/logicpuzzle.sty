@@ -1,0 +1,176 @@
+%%
+%% Copyright (C) 2013 by:
+%% Josef Kleber
+%% <josef.kleber@gmx.de>
+%%
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%%
+%%    http://www.latex-project.org/lppl.txt
+%%
+%% and version 1.3 or later is part of all distributions of LaTeX version
+%% 2003/12/01 or later.
+%%
+%% This work has the LPPL maintenance status "author-maintained".
+%%
+%% The Current Maintainer of this work is Josef Kleber.
+%%
+%% This work consists of all files listed in manifest.txt.
+%%
+\ProvidesPackage{logicpuzzle}[2013/02/23 logicpuzzle.sty v1.0 - Josef Kleber (C) 2013]%
+%
+\RequirePackage{xkeyval}%
+\RequirePackage{ifthen}%
+\RequirePackage{ragged2e}%
+\RequirePackage{etoolbox}%
+\RequirePackage{marginnote}%
+\RequirePackage{tikz}%
+\usetikzlibrary{decorations.pathmorphing}%
+%
+\newcounter{LP@counti}%
+\newcounter{LP@countii}%
+\newcounter{LP@countiii}%
+\newcounter{LP@countiv}%
+\newcounter{LP@whiledo}%
+\newcounter{LP@puzzlecounter}%
+\setcounter{LP@puzzlecounter}{1}%
+%
+\newcommand*\LP@counterstyle{none}%
+\newcommand*\LP@titleformat{}%
+%
+\newcommand*\LP@Pfive{.5}%
+%
+\newcommand*\LP@ingrid[5]%
+{%
+  \setcounter{LP@counti}{#1}% column
+  \setcounter{LP@countii}{#2}% row
+  \setcounter{LP@countiii}{#3}% max column
+  \setcounter{LP@countiv}{#4}% max row
+  %#5 style
+  %
+  \ifnum\value{LP@counti}<1%
+    \PackageError{#5}%
+                 {element outside of the grid}%
+                 {You tried to set an element at (#1,#2),\MessageBreak which is outside the grid (1,1) .. (#3,#4)}%
+  \fi%
+  \ifnum\value{LP@countii}<1%
+    \PackageError{#5}%
+                 {element outside of the grid}%
+                 {You tried to set an element at (#1,#2),\MessageBreak which is outside the grid (1,1) .. (#3,#4)}%
+  \fi%
+  \ifnum\value{LP@counti}>\value{LP@countiii}%
+    \PackageError{#5}%
+                 {element outside of the grid}%
+                 {You tried to set an element at (#1,#2),\MessageBreak which is outside the grid (1,1) .. (#3,#4)}%
+  \fi%
+  \ifnum\value{LP@countii}>\value{LP@countiv}%
+    \PackageError{#5}%
+                 {element outside of the grid}%
+                 {You tried to set an element at (#1,#2),\MessageBreak which is outside the grid (1,1) .. (#3,#4)}%
+  \fi%
+}%
+%
+\newcommand*\titleformat[1]%
+{%
+  \renewcommand*\LP@titleformat{#1}%
+}%
+\titleformat{\centering\Large\color{blue}}%
+%
+\newcommand*\puzzlecounter{\theLP@puzzlecounter}%
+%
+\newcommand*\setpuzzlecounter[1]%
+{%
+  \setcounter{LP@puzzlecounter}{#1}%
+}%
+\newcommand*{\definecounterstyle}[2]%
+{%
+  \expandafter\gdef\csname LP@cs@#1\endcsname{#2}%
+}%
+%
+\definecounterstyle{none}{}%
+\definecounterstyle{left}{\begingroup\reversemarginpar\marginnote{\tikz\node[shape=rectangle,fill=yellow!40,inner sep=7pt,draw,rounded corners=3pt,thick]{\Huge\puzzlecounter};}[-23pt]\endgroup}%
+\definecounterstyle{right}{\marginnote{\tikz\node[shape=rectangle,fill=yellow!40,inner sep=7pt,draw,rounded corners=3pt,thick]{\Huge\puzzlecounter};}[-23pt]}%
+%
+% #1 grid x min
+% #2 grid y min
+% #3 grid x max
+% #4 grid y max
+% #5 step
+\newcommand*\LP@drawgrid[5]%
+{%
+  \setcounter{LP@counti}{#3}% max column
+  \setcounter{LP@countii}{#4}% max row
+  \stepcounter{LP@counti}%
+  \stepcounter{LP@countii}%
+  \draw[step=#5] (#1,#2) grid (\value{LP@counti},\value{LP@countii});%
+}%
+%
+% #1 grid x min
+% #2 grid y min
+% #3 grid x max
+% #4 grid y max
+% #5 bgcolor
+\newcommand*\LP@drawbackground[5]%
+{%
+  \ifthenelse{\equal{#5}{}}%
+  {}% no bgcolor
+  {%
+    \setcounter{LP@counti}{#3}% max column
+    \setcounter{LP@countii}{#4}% max row
+    \stepcounter{LP@counti}%
+    \stepcounter{LP@countii}%
+    \draw[fill=#5] (#1,#2) rectangle (\value{LP@counti},\value{LP@countii});%
+  }%
+}%
+%
+% #1 counterstyle
+\newcommand*\LP@drawcounter[1]%
+{%
+  \csname LP@cs@#1\endcsname%
+}%
+%
+% #1 column
+% #2 row
+% #3 content
+\newcommand*\LP@setcellcontent[3]%
+{%
+  \node at (#1\LP@Pfive,#2\LP@Pfive){#3};%
+}%
+%
+% #1 csv list
+% #2 column
+% #3 row
+% #4 fontsize
+\newcommand*\LP@setcolumncontents[4]%
+{%
+  \setcounter{LP@counti}{#2}%
+  \setcounter{LP@countii}{#3}%
+  \forcsvlist\LP@setcolumncontents@i{#4#1}%
+}%
+%
+\newcommand*\LP@setcolumncontents@i[1]%
+{%
+  \LP@setcellcontent{\arabic{LP@counti}}{\arabic{LP@countii}}{#1}%
+  \stepcounter{LP@counti}%
+}%
+%
+% #1 csv list
+% #2 column
+% #3 row
+% #4 fontsize
+\newcommand*\LP@setrowcontents[4]%
+{%
+  \setcounter{LP@counti}{#2}%
+  \setcounter{LP@countii}{#3}%
+  \forcsvlist\LP@setrowcontents@i{#4#1}%
+}%
+%
+\newcommand*\LP@setrowcontents@i[1]%
+{%
+  \LP@setcellcontent{\arabic{LP@counti}}{\arabic{LP@countii}}{#1}%
+  \stepcounter{LP@countii}%
+}%
+%
+\endinput%
