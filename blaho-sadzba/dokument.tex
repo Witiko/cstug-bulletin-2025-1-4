@@ -1,0 +1,309 @@
+\RequirePackage{luatex85}
+\PassOptionsToPackage{shorthands=off}{babel}
+\makeatletter
+\disable@package@load{fontenc}
+\makeatother
+\let\oldlooseness=\looseness
+\documentclass{csbulletin}
+\selectlanguage{slovak}
+\usepackage{luavlna}
+\usepackage[strict]{lua-widow-control}
+\usepackage{csquotes}
+\usepackage{minted}
+\newcommand{\meta}[1]{\ensuremath{\langle\textit{#1}\rangle}}
+\usepackage{xcolor}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\usepackage[
+  backend=biber,
+  style=iso-numeric,
+  sortlocale=sk,
+  autolang=other,
+  bibencoding=UTF8,
+  mincitenames=2,
+  maxcitenames=2,
+]{biblatex}
+\addbibresource{dokument.bib}
+\usepackage[
+  implicit=false,
+  hidelinks,
+]{hyperref}
+\begin{document}
+\singlechars{slovak}{AaIiVvOoUuSsZzKk}
+
+\title{Sadzba zdrojového kódu v \LaTeX u pomocou balíka minted}
+\EnglishTitle{Typesetting Source Code in \LaTeX{} Using the Minted Package}
+\author{Filip Blaho}
+\podpis{Filip Blaho, 550233@mail.muni.cz}
+\maketitle
+
+\vspace{-0.125cm}
+
+\begin{abstract}
+Tento článok poskytuje základný prehľad \LaTeX{}ového balíka minted, ktorý slúži na zvýrazňovanie syntaxe zdrojového kódu v~odborných dokumentoch. Balík využíva externú pythonovú knižnicu Pygments, čo umožňuje farebné formátovanie kódu v~rôznych programovacích jazykoch s~vysokou presnosťou a prispôsobiteľnosťou. Článok detailne popisuje základné použitie balíka, možnosti formátovania a metódy vkladania kódu. Záverečná časť analyzuje aktuálny vývoj balíka so zameraním na verziu 3 a jej bezpečnostné vylepšenia.
+\end{abstract}
+
+\klucoveslova: {\LaTeX, minted, zvýrazňovanie syntaxe zdrojového kódu, Pygments}
+
+\vspace{0.625cm}
+
+\noindent
+Minted je \LaTeX{}ový balík zameraný na zvýraznenie kódu programu, ktorý je vložený do dokumentu. Na zvýraznenie syntaxe používa Python, konkrétne knižnicu Pygments, ktorá vráti zvýraznený text~\cite[sekcia~1]{minted_m}.
+
+\section{Vkladanie kódu}
+
+Najprv na začiatku dokumentu načítame balík príkazom \verb|\usepackage{minted}|.
+
+Na zvýraznenie syntaxe zdrojového kódu v dokumente sa používa prostredie \texttt{minted}.
+Základný tvar zápisu je nasledujúci:
+
+\medskip
+
+\begin{Verbatim}[commandchars=\|()]
+\begin{minted}[|meta(voľby)]{|meta(jazyk)|footnotemark}
+    |meta(zdrojový kód)
+\end{minted}
+\end{Verbatim}
+
+\footnotetext{Pygments podporuje stovky programovacích a iných jazykov~\cite[sekcia~4.5]{minted_m}. (Pozn. red.)}
+
+\medskip
+
+Nasledujúci príklad zobrazuje zdrojový zápis a jeho zvýraznenú podobu prostredníctvom balíka minted:
+
+\medskip
+
+\begin{center}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\textbf{Zdrojový zápis}\\[4pt]
+\begin{verbatim}
+\begin{minted}{python}
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+\end{minted}
+
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\textbf{Zvýraznený výstup}\\[4pt]
+\begin{minted}{python}
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        
+\end{minted}
+\end{minipage}
+\end{center}
+
+% Okrem prostredia \texttt{minted} je možné využiť aj príkazy  
+% \verb|\mint|, \verb|\mintinline| alebo \verb|\inputminted|,  
+% ktoré slúžia na vloženie krátkych úsekov kódu priamo do textu,  
+% resp. na importovanie externých zdrojových súborov.
+
+Príkaz \verb|\mint| slúži na zvýraznenie jedného riadka zdrojového kódu. Hoci sa zapisuje inline, vo výstupe preruší aktuálny odsek a zdrojový kód vysadí pod ním~\cite[sekcia~4.3]{minted_m}:
+
+\medskip
+
+\begin{verbatim}
+\mint{python}/import pandas as pd/
+\end{verbatim}
+
+\medskip
+
+\mint{python}/import pandas as pd/
+
+\medskip
+
+Príkaz \verb|\mintinline| sa zapisuje rovnako ako príkaz \verb|\mint|, ale na rozdiel od neho nepreruší aktuálny odsek a vloží zdrojový kód do výstupu ako súčasť odseku.
+
+Príkaz \verb|\inputminted| okrem \meta{volieb} a \meta{jazyka} berie aj \meta{názov súboru}, ktorého syntax zobrazí a zvýrazní:
+
+\medskip
+
+\begin{Verbatim}[commandchars=\|()]
+\inputminted{python}{cube_volume_and_content.py}
+\end{Verbatim}
+
+\medskip
+
+\inputminted{python}{python_code.py}
+
+\section{Nastavenia}
+Okrem predvoleného vzhľadu umožňuje balík minted prispôsobiť formátovanie zvýrazneného zdrojového kódu, čomu sa budeme venovať v tejto časti.
+
+\subsection{Font, veľkosť, farba, štýl písma, \dots}
+Na podrobnejšie nastavenie formátu minted slúži atribút \meta{voľby}, ktorý sa píše za príkaz, ale je dobrovoľný, a teda nie je ho tam potrebné písať, ak nám stačí základný formát, poprípade nami prednastavený formát. Balík minted obsahuje desiatky \meta{volieb}, ktoré popisuje manuál~\cite[kapitola~7]{minted_m}. My sa budeme zaoberať základnými nastaveniami na zlepšenie estetiky kódu v dokumente.
+
+Začneme pridaním zdrojového kódu do rámcov, a to nasledovne:
+
+\medskip
+
+\begin{verbatim}
+\begin{minted}[ bgcolor=lightgray, frame=single,
+rulecolor=\color{black}, style=tango]{python}
+def hello():
+    print("Hello, world!")
+\end{minted}
+\end{verbatim}
+
+\medskip
+
+\begin{minted}[ bgcolor=lightgray, frame=single, rulecolor=\color{black}, style=tango]{python}
+def hello():
+    print("Hello, world!")
+\end{minted}
+
+\medskip
+
+Dostali sme zdrojový kód v šedom rámci s čiernym rámikom. Farba \texttt{lightgray} nie je preddefinovaná balíkom xcolor, a teda potrebujeme najskôr definovať špeciálnu farbu:
+
+\medskip
+
+\begin{verbatim}
+\usepackage{xcolor}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\end{verbatim}
+
+\medskip
+
+Na zjednodušenie formátovania, aby sme stále nemuseli opisovať všetky doposiaľ vytvorené nastavenia balíka minted, slúži príkaz \verb|\setminted|:
+
+\medskip
+
+\begin{verbatim}
+\setminted{
+  bgcolor=lightgray,
+  frame=single,
+  rulecolor=\color{gray},
+  style=tango}
+\end{verbatim}
+
+\medskip
+
+Ďalšia možnosť formátovania je nastavenie štýlu a veľkosti písma:
+
+\medskip
+
+\begin{verbatim}
+\begin{minted}[ fontsize=\large, fontfamily=helvetica, style=tango,
+bgcolor=lightgray, frame=single, rulecolor=\color{black}]{python}
+
+    def hello():
+        print("Hello, world!")
+        
+\end{minted}
+\end{verbatim}
+
+\medskip
+
+\begin{minted}[ fontsize=\large, fontfamily=helvetica, style=tango,
+bgcolor=lightgray, frame=single, rulecolor=\color{black}]{python}
+def hello():
+    print("Hello, world!")
+\end{minted}
+
+\medskip
+
+Nakoniec jedno z najdôležitejších formátovaní zdrojového kódu, číslovanie riadkov, sa vykoná pomocou atribútu \texttt{linenos} a odsadenie od kraju strany pomocou atribútu \texttt{xleftmargin=}\meta{odsadenie}~\cite[sekcia~7.2]{minted_m}:
+
+\medskip
+
+\begin{verbatim}
+\begin{minted}[linenos, xleftmargin=50px]{python}
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+\end{minted}
+\end{verbatim}
+
+\medskip
+
+\begin{minted}[linenos, xleftmargin=50px]{python}
+    class Node:
+        def __init__(self, value):
+            self.value = value
+            self.next = None
+\end{minted}
+
+\subsection{Štýly minted}
+Okrem samostatného nastavenia jednotlivých parametrov, ako sú farba, štýl a~podobne, je možnosť použitia jedného z štýlov minted, ako sú napríklad \texttt{default}, \texttt{friendly}, \texttt{monokai}, \texttt{xcode}, \texttt{colorful}, \texttt{pastie}, \texttt{tango}, \texttt{vim} a veľa ďalších. Na použitie je ale potrebná definícia pred samotným použitím, a to nasledovne:
+
+\medskip
+
+\noindent
+\begin{Verbatim}[commandchars=\|()]
+\usemintedstyle{|meta(názov štýlu)}|textrm(, alebo )\begin{minted}[style=|meta(názov štýlu)]
+\end{Verbatim}
+
+\medskip
+
+\noindent
+kde \meta{názov štýlu} nájdeme v dokumentácii~\cite[sekcia~4.4]{minted_m}.
+
+\medskip
+
+\begin{center}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\textbf{Štýl \texttt{xcode}}\\[4pt]
+\begin{minted}[style=xcode]{python}
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+\end{minted}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\textbf{Štýl \texttt{tango}}\\[4pt]
+\begin{minted}[style=tango]{python}
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+\end{minted}
+\end{minipage}
+\end{center}
+
+\vspace{-0.8\baselineskip}
+\section{Aktuálny vývoj}
+\vspace{-0.4\baselineskip}
+
+Tretia verzia balíka prináša významné zmeny v oblasti bezpečnosti, inštalácie a rozšíriteľnosti. Hlavnou novinkou je zavedenie samostatného pythonového spustiteľného súboru \texttt{latexminted}, ktorý nahrádza pôvodný nástroj \texttt{pygmentize} a odstraňuje predchádzajúce zraniteľnosti spojené s mechanizmom shell escape~\cite{shellesc}, zjednodušuje používanie a umožňuje rozširovať funkcionalitu pomocou Pythonu~\cite{mintedv3}.
+
+V predchádzajúcich verziách bolo nutné využívať neobmedzený shell escape, ktorý umožňoval spúšťať ľubovoľné príkazy počas kompilácie, čo predstavovalo bezpečnostné riziko. Nový nástroj \texttt{latexminted} je plne kompatibilný s obmedzeným shell escape, teda povoľuje len dôveryhodné externé programy (napr. \texttt{bibtex}, \texttt{kpsewhich} atď.)~\cite[sekcia~2]{mintedv3}. Spustiteľný súbor \texttt{latexminted} pristupuje k súborovému systému prostredníctvom novej Python knižnice latexrestricted. Tá používa nastavenia konfigurácie \LaTeX{}u na určenie, ktoré súbory môže čítať a zapisovať.
+\oldlooseness=-1
+
+Bezpečné odovzdávanie dát medzi \LaTeX om a Pythonom využíva štruktúrované súbory (Python literal format), spracovávané pomocou balíka latex2pydata. Tento formát umožňuje efektívnu komunikáciu a znižuje potrebu práce s dočasnými súbormi~\cite[sekcia~2.2]{mintedv3}.
+
+Inštalácia tretej verzie balíka sa výrazne zjednodušila. Balík obsahuje \LaTeX ové makrá, samotný spustiteľný súbor \texttt{latexminted} a všetky potrebné pythonové knižnice (vrátane Pygments). Používateľ tak nemusí inštalovať Python ani Pygments samostatne, ani upravovať systémovú premennú PATH. Inštalácia je teda rovnaká ako pri bežných \LaTeX ových balíkoch~\cite[sekcia~3]{mintedv3}.
+
+Pred treťou verziou balíka, ak sa počas spúšťania \texttt{pygmentize} vyskytla chyba, zobrazili sa v \LaTeX ovom logu surové Python chyby. V novej verzii sa chybové hlásenia konvertujú z Pythonu do formátu zrozumiteľného pre \LaTeX, doplnia sa o číslo riadku a vypíšu sa ako štandardná \LaTeX ová chyba. Nový parameter \texttt{debug} umožňuje uchovávať dočasné súbory a zapisovať dodatočné informácie do logu na podrobnejšie ladenie~\cite[sekcia~4]{mintedv3}.
+
+Balík tiež umožňuje rozšíriteľnosť pomocou Pythonu. Nové možnosti ako \texttt{rangestartstring} a \texttt{rangestopstring} umožňujú vybrať úryvok kódu podľa delimitačných reťazcov textu, zatiaľčo \texttt{rangeregex} umožňuje vybrať úryvok pomocou regulárneho výrazu Pythonu. Možnosť \texttt{extrakeywords} a jej varianty (\texttt{extrakeywordstype}, \texttt{extrakeywordsconstant} atď.) umožňujú pridávať vlastné kľúčové slová bez nutnosti programovať vlastný lexer. Pre pokročilých používateľov je možné načítať aj vlastný pythonový lexer zo súboru \texttt{.py}, pričom jeho povolenie je riadené konfiguráciou \texttt{.latexminted\_config} a overuje sa cez hash súboru na zachovanie bezpečnosti~\cite[sekcia~5]{mintedv3}.
+
+Príkladom novej funkcie je voľba \texttt{literatecomment}, ktorá odstraňuje určitý znak (napr. \texttt{\%}) z každého riadku zdrojového kódu, ak sa nachádza na začiatku všetkých riadkov. Táto voľba je užitočná pri práci s literárnym programovaním, ako je formát \texttt{.dtx} používaný pri písaní \LaTeX ových balíkov~\cite[sekcia~6]{mintedv3}.
+
+Celkovo tretia verzia balíka minted predstavuje modernejší a bezpečnejší spôsob, ako prepájať \LaTeX{} s Pythonom prostredníctvom štandardizovaného dátového formátu, pričom zachováva kompatibilitu so systémom obmedzeného shell escape. Nová architektúra otvára cestu pre budúci vývoj ďalších Pythonom rozšíriteľných funkcií v \LaTeX ových balíkoch~\cite[sekcia~7]{mintedv3}.
+
+\vspace{-1.1\baselineskip}
+\section{Odkazy}
+\vspace{-0.5\baselineskip}
+
+\printbibliography[heading=none]
+
+\vspace{-1.1\baselineskip}
+\begin{summary}
+\vspace{-0.5\baselineskip}
+This article provides a comprehensive overview of the \LaTeX{} package \texttt{minted}, which is used for syntax highlighting of the source code in scholarly documents. The package uses the Python library Pygments, enabling color formatting of code in various programming languages with high accuracy and customization options. The article details the basic usage of the package, formatting options, and methods for inserting code. The final section analyzes the current development of the package, focusing on version 3 and its security enhancements.
+\keywords: {\LaTeX, minted, syntax highlighting, Pygments}
+\end{summary}
+\end{document}

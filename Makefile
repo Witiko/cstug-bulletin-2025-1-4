@@ -49,6 +49,7 @@ images: FORCE
 	$(DOCKER) build . -f Dockerfile.TL2024 -t texlive/texlive:TL2024-historic-with-cache
 	$(DOCKER) build . -f Dockerfile.TL2024.extract-citations -t texlive/texlive:TL2024-historic-with-cache-xml
 	$(DOCKER) build . -f Dockerfile.TL2024.lohit-devanagari  -t texlive/texlive:TL2024-historic-with-cache-sanskrit
+	$(DOCKER) build . -f Dockerfile.TL2025 -t texlive/texlive:TL2025-historic-with-cache
 
 bul.pdf: bul.tex $(FONTS) FORCE
 	$(LATEXMK) -c $<
