@@ -1,0 +1,474 @@
+\let\oldlooseness=\looseness
+\documentclass{csbulletin}
+\selectlanguage{czech}
+\usepackage[utf8]{inputenc}
+\usepackage[all]{nowidow}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  bibstyle=iso-numeric,
+  citestyle=numeric-comp,
+  sortlocale=cs,
+  autolang=other,
+  bibencoding=UTF8,
+  mincitenames=2,
+  maxcitenames=2,
+]{biblatex}
+\addbibresource{literatura.bib}
+\usepackage[
+  implicit=false,
+  hidelinks,
+]{hyperref}
+\newcommand{\meta}[1]{\ensuremath{\langle}\textit{#1}\ensuremath{\rangle}}
+\usepackage{fancyhdr}
+\usepackage{minted}
+\usemintedstyle{bw}
+\usepackage{vsn-acro}
+\usepackage{pdfpages}
+\usepackage{subcaption}
+
+\begin{document}
+\shorthandoff{-}
+
+\title{Co se děje ve světě \ConTeXt u}
+\EnglishTitle{What Is Happening in the World of \ConTeXt}
+\author{Jana Slámová}
+\podpis{Jana Slámová, slamova.jana@mail.muni.cz}
+\maketitle
+
+\iffalse
+\begin{abstract}
+Matematická a~informatická komunita má povědomí především o~formátech plain \TeX{} a \LaTeX . Existuje však spousta dalších a~zajímavých alternativních \TeX ových formátů. Jedním z~nich je například \ConTeXt , jehož vývoji v~posledních letech se budeme věnovat podrobněji v~tomto článku.
+
+Konkrétně se podíváme na webové rozhraní pro tvorbu \ConTeXt ových dokumentů, jazyk \acro{XML} pro sazbu matematiky, pokročilé práce se sloupci a modul pro zaokrouhlování s~návazností na modul pro tvorbu statistických schémat. Dále se budeme zabývat přemostěním mezi AsciiDocem a~\ConTeXt em, způsoby pro signalizování průběhu překladu dokumentu a v~neposlední řadě zmíníme technologie zpřístupňující dokumenty pro čtenáře se speciálními potřebami.
+\end{abstract}
+\fi
+
+\begin{abstract}
+Matematická a~informatická komunita má povědomí především o~formátech plain \TeX{} a \LaTeX . Existuje však spousta dalších a~zajímavých alternativních \TeX ových formátů. Jedním z~nich je například \ConTeXt , jehož vývoji v~posledních letech se budeme věnovat podrobněji v~tomto článku.
+
+Konkrétně se podíváme na webové rozhraní pro tvorbu \ConTeXt ových dokumentů, jazyk \acro{XML} pro sazbu matematiky a mechanismus ,,column sets`` pro pokročilou práci se sloupci. Dále zmíníme modul pro tvorbu statistických schémat, přemostění mezi značkovacím jazykem AsciiDoc a~\ConTeXt em a v~neposlední řadě zmíníme netradiční způsoby signalizace průběhu překladu dokumentu.
+\oldlooseness=-1
+\end{abstract}
+
+\klicovaslova: \ConTeXt, \ConTeXt{} on Web, \acro{COW}, MathML, column sets, statistická schémata, AsciiDoc, ValentinE-typo, signalizace chyb, vizualizace překladu
+\oldlooseness=-1
+
+\section{\ConTeXt{} on Web} \label{COW}
+V roce 2023 představili Zdeněk Svoboda a Tomáš Hála na konferenci Bacho\TeX{} \href{https://context-on-web.eu/}{webové rozhraní} \ConTeXt{} on Web (\acro{COW}, \cite{COW}) pro tvorbu \ConTeXt ových dokumentů.  Cílem je zpřístupnit typografický systém \ConTeXt{} širšímu okruhu uživatelů, aniž by museli instalovat software do svého počítače. Web nabízí i bezplatnou registraci, díky které je možné upravovat více dokumentů a nahrávat další podpůrné soubory do příslušných složek, jako tomu je např. v~online službě Overleaf~\cite{overleafa, overleafb}, vizte obrázky~\ref{fig:nereg} a \ref{fig:registr}.
+
+\makeatletter
+\def\@thefnmark{}\@footnotetext{Ve \emph{Zpravodaji} vyšlo mnoho dalších článků o \ConTeXt u v češtině~\cite{exkurze, tutoriala, tutorialb}. (Pozn. věd. rady)}
+\makeatother
+
+\vspace{-\baselineskip}
+\begin{figure}[h]
+    \centering
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{obrazky/neregistr_uzivatel2.png}
+        \caption{Pohled neregistrovaného uživatele}
+        \label{fig:nereg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{obrazky/registr_uzivatel2.png}
+        \caption{Složka pro registrovaného uživatele}
+        \label{fig:registr}
+    \end{minipage}
+\end{figure}
+\newpage
+Velkou výhodou \acro{COW} je horní lišta, díky které může i~úplný začátečník začít s tvorbou dokumentů v~\ConTeXt u, vizte Obrázek~\ref{fig:lista}.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{obrazky/nabidka2.png}
+    \caption{Horní lišta s rozbaleným políčkem \uv{Font styles}}
+    \label{fig:lista}
+\end{figure}
+
+Zde uvádíme příklad základního \ConTeXt ového dokumentu, který si můžete vyzkoušet přeložit na adrese~\url{https://context-on-web.eu/} i~bez registrace:
+
+\medskip
+
+\noindent
+\begin{minipage}{0.4\textwidth}
+\begin{minted}[fontsize=\small]{tex}
+\mainlanguage[cs]
+\setupinteraction[state=start,contrastcolor=blue]
+\starttext
+
+\startsection
+[
+  title=Číslovaná sekce,
+  reference=odkaz1
+]
+
+Text první číslované sekce
+
+\stopsection
+
+\startcolor[darkred] 
+\startsubsubject
+[
+  title=Nečíslovaná barevná podsekce
+]
+\stopcolor
+Text v první nečíslované podsekci \in{sekce}[odkaz1].
+\stopsubsubject
+\stoptext
+\end{minted}
+\end{minipage}
+\quad
+\begin{minipage}{0.4\textwidth}
+\fbox{\includegraphics[trim=2cm 21cm 10cm 4cm,clip,width=5cm]{PDF/sekce.pdf}}
+\hfill
+\end{minipage}
+
+\section{Sazba matematiky pomocí MathML}
+MathML je jazyk \acro{XML} určený pro popis matematiky na webu i~v~dalších aplikacích. Hlavní motivací pro jeho vznik byla potřeba sdílet matematické výrazy napříč různými aplikacemi s~důrazem na konzistentní vzhled i~strukturu. Protože \ConTeXt{} umí MathML zpracovávat \cite{mathml}, ukážeme si konkrétní ukázky dvou typů značkování.
+
+Prvním z nich je prezentanční značkování, které využívá tři základní elementy \texttt{<mi>}, \texttt{<mn>}, \texttt{<mo>}, které označují identifikátory, čísla a~operace (v tomto pořadí). Pro lepší přehlednost mohou být tyto elementy skládány do bloků \texttt{<mrow>}. Další důležitou částí je například element \texttt{<mfrac>}, díky kterému snadno vytvoříme zlomek. Mnoho dalších elementů najdeme v~již zmíněném manuálu \cite{mathml}.
+
+Toto značkování je vhodné například pro vizuální editory nebo přímou konverzi ze zápisu matematiky v~\TeX u, často ale postrádá flexibilitu v~jiných aplikacích.
+\oldlooseness=-1
+
+\medskip
+
+\noindent
+\begin{minipage}{.5\textwidth}
+\begin{minted}{tex}
+\usemodule[mathml]
+\starttext
+
+\xmlprocessdata{}{
+<math xmlns="http://www.w3c.org/mathml" version="2.0">
+    <mfrac>
+        <mrow> <mi> x </mi> <mo> + </mo> <mn> 1 </mn> </mrow>
+        <mrow> <mi> y </mi> <mo> + </mo> <mn> 1 </mn> </mrow>
+    </mfrac>
+</math>
+}{}
+
+\xmlprocessdata{}{
+<math xmlns="http://www.w3c.org/mathml" version="2.0">
+    <mfrac bevelled="true">
+        <mfrac>
+            <mi> x </mi> <mn> 2 </mn>
+        </mfrac>
+        <mfrac>
+            <mi> y </mi> <mn> 4 </mn>
+        </mfrac>
+    </mfrac>
+</math>
+}{}
+
+\stoptext
+
+\end{minted}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+    \vspace{2.8cm}
+    \hspace{2cm}\fbox{\includegraphics[trim=5.15cm 24cm 14.55cm 4.5cm,clip,width=1.3cm]{PDF/mathML.pdf}}
+    \vspace{2.25cm}
+   
+    \hspace{2cm}\fbox{\includegraphics[trim=7.85cm 24cm 11.9cm 4.5cm,clip,width=1.3cm]{PDF/mathML.pdf}}
+    
+    \vspace{1.5cm}
+\end{minipage}
+
+\newpage
+
+Druhým a preferovanějším typem značkování je obsahové značkování. To popisuje význam matematického výrazu (například zápisem v~prefixové notaci) s~možností snadnějšího sdílení mezi aplikacemi, přičemž sázecí stroj musí rozhodnout o~způsobu zobrazení. Základním elementem je \texttt{<apply>}. Ve většině případů následuje po \texttt{<apply>} specifikace zadaná jako prázdný element (např. \texttt{<eq/>}, \texttt{<plus/>}, \texttt{<minus/>} atd.). Podobně, jako jsme v prezentačním značkování používali elementy \texttt{<mi>} a \texttt{<mn>}, používáme zde pro označení identifikátorů a čísel \texttt{<ci>} a \texttt{<cn>}.
+\oldlooseness=-1
+
+\medskip
+
+\noindent
+\begin{minipage}{.55\textwidth}
+\begin{minted}{tex}
+\usemodule[mathml]
+\starttext
+
+\xmlprocessdata{}{
+<math xmlns="http://www.w3c.org/mathml" version="2.0">   
+    <apply> <eq/>
+        <apply> <plus/>
+            <cn> 1 </cn>
+            <apply> <minus/>
+                <apply> <divide/>
+                    <cn> 1 </cn>
+                    <cn> 3 </cn>
+                </apply>
+            </apply>
+            <apply> <divide/>
+                <cn> 1 </cn>
+                <cn> 5 </cn>
+            </apply>
+            <apply> <minus/>
+                <apply> <divide/>
+                    <cn> 1 </cn>
+                    <cn> 7 </cn>
+                </apply>
+            </apply>
+            <ci> &cdots; </ci>
+        </apply>
+        <apply> <divide/>
+            <ci> &pi; </ci>
+            <cn> 4 </cn>
+        </apply>
+    </apply>
+</math>
+}{}
+
+\stoptext
+\end{minted}    
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+    \hspace{.5cm}\fbox{\includegraphics[trim=10.4cm 24.1cm 6cm 4.5cm,clip,width=4.5cm]{PDF/mathML.pdf}}
+    \vspace{2cm}
+\end{minipage}
+
+\medskip
+
+%Výhody MathML se projevují zejména při potřebě synchronizace výrazu v~různých prostředích nebo při automatizovaném zpracování matematických dat.
+% https://www.pragma-ade.nl/general/manuals/mmlexamp.pdf
+% https://wiki.contextgarden.net/MathML
+
+\section{Práce se sloupci}
+% https://www.pragma-ade.nl/general/manuals/columnsets.pdf
+Column sets \cite{columnsets} je mechanismus \ConTeXt u, který umožňuje rozložení textových i~grafických prvků na stránce do sloupců. Konkrétně jde o~prostředí, které umožňuje volbou volitelných parametrů v hranatých závorkách nejen běžné vysazení do dvou nebo více sloupců, ale i pokročilé rozvržení jako například různý počet sloupců na lichých a sudých stránkách, sloupce s~různou šířkou na každé straně, oblasti přesahující více sloupců (tzv. \uv{spans}), barevné pozadí sloupců, automatickou nebo manuální změnu zalomení sloupce či stránky, číslování řádků apod.
+\oldlooseness=-1
+
+\medskip
+
+\begin{minted}[escapeinside=||]{tex}
+\setuplayout[grid=yes]  \setuptolerance[verytolerant,stretch]
+\usemodule[visual]|\footnotemark|
+\useMPlibrary[dum]|\footnotemark|
+\definecolumnset[example][n=4]
+\def\One{\columnsetspanwidth{1}} \def\Two{\columnsetspanwidth{2}}
+\startbuffer
+\fakewords{100}{200}
+\placefigure{}{\externalfigure[placeholder][width=\One]}
+\fakewords{100}{200}
+\placefigure{}{\externalfigure[placeholder][width=\Two]}
+\fakewords{100}{200}
+\stopbuffer
+\starttext
+\startcolumnset[example]
+\dorecurse{3}{\getbuffer}
+\stopcolumnset
+\stoptext
+\end{minted}
+\addtocounter{footnote}{-1}
+\footnotetext{Načtením modulu visual se mj. definuje příkaz \texttt{\textbackslash fakewords} určený k sazbě textové výplně.}
+\addtocounter{footnote}{1}
+\footnotetext{Zavedením knihovny dum se pro neexistující obrázky automaticky použijí zástupné ilustrace.}
+\medskip
+%\fbox{\includegraphics[page=13,trim=1.5cm 19cm 5.92cm 4cm,clip,width=.9\textwidth]{PDF/columnsets.pdf}}
+
+\begingroup
+\noindent
+\centering
+\fbox{\includegraphics[page=1,width=.3\textwidth]{PDF/column.pdf}}
+\fbox{\includegraphics[page=2,width=.3\textwidth]{PDF/column.pdf}}
+\fbox{\includegraphics[page=3,width=.3\textwidth]{PDF/column.pdf}}
+\par
+\endgroup
+
+\section{Sazba statistických schémat} 
+%https://www.thala.cz/manuals/statcharts/statistical-charts.pdf
+\vspace{-0.2\baselineskip}
+
+Motivací autorek Tamary Kocurové a Adriany Kašparové a autora Tomáše Hály při tvorbě modulu pro sazbu statistických schémat v~\ConTeXt u \cite{charts, charts-codeberg, charts-implementation} byla absence uživatelsky přívětivých možností pro jejich přímou sazbu.\footnote{Vkládání schémat vytvořených externími nástroji je samozřejmě možné, ale kromě potřeby používat další software přináší i jiná úskalí, například nutnost správně nastavit písmo.}
+
+Hlavním rozhraním pro sazbu schémat je příkaz \texttt{\textbackslash chart[}\meta{typ grafu}\texttt{][}\meta{podtyp grafu}\texttt{][}\meta{parametry grafu}\texttt{][}\meta{data}\texttt{]}. V prvních dvou parametrech příkazu specifikujeme typ grafu. Následně zadáváme soubor parametrů samotného grafu, například měřítka os a jejich popisy. Posledním parametrem určujeme vstupní data, která lze definovat předem a při volání příkazu \verb|\chart| se na ně jen odkázat.
+\oldlooseness=-1
+
+Pro každý \meta{typ grafu} také existuje vlastní příkaz jako například \texttt{\textbackslash columnchart}\texttt{\discretionary{}{[}{[}}\meta{podtyp grafu}\texttt{][}\meta{parametry grafu}\texttt{][}\meta{data}\texttt{]}, kde se krom prvního, logicky vynechaného parametru vyskytují parametry stejné jako u obecného příkazu \verb|\chart|.
+
+\medskip
+
+\noindent
+\begin{minipage}{.4\textwidth}
+\begin{minted}{tex}
+\usemodule[statistical-charts]
+\starttext
+\def\unemploydataone{20,17.2,14.2,29.3,22.5,18.4}
+\def\agelabels{15--24,25--29,30--34,35--44,45--54,55+}
+\columnchart[basic][
+xscale=1.1, yscale=0.25,
+columncolor=tamarange,
+columntransparency=0.7,
+axesunits=yes, xunit=Age,
+yunit=Number of unemployed
+persons (thousands)][
+data={\unemploydataone},
+xlabels={\agelabels}]
+\stoptext
+\end{minted}
+\end{minipage}
+\begin{minipage}{.6\textwidth}
+\vspace{1.6cm}\hspace{.8cm}
+\fbox{\includegraphics[trim=2cm 16.83cm 4cm 4cm,clip,width=.75\textwidth]{PDF/grafy.pdf}}
+\end{minipage}
+
+\medskip
+
+Pro detailní informace o dalších typech grafů vč. ukázek vizte dokumentaci~\cite{charts-manual}.
+
+Při vývoji modulu pro statistická schémata vznikl také pomocný modul \texttt{util-rnd.lua}~\cite{rounding}, který poskytuje devět zaokrouhlovacích funkcí. Programovací jazyk Lua totiž nabízí pouze základní funkce pro zaokrouhlení dolů (\texttt{math.floor}) a nahoru (\texttt{math.ceil}), což pro kvalitní zpracování statistických dat nestačí.\footnote{Autoři a autorky obou modulů zároveň připravují články do \emph{Zpravodaje}, v~nichž oba tyto moduly představí podrobněji. (Pozn. red.)}
+
+\iffalse
+\vspace{-0.4\baselineskip}
+
+\section{Modul pro zaokrouhlování}
+\vspace{-0.2\baselineskip}
+
+Modul \texttt{util-rnd.lua} \cite{rounding} pro zaokrouhlování vznikl jako vedlejší produkt při tvorbě výše uvedeného modulu pro tvorbu statistických schémat. Programovací jazyk Lua totiž nabízí pouze funkce pro zaokrouhlování dolů (\texttt{math.floor}) a~nahoru (\texttt{math.ceil}), což je pro kvalitní zpracování statistických dat nedostačující.
+
+Modul definuje následujících devět zaokrouhlovacích funkcí:
+
+\begin{enumerate}
+    \item \texttt{no} -- bez zaokrouhlení
+    \item \texttt{up} -- všechna čísla zaokrouhluje nahoru (jako \texttt{math.ceil})
+    \item \texttt{down} -- všechna čísla zaokrouhluje dolů (jako \texttt{math.floor})
+    \item \texttt{halfup} -- zaokrouhluje \uv{běžně} (cifry 0--4 dolů a 5--9 nahoru, záporná čísla nahoru: $-1{,}5 \to -1$)
+    \item \texttt{halfdown} -- zaokrouhluje cifry 0--5 dolů a 6--9 nahoru
+    \item \texttt{halfabsup} -- cifru 5 zaokrouhluje \uv{dál od nuly}, tedy pro kladná čísla nahoru ($0{,}5 \to 1$) a pro záporná dolů ($-0{,}5 \to -1$)
+    \item \texttt{halfabsdown} -- cifru 5 zaokrouhluje \uv{blíž k~nule}, tedy pro kladná čísla dolů ($0{,}5 \to 0$) a pro záporná nahoru ($-0{,}5 \to 0$)
+    \item \texttt{halfeven} -- čísla přesně uprostřed ($0{,}5$) se zaokrouhlí k~bližšímu sudému číslu (například $0{,}5 \to 0$ a $1{,}5 \to 2$)
+    \item \texttt{halfodd} -- čísla přesně uprostřed ($0{,}5$) se zaokrouhlí k~bližšímu lichému číslu (například $0{,}5 \to 1$ a $1{,}5 \to 1$)
+\end{enumerate}
+
+Kromě výše uvedených specifik se funkce \texttt{halfdown} (5) až \texttt{halfodd} (9) chovají stejně jako \texttt{halfup} (4), tedy jako \uv{běžné} zaokrouhlování.
+
+
+\noindent
+Tato sada může být kdykoliv rozšířena o další potřebné metody díky dobré implementaci základní zaokrouhlovací funkce, kde jedním z parametrů je jméno požadovaného typu zaokrouhlování:
+
+\begin{minted}{tex}
+rounding.round = 
+    function ( num, dec, mode)
+     if type(dec) == "string" then
+        mode = dec
+        dec = 1
+    end
+    return (mode
+        and methods[mode]
+        or defaultmethod)(num,dec)
+end
+\end{minted} 
+
+kde \texttt{num} je číslo, které chceme zaokrouhlit, \texttt{dec} je počet na kolik desetinných míst zaokrouhlujeme (lze vynechat, v tom případě se použije \texttt{dec = 1}) a \texttt{mode} je název požadovaného zaokrouhlování, který je potřeba uvést jako řetězec v uvozovkách.
+
+Propojení modulu s lokální proměnnou pak funguje následovně:
+\begin{minted}{tex}
+local rounding = require "util-rnd"
+local round = rounding.round
+\end{minted}
+
+A použití vypadá následovně:
+\begin{minted}{tex}
+context(round(1.2,1,"up"), " ",
+        round(1.25,0,"down))"
+\end{minted}
+\fi
+
+\vspace{-0.6\baselineskip}
+
+\section{Z AsciiDocu přes \ConTeXt{} do PDF}
+\vspace{-0.3\baselineskip}
+
+ValentinE-typo \cite{valentine} je nástroj, jehož cílem je usnadnit vstup do světa kvalitní sazby díky využití \ConTeXt u. Především je zaměřen na vytváření výstupů \acro{PDF} ve vyšší typografické kvalitě z~dokumentů napsaných ve~značkovacím jazyce \href{https://asciidoc.org/}{AsciiDoc}.
+\oldlooseness=-1
+
+Proces přípravy dokumentů ve~ValentinE-typo zahrnuje napsání textu v~AsciiDocu v~libovolném textovém editoru na jakémkoliv zařízení, konverzi AsciiDocu do \ConTeXt u a~závěrečné přeložení \ConTeXt ového souboru do \acro{PDF}.
+
+V praxi stačí stáhnout nejnovější verzi \href{https://rubyinstaller.org}{Ruby+Devkit} a nainstalovat knihovnu AsciiDoctor příkazem \texttt{gem install asciidoctor}. Následně překonvertujeme \meta{soubor}\texttt{.adoc} v jazyce AsciiDoc příkazem \texttt{asciidoctor -r }\meta{knihovna}\texttt{.rb -b context }\meta{soubor}\texttt{.adoc}, přičemž \meta{knihovnu}\texttt{.rb} nahradíme cestou k výstupní knihovně\iffalse\footnote{Knihovny typo-library udávají, jak se mají prvky jazyka AsciiDoc (nadpisy, odstavce, seznamy atd.) převést do formátu \ConTeXt u (makra, prostředí, barvy atd.).}\fi\ jako např. \href{https://gitlab.com/valentine4743416/ValentinE-typo/-/blob/main/caelius/caelius.rb}{\texttt{caelius.rb}}. Výsledný \meta{soubor}\texttt{.tex} přeložíme \ConTeXt em.
+
+\medskip
+
+\noindent
+\begin{minipage}{.5\textwidth}
+\begin{minted}{tex}
+== Nadpis první úrovně
+
+Text s *tučným* slovem a slovem psaným _kurzívou_.
+
+=== Nadpis druhé úrovně
+
+.Název nečíslovaného seznamu
+* první položka
+** vnořená položka
+* druhá položka
+
+Toto je obyčejný text.
+\end{minted}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\vspace{1.2cm}\hspace{-0.4cm}
+\fbox{\includegraphics[page=1,trim=2cm 16cm 5cm 6cm,clip,width=.9\textwidth]{PDF/AsciiDocCZ.pdf}}
+\end{minipage}
+
+\medskip
+
+Vývoj nástroje ValentinE-typo čelí výzvám, jako je například velká variabilita syntaxe AsciiDoc (styly odrážek, tabulek, \dots), správné zvládání speciálních znaků (například \texttt{\&}, \texttt{[}, \texttt{\{}, \dots) a~rozhodování, zda je formátování řízeno atributy AsciiDocu, nebo přes \ConTeXt{}.
+
+\vspace{-0.6\baselineskip}
+
+\section{Signalizace chyb a vizualizace překladu}
+
+\vspace{-0.3\baselineskip}
+
+Jedna z~velmi zajímavých oblastí vývoje \ConTeXt u zahrnuje nové způsoby signalizace chyb a~vizualizace průběhu překladu \cite{flagging, TUGboat}.
+
+Během konferencí (např. Bacho\TeX) byla vyzkoušena řada experimentálních způsobů signalizace chyb, kdy se např. místo klasického zobrazení chybové hlášky zobrazí \acro{QR} kód, který při načtení zobrazí detail chyby, vizte Obrázek~\ref{fig:qr}.
+
+% Pro vizualizaci překladu se vyzkoušely např. barevné lampy. Po spuštění běhu se rozsvítí modré světlo, po úspěšném dokončení běhu se světlo změní na žluté. Pokud je potřeba další běh, druhé světlo se změní na modré. Nakonec jsme hotovi a aktuální (nebo všechna) světla se změní buď na červenou (fatální chyba), oranžovou (potřeba příliš mnoha běhů) nebo zelenou (vše je v~pořádku).
+
+Pro vizualizaci běhu překladu došlo např. k~využití 24 adresovatelných \acro{RGB} diod uspořádaných do kružnice. Díky tomuto rozložení je stav zobrazován nejen díky barvě, ale i~umístění této barvy na kružnici.
+
+Kružnici můžeme rozdělit například na osm segmentů po třech diodách, které mohou fungovat jako jedna, ale i separátně v případě paralelního překladu. Jelikož \ConTeXt{} ve výchozím nastavení omezuje počet běhů na devět, poslední segment se používá opakovaně.
+Modrá značí běh programu a žlutá označuje konec jednoho běhu překladu. Pokud proběhly všechny potřebné překlady, svítí všechny diody zeleně. Pokud nastala chyba, svítí diody červeně. Oranžová značí, že jsme vyčerpali maximální počet běhů na překlad. Pro příklady vizualizace vizte Obrázek~\ref{fig:diody}.
+
+\pagebreak
+
+\makeatletter
+\def\@thefnmark{}\@footnotetext{Obrázky na této straně byly převzaty z~článků v~časopisech \emph{\ConTeXt{} Group Journal}~\cite{flagging} a~\emph{TUGboat}~\cite{TUGboat}, a~to se svolením autora i vydavatelů.}
+\makeatother
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/beyond-tagging-qr.png}
+    \caption{Signalizace chyb pomocí vyskakovacího okna s \protect\acro{QR} kódem}
+    \label{fig:qr}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[page=1, height=2.2cm]{PDF/s-squid.pdf}\quad
+    \includegraphics[page=2, height=2.2cm]{PDF/s-squid.pdf}\\[0.7\baselineskip]
+    \includegraphics[page=3, height=4.7cm]{PDF/s-squid.pdf}
+    \caption{Vizualizace běhu programu pomocí \protect\acro{RGB} diod}
+    \label{fig:diody}
+\end{figure}
+
+%\section{Přístupnost} % Accesibility 
+%Přednáška \cite{accessibility} z~\ConTeXt{} meetingu 2024 se věnuje přístupnosti digitálních dokumentů ve formátu \acro{PDF}, konkrétně ISO standardu PDF/UA, a to především v~\ConTeXt u. Prezentace představuje řadu vylepšení \uv{taggingu}, což je proces vkládání strukturálních a sémantických informací o~obsahu. Komunita kolem \ConTeXt u se řídí spíše \uv{smysluplným značením} než slepým dodržováním často nejednoznačných pravidel.
+
+%TODO: část o MathML?
+% https://meeting.contextgarden.net/2024/talks/hans+mikael/context-2024-accessibility.pdf
+
+\printbibliography
+
+\begin{summary}
+The mathematical and computer-science community is familiar with plain \TeX{} and \LaTeX{}, but there are other interesting \TeX{} formats as well. One of them is \ConTeXt{}, whose development we discuss in this article.
+
+We will explore an online environment for creating \ConTeXt{} documents, an \acro{XML} language for mathematical typesetting, and advanced column handling. We also introduce a module for statistical charts, a software bridge between AsciiDoc and \ConTeXt{}, and, finally, several ways to signal the progress of a document's compilation.
+
+\keywords: \ConTeXt, \ConTeXt{} on Web, \acro{COW}, MathML, column sets, satistical charts, AsciiDoc, ValentinE-typo, signaling errors, compilation visualization
+
+\end{summary}
+\end{document}

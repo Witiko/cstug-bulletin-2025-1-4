@@ -1,0 +1,21 @@
+\ExplSyntaxOn
+% Příkaz pro sazbu akronymů.
+\newcommand
+  \acro
+  [ 1 ]
+  {
+    \tl_set:Nn
+      \l_tmpa_tl
+      { #1 }
+    \regex_replace_all:nnN
+      { [^\d]+ }
+      { \c{textsc} \cB\{ \c{MakeLowercase} \cB\{ \0 \cE\} \cE\} }
+      \l_tmpa_tl
+    \regex_replace_all:nnN
+      { \d+ }
+      { \c{oldstylenums} \cB\{ \0 \cE\} }
+      \l_tmpa_tl
+    \tl_use:N
+      \l_tmpa_tl
+  }
+\ExplSyntaxOff
