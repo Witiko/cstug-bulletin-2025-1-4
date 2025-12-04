@@ -11,10 +11,10 @@ all: do-once-at-the-start \
 DOCKER = docker
 DOCKER_RUN = $(DOCKER) run --rm -u $(shell id -u):$(shell id -g) --env TEXMFVAR=/var/tmp/texmf-var -v "$$PWD":/workdir -w /workdir
 PDFLATEX_2020 = $(DOCKER_RUN) texlive/texlive:TL2020-historic-with-cache pdflatex
-PDFLATEX_2025 = $(DOCKER_RUN) texlive/texlive:TL2025-historic-with-cache pdflatex
+PDFLATEX_2024 = $(DOCKER_RUN) texlive/texlive:TL2024-historic-with-cache pdflatex
 LATEXMK = $(DOCKER_RUN) texlive/texlive:TL2020-historic-with-cache latexmk
 PDFTK = $(DOCKER_RUN) mnuessler/pdftk
-EXTRACT_CITATIONS = $(DOCKER_RUN) texlive/texlive:TL2025-historic-with-cache-xml make -f ../extract-citations/extract-citations.mk -C
+EXTRACT_CITATIONS = $(DOCKER_RUN) texlive/texlive:TL2024-historic-with-cache-xml make -f ../extract-citations/extract-citations.mk -C
 PARALLEL = parallel --joblog joblog --halt now,fail=1 --jobs 0 --
 
 FONTS = matha8.pfb matha9.pfb matha10.pfb mathb10.pfb
@@ -46,9 +46,9 @@ endef
 
 images: FORCE
 	$(DOCKER) build . -f Dockerfile.TL2020 -t texlive/texlive:TL2020-historic-with-cache
-	$(DOCKER) build . -f Dockerfile.TL2025 -t texlive/texlive:TL2025-historic-with-cache
-	$(DOCKER) build . -f Dockerfile.TL2025.extract-citations -t texlive/texlive:TL2025-historic-with-cache-xml
-	$(DOCKER) build . -f Dockerfile.TL2025.lohit-devanagari  -t texlive/texlive:TL2025-historic-with-cache-sanskrit
+	$(DOCKER) build . -f Dockerfile.TL2024 -t texlive/texlive:TL2024-historic-with-cache
+	$(DOCKER) build . -f Dockerfile.TL2024.extract-citations -t texlive/texlive:TL2024-historic-with-cache-xml
+	$(DOCKER) build . -f Dockerfile.TL2024.lohit-devanagari  -t texlive/texlive:TL2024-historic-with-cache-sanskrit
 
 bul.pdf: bul.tex $(FONTS) FORCE
 	$(LATEXMK) -c $<
@@ -76,7 +76,7 @@ bul-blok.pdf: bul.pdf
 	$(PDFTK) $< cat 3-r3 output $@
 
 bul-margins-%mm.pdf: bul.pdf
-	$(PDFLATEX_2025) '\def\outsidemargin{$(patsubst bul-margins-%mm.pdf,%,$@)}\input bul-margins.tex'
+	$(PDFLATEX_2024) '\def\outsidemargin{$(patsubst bul-margins-%mm.pdf,%,$@)}\input bul-margins.tex'
 	mv bul-margins.pdf $@
 
 bul-obalka-margins-%mm.pdf: bul.pdf bul-margins-%mm.pdf
