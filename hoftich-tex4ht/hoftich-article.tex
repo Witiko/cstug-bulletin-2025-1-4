@@ -1,0 +1,699 @@
+\RequirePackage{luatex85}
+\PassOptionsToPackage{shorthands=off}{babel}
+\makeatletter
+\disable@package@load{fontenc}
+\makeatother
+\let\oldlooseness=\looseness
+\documentclass{csbulletin}
+\selectlanguage{czech}
+% TODO: Odstranit po přepisu těla tak, aby nepoužívalo `frame`, `mode`, apod.
+% \usepackage{beamerarticle}
+\usepackage{csquotes}
+\usepackage{luavlna}
+\usepackage{booktabs}
+\usepackage{fancyvrb}
+\newcommand{\meta}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
+% \usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{linebreaker}
+\usepackage[strict]{lua-widow-control}
+\setcounter{secnumdepth}{3}
+% TODO: Odkomentovat poté, co se zbavíme balíčku `beamerarticle`.
+%\usepackage{titlesec}
+%\titlelabel{\thetitle\enspace}
+\usepackage[
+  backend=biber,
+  citestyle=numeric-comp,
+  bibstyle=iso-numeric,
+  sortlocale=cs,
+  autolang=other,
+  bibencoding=UTF8,
+  mincitenames=2,
+  maxcitenames=2,
+  doi=true,
+  isbn=true,
+  shortnumeration=true,
+]{biblatex}
+\renewcommand\multicitedelim{\addsemicolon\space}
+\addbibresource{hoftich-article.bib}
+\usepackage[
+  implicit=false, % tato volba vede k chybě v příkazu \cite, je skutečně třeba?
+  % VSN: Je třeba kvůli finálnímu Zpravodaji, kde by se jinak rozbil makry hyperrefu soubor .toc, ze kterého automaticky generujeme řádek v obsahu Zpravodaje. Chyba v příkazu \cite by snad měla být jen dočasná; klidně si teď pro své úpravy "implicit=false" vypni a já to vyřeším před tiskem.
+  hidelinks,
+]{hyperref}
+\ExplSyntaxOn
+\newcommand
+  \acro
+  [ 1 ]
+  {
+    \tl_set:Nn
+      \l_tmpa_tl
+      { #1 }
+    \regex_replace_all:nnN
+      { [^\d]+ }
+      { \c{textsc} \cB\{ \c{MakeLowercase} \cB\{ \0 \cE\} \cE\} }
+      \l_tmpa_tl
+    \regex_replace_all:nnN
+      { \d+ }
+      { \c{oldstylenums} \cB\{ \0 \cE\} }
+      \l_tmpa_tl
+    \tl_use:N
+      \l_tmpa_tl
+  }
+\ExplSyntaxOff
+\begin{document}
+\singlechars{czech}{AaIiVvOoUuSsZzKk}
+\hyphenation{GitHub}
+
+\title{Publikace \LaTeX ových dokumentů na webu pomocí \TeX 4ht a GitHub Actions}
+\EnglishTitle{Publishing \LaTeX\ Documents on the Web Using \TeX 4ht and GitHub Actions}
+\author{Michal Hoftich}
+\podpis{Michal Hoftich, michal.h21@gmail.com}
+\maketitle
+
+\begin{abstract}
+Článek představí sadu šablon pro nástroj \TeX 4ht, který slouží k převodu
+\LaTeX ových dokumentů do \acro{HTML}. Tyto šablony výrazně usnadňují publikaci různých
+typů dokumentů na webu a přinášejí možnosti zpracování a automatizace.
+
+První šablona je určena pro převod knižních dokumentů do webové podoby.
+Umožňuje rozdělení textu do jednotlivých kapitol s automaticky generovanou
+navigací a podporou responzivního designu, takže je výsledek dobře čitelný i na
+mobilních zařízeních.
+
+Druhá šablona slouží k tvorbě staticky generovaných blogů. Každý příspěvek je
+psán jako samostatný \LaTeX ový dokument, který je pomocí \TeX 4ht převeden do
+\acro{HTML}. Následně jsou tyto články zpracovány statickým generátorem webů, jako je
+například Jekyll, který se postará o sestavení celého blogu, vytvoření
+rozcestníků, archivů a další navigace.
+
+Třetí šablona je zaměřena na převod prezentací vytvořených v prostředí Beamer
+do formy tzv. handoutů -- přehledových materiálů pro posluchače. Výsledkem je
+čitelný a dobře strukturovaný webový dokument vhodný pro sdílení po přednášce.
+
+Všechny šablony jsou navrženy tak, aby fungovaly v rámci GitHub Actions. To
+znamená, že dokumenty mohou být automaticky zkompilovány a publikovány online
+pokaždé, když dojde ke změně v repozitáři. 
+\end{abstract}
+\klicovaslova: \TeX 4ht, \LaTeX, \acro{HTML}, Jekyll, Beamer, GitHub Actions
+
+
+
+\section{Úvod do \TeX4ht}
+
+\TeX4ht je nástroj pro konverzi z \LaTeX u do \acro{HTML} a dalších formátů, jako jsou
+\acro{ODT}, \acro{EPUB} nebo \acro{JATS XML}. Dokáže zachovat strukturu i
+formátování původního dokumentu a nabízí různé metody pro matematický výstup,
+včetně obrázků, MathML a MathJaxu. Umožňuje také generovat obrázky přímo z
+výstupu \LaTeX u a podporuje běžně používané \LaTeX ové balíčky.
+
+\TeX4ht samotný je především balíček, který redefinuje příkazy jiných balíčků tak, aby
+vkládaly tagy výstupních formátů.
+% Vždy se kompiluje do DVI výstupu, který se poté zpracovává
+% dalšími nástroji, které vytvoří soubory ve výstupním formátu, \acro{CSS} soubor, nebo obrázky.
+Části \acro{DVI} výstupu lze konvertovat na obrázky ve formátu \acro{PNG} nebo \acro{SVG}. Toho se využívá pro podporu
+obrázků tvořených pomocí balíčků Ti$k$Z nebo PSTricks.
+
+Více informací o \TeX4ht a jeho základním použití naleznete v mém starším článku ve \emph{Zpravodaji}~\autocite{hoftich2018-tex4ht}. 
+V tomto článku se zaměřím na pokročilejší možnosti využití \TeX4ht a představení šablon pro publikaci dokumentů na webu s využitím GitHub Actions.
+
+
+% \subsection{GitHub Actions}
+\section{Automatické generování HTML výstupu pomocí GitHub Actions}
+
+\subsection{Základní struktura konfigurace GitHub Actions}
+
+GitHub, ale i další repozitáře jako GitLab nebo Bitbucket,  umožňuje
+spouštět definované scénáře (např. build, testy nebo nasazení) v reakci na
+události v repozitáři (push, pull request apod.).
+
+Tato funkce se nazývá GitHub Actions~\cite{github-actions-quickstart}. V tomto článku si ukážeme, jak ji využít pro automatizovanou
+kompilaci dokumentů pomocí \TeX4ht a jejich publikování na webu.
+
+Šablony pro \TeX4ht, které dále představím, jsou navrženy tak, aby fungovaly v rámci GitHub Actions. To
+znamená, že dokumenty mohou být automaticky zkompilovány a publikovány online
+pokaždé, když dojde ke změně v repozitáři. Tento přístup zajišťuje, že je
+webová verze dokumentu vždy aktuální.
+
+
+
+Sada pravidel, která definují, jaké akce se mají provést v návaznosti na nějakou událost v repozitáři, se v terminologii
+GitHub Actions nazývá \textit{workflow}.
+Workflow je definován v souboru ve formátu \acro{YAML}, který je po stažení šablon dostupný v podadresáři \texttt{.github/workflows/main.yml}.
+\acro{YAML} je jednoduchý textový formát používaný pro konfigurace. GitHub Actions v něm definují jednotlivé kroky automatizace.
+Například v šabloně pro \uv{handouty} prezentací se používá následující kód:
+
+
+% \begin{frame}[fragile]{Přehled GitHub Actions}
+
+  % \begin{block}{Klíčové části workflow pro sestavení a publikování HTML:}
+
+\begin{verbatim}
+  - name: Spuštění make4ht
+    uses: xu-cheng/texlive-action/full@v1
+    with:
+      run: |
+        make4ht -lj index -a debug -d out handout.tex
+
+  - name: Publikování webových stránek
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_dir: ./out
+\end{verbatim}
+% \end{block}
+
+% \end{frame}
+
+Jednotlivé kroky úlohy jsou definovány v sekci \texttt{steps}, jejíž obsah zobrazuje předešlý úryvek kódu. 
+% Každý krok typicky spouští Docker kontejner, který má k dispozici soubory z repozitáře a také soubory vytvořené v předešlých krocích.
+Každý krok provede určitou akci, například kompilaci \LaTeX u. K dispozici má soubory z repozitáře a také soubory vytvořené v předešlých krocích.
+V této ukázce se nachází dva kroky, které 
+používají dvě GitHub Actions -- \texttt{xu-cheng/\-texlive-action}~\cite{xu-cheng:texlive-action}
+a \texttt{peaceiris\-/actions-\-gh-pages}~\cite{peaceiris:actions-gh-pages}.
+První z nich umožňuje používat libovolný příkaz dostupný v instalaci \TeX\ Live jako \texttt{make4ht} nebo \texttt{lualatex}.
+Druhá publikuje obsah zadaného adresáře na webu pomocí GitHub Pages.
+
+
+Pro spuštění akce je třeba pouze nahrát změny do repozitáře pomocí následujících příkazů:
+
+\begin{Verbatim}[commandchars=\|()]
+$ git add |meta(upravené soubory)
+$ git commit -m "Popis změn"
+$ git push origin main
+\end{Verbatim}
+
+Příkaz \texttt{git add} přidá upravené soubory do indexu pro commit, \texttt{git commit} vytvoří nový commit s popisem změn
+a \texttt{git push} nahraje změny do větve \texttt{main} na vzdáleném repozitáři.
+Při každé změně v repozitáři se poté spustí workflow,
+který zkompiluje soubor \texttt{handout.tex} do \acro{HTML} pomocí příkazu 
+\texttt{make4ht}:
+\begin{verbatim}
+$ make4ht -lj index -a debug -d out handout.tex
+\end{verbatim}
+
+Tento příkaz vytvoří \acro{HTML} soubory v adresáři \texttt{out} pomocí volby \texttt{-d out}. 
+Volba \texttt{-lj index} je zkratkou pro volby \texttt{--lua} která vyvolá kompilaci Lua\TeX em a \texttt{--jobname index}, která  nastaví název výstupního \acro{HTML} souboru na \texttt{index.html}.
+Akce \texttt{peaceiris\-/actions-gh-pages} poté zveřejní všechny soubory v adresáři 
+\texttt{out}, což je  specifikované nastavením vlastnosti \texttt{publish\_dir} ve workflow souboru.
+
+\acro{HTML} verze prezentace bude dostupná na následující adrese:
+
+\begin{Verbatim}[commandchars=\|()]
+https://|meta(jméno uživatele).github.io/|meta(název repozitáře)/
+\end{Verbatim}
+
+V \acro{URL} není třeba specifikovat název souboru -- GitHub Pages
+automaticky nabízí soubor \texttt{index.html}. Tato funkce usnadňuje sdílení
+prezentace a pomáhá předejít nefunkčním odkazům kvůli neshodě názvů souborů.
+
+\subsection{Sledování stavu workflow a řešení chyb}
+
+
+\begin{figure}
+  \centering
+\includegraphics[width=\textwidth]{img/github-actions-new.png}
+\caption{Rozhraní GitHub Actions zobrazující stav workflow}
+\label{fig:github-actions}
+\end{figure}
+
+Po každém nahrání změn  můžete zkontrolovat záložku
+\texttt{Actions} ve svém GitHub repozitáři (vizte Obrázek~\ref{fig:github-actions}). 
+Zobrazuje stav \textit{workflow}, včetně
+informace o úspěšném dokončení nebo případných chybách.
+
+\begin{figure}
+  \centering
+\includegraphics[width=\textwidth]{img/github-error-new.png}
+\caption{Příklad chyby v GitHub Actions workflow}
+\label{fig:github-error}
+\end{figure}
+
+Můžete také zkontrolovat logy běhu workflow, abyste viděli, co se pokazilo.
+Pokud narazíte na chybu, bude zobrazena v logu a tyto informace můžete
+použít k řešení problému.
+
+Například v logu na Obrázku~\ref{fig:github-error} vidíme, že u kroku 
+\texttt{Run make4ht} se zobrazila červená výstražná ikonka. Po kliknutí 
+na název kroku se zobrazí podrobnosti o chybě.
+V tomto případě byl nesprávný název hlavního \TeX ového souboru, který se 
+kompiloval pomocí \texttt{make4ht}, což nám oznamuje hláška \enquote{\texttt{make4ht: missing required parameter: filename}}.
+V \acro{YAML} souboru GitHub Actions tedy musíme opravit název souboru na správný.
+
+\subsection{Publikování HTML verze}
+
+\begin{figure}
+  \centering
+\includegraphics[width=\textwidth]{img/github-pages-new.png}
+\caption{Nastavení GitHub Pages pro repozitář}
+\label{fig:github-pages}
+\end{figure}
+
+Po úspěšném dokončení workflow můžete nastavit GitHub Pages pro zobrazování obsahu větve \texttt{gh-pages}.
+Výstupní soubory vytvořené pomocí \texttt{make4ht} budou dostupné na adrese
+\verb|https://|\meta{jméno uživatele}\verb|.github.io/|\meta{název repozitáře}\verb|/|.
+
+Aby se \acro{HTML} verze dokumentu zobrazila správně, je třeba v nastavení GitHub repozitáře
+nastavit GitHub Pages tak, aby používala větev \texttt{gh-pages} jako zdroj pro publikování (vizte Obrázek~\ref{fig:github-pages}).
+Tuto větev používá akce \texttt{peaceiris/actions-gh-pages} pro publikování výstupních souborů.
+Díky tomu, že se používá samostatná větev, zůstává hlavní větev \texttt{main} čistá a obsahuje pouze zdrojové \TeX ové soubory.
+
+
+\subsection{Využití šablon na GitHubu}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,alt={}]{img/template-use-new.png}
+  \caption{Tlačítko pro použití šablony na GitHubu}
+  \label{fig:template-use}
+\end{figure}
+
+Pro využití šablon na GitHubu klikněte na tlačítko
+\enquote{Use this template} na stránce GitHub repozitáře s podporou šablon (vizte Obrázek~\ref{fig:template-use}). 
+Po vyplnění dialogu pro vytvoření nového repozitáře z šablony se ve vašem účtu vytvoří
+nový repozitář se stejnou strukturou a se stejnými soubory, jako měl původní repozitář, ovšem bez jeho 
+Git historie. Poté nově vytvořený repozitář můžete naklonovat na svůj počítač a začít upravovat 
+obsah souborů. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,alt={Dialog vytvoření nového repozitáře ze šablony}]{img/new-repo-new.png}
+  \caption{Dialog vytvoření nového repozitáře ze šablony}
+  \label{fig:new-repo}
+\end{figure}
+
+
+\section{Šablona pro webové verze knih}
+
+Tato šablona~\cite{hoftich:tex4ht-booksite} je navržena tak, aby umožňovala export každé kapitoly do
+samostatné \acro{HTML} stránky. Je ideální pro publikaci knihy, dokumentace nebo
+skript, kde každá kapitola tvoří vlastní webovou stránku propojenou navigací.
+
+
+Pokud chceme vytvořit samostatné \acro{HTML} soubory pro jednotlivé kapitoly našeho dokumentu,
+můžeme použít následující příkaz:
+\begin{verbatim}
+$ make4ht document.tex "2"
+\end{verbatim}
+
+
+Číselné volby umožňují nastavit, od které úrovně členění textu se mají vytvářet
+samostatné soubory. Například volba s hodnotou 1 způsobí, že budou vytvořeny
+samostatné soubory pro nejvyšší úroveň struktury dokumentu. Hodnota 2 zajistí
+rozdělení i pro další úroveň, obvykle kapitoly, případně sekce, pokud typ
+dokumentu kapitoly neobsahuje. Při volbě 3 se soubory vytvářejí i pro sekce, a
+to i u typů dokumentů, které běžně kapitoly obsahují. Takto lze pokračovat až
+do úrovně 7, kdy jsou samostatné soubory generovány i pro velmi jemné členění,
+na úrovní příkazů \verb|\paragraph|.
+Obecně doporučuji použít volbu \verb|"2"|.
+
+
+
+\subsection{Pojmenování souborů kapitol}
+
+Ve výchozí podobě jednotlivé soubory kapitol obsahují jen základní navigaci
+s odkazy na předchozí a následující kapitolu a na hlavní soubor.
+Názvy souborů jsou tvořeny názvem hlavního souboru, následovaným zkratkou úrovně nadpisu a pořadím dané úrovně nadpisu v dokumentu.
+Například pro dokument s názvem \texttt{document.tex} budou názvy souborů pro jednotlivé kapitoly \texttt{documentch1.html}, \texttt{documentch2.html} 
+a soubor s obsahem, titulní stránkou a textem, který se nenachází uvnitř žádné kapitoly, bude pojmenovaný \texttt{document.html}.
+Pro nečíslované kapitoly, například rejstřík nebo seznam literatury, se vytváří soubor s koncovkou \texttt{li}, například 
+\texttt{documentli1.html}.
+
+\begin{table}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    Název kapitoly & výchozí název & sec-filename & sec-slugname \\
+    \midrule
+    S háčky & \texttt{documentch1.html} & \texttt{Sháčky.html} & \verb|s_hacky.html| \\
+    \bottomrule
+  \end{tabular}
+  \caption{Názvy souborů kapitol podle různých způsobů pojmenování}
+  \label{tab:chapter-filenames}
+\end{table}
+
+
+Problém nastane, pokud změníme pořadí kapitol nebo přidáme kapitolu novou. Odkazy z externích webů na sekce jednotlivých kapitol mohou přestat fungovat, 
+protože se jejich obsah přesune do jiného souboru. Abychom tomu předešli, můžeme využít jiné způsoby pojmenování souborů.
+\TeX4ht nabízí dvě možnosti, jak pojmenovat soubory na základě názvů kapitol. První z nich je \texttt{sec-filename}, druhá
+\texttt{sec-slugname}. Jejich použití ukazuje Tabulka~\ref{tab:chapter-filenames}. Z hlediska použitelnosti na webu je lepší volba \texttt{sec-slugname}.
+Pro svou funkcionalitu ovšem vyžaduje přepínač \verb|-l|, protože název se vytváří
+pomocí jazyka Lua. Volby pro \texttt{make4ht} budou tedy následující:
+
+\begin{verbatim}
+$ make4ht -l document.tex "2,sec-slugname"
+\end{verbatim}
+
+% Mějme například kapitolu s názvem \textit{Kapitola s háčky}.
+% Volba \texttt{sec-filename} vytvoří název souboru na základě názvu kapitoly, včetně diakritiky a velkých písmen, v tomto případě tedy \texttt{Kapitolasháčky.html}.
+% Volba \texttt{sec-slugname} vytvoří název souboru, který je lépe použitelný na webu, protože odstraňuje diakritiku a speciální znaky z názvu, velká písmena 
+% převádí na malá a mezery nahradí podtržítky. Výsledný název souboru bude tedy bude
+% například \texttt{kapitola\_s\_hacky.html}.
+
+
+
+\subsection{Boční menu s obsahem}
+
+Problémem aktuálně vytvořených \acro{HTML} stránek je, že neobsahují navigační menu s odkazy na 
+všechny kapitoly. Navigace obsahuje pouze odkazy na předchozí a následující kapitolu a 
+kořenový soubor. Pro snadnou navigaci mezi kapitolami můžeme využít volbu \texttt{fulltoc}.
+Ta vytvoří na každé stránce boční menu obsahující plný obsah knihy (vizte Obrázek~\ref{fig:fulltoc-basic}).
+Díky tomu lze snadno přecházet mezi jednotlivými kapitolami. 
+
+
+Ovšem toto menu může být poměrně rozsáhlé, pokud je v knize hodně podkapitol. Můžeme chtít 
+zobrazit pouze sekce aktuální kapitoly a sekce ostatních kapitol skrýt (vizte Obrázek~\ref{fig:collapsetoc}). Toho je možné docílit 
+pomocí JavaScriptu nebo DOM filtru \texttt{collapsetoc} v \texttt{make4ht}, což je možnost, kterou šablona využívá.
+
+
+
+\begin{figure}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{img/fulltoc-basic-new.png}
+\caption{Ukázka bočního menu s obsahem dokumentu}
+\medskip
+\label{fig:fulltoc-basic}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{img/collapsetoc-new.png}
+\caption{Ukázka bočního menu s rozbalenými sekcemi pouze aktuální kapitoly}
+\label{fig:collapsetoc}
+\end{subfigure}
+\caption{Porovnání bočního menu s plným obsahem dokumentu a menu s rozbalenými sekcemi pouze aktuální kapitoly}
+\end{figure}
+
+
+
+
+Skrytí menu je užitečné především na mobilních zařízeních s menším displejem, kde by při 
+zobrazeném menu nezůstalo dostatek místa pro zobrazení samotného textu dokumentu.
+Pro zobrazení menu využíváme JavaScript, kterému se jinak snažíme vyhýbat. 
+
+\subsection{Konfigurační soubor}
+
+Většina barev v šabloně je nastavená pomocí \acro{CSS} proměnných, které můžeme změnit v konfiguračním souboru \texttt{config.cfg}.
+K dispozici jsou následující vlastnosti, které můžeme upravit:
+
+    \begin{description}
+      \item[maintoc] -- menu s obsahem dokumentu,
+      \item[hamburger] -- tlačítko pro skryté menu,
+      \item[header] -- hlavička dokumentu,
+      \item[footer] -- patička dokumentu.
+    \end{description}
+
+    Pro každou z těchto vlastností můžete nastavit barvu popředí a pozadí přidáním \texttt{-color}, respektive \texttt{-background} 
+    k jejich názvu.
+
+Například pro změnu barev bočního menu můžeme použít následující kód:
+
+\begin{verbatim}
+\Css{
+  body{
+    --maintoc-background: \#f0f0f0;
+    --maintoc-color: \#00AFA0;
+  }
+}
+\end{verbatim}
+
+Příkaz \verb|\Css| slouží pro vložení kódu do \acro{CSS} souboru, který \TeX4ht vytváří. 
+Můžete jej vložit do konfiguračního souboru \texttt{config.cfg} 
+kamkoliv mezi příkazy \verb|\Preamble| a \verb|\EndPreamble|. Při použití hexadecimálního 
+zápisu je třeba escapovat znak \verb|#| pomocí zpětného lomítka, jinak dojde ke
+kompilační chybě.
+
+\section{Šablona pro blogování s \LaTeX em}
+
+Tato šablona~\cite{hoftich:tex4ht-blog} umožňuje vytvářet blog pomocí statických generátorů webů.
+Využívá přitom \TeX4ht pro generování \acro{HTML} verze jednotlivých článků
+ve formátu, který je kompatibilní s většinou statických generátorů webů,
+jež podporují \acro{HTML} soubory jako vstupní formát.
+
+Statické generátory webů představují způsob, jak vytvářet a spravovat
+webové stránky bez nutnosti provozovat databázi nebo dynamický backend. 
+Obecně fungují tak, že z jednoduchých textových souborů (například ve formátu Markdown nebo \acro{HTML})
+vytvoří kompletní webové stránky pomocí šablon a dalších pravidel. 
+Vytvářejí také archivy článků, \acro{RSS} kanály a další doprovodné funkce, které jsou běžné na blozích.
+
+Výhodou je, že takový web můžeme umístit na téměř libovolný webový server;
+nemusíme řešit, zda podporuje například PHP nebo jiný systém pro dynamické 
+zobrazování stránek. Například GitHub nabízí GitHub Pages, kam můžeme 
+umístit stránky zdarma. V rámci GitHub Actions také můžeme spouštět generátory
+automaticky, nebo můžeme využít vestavěnou podporu pro generátor Jekyll.
+
+V naší šabloně je každý článek vytvořen jako samostatný \TeX{}ový dokument
+umístěný v odděleném adresáři. Využíváme skript, který prochází všechny
+adresáře s články, dokumenty, které se od minulé kompilace změnily, kompiluje je pomocí \TeX4ht 
+a ukládá vygenerované \acro{HTML} soubory do adresáře, který slouží jako vstup pro statický generátor webu.
+Tyto soubory jsou automaticky uloženy do zvláštní větve GitHub repozitáře,
+takže výstupní \acro{HTML} soubory nemusíme spravovat ručně. Ukládáme je proto, abychom 
+nemuseli při každém sestavení blogu znovu kompilovat všechny články, ale pouze ty,
+které se od minulé kompilace změnily.
+
+
+\subsection{Formát vstupních souborů}
+
+Statické generátory webů obvykle vyžadují, aby vstupní soubory obsahovaly blok s metadaty
+v následujícím formátu:
+
+\begin{verbatim}
+---
+title: Titulek dokumentu
+---
+# Úvod
+Text dokumentu
+\end{verbatim}
+
+Na začátku souboru je umístěn blok s metadaty dokumentu ve formátu \acro{YAML}. Z obou stran
+je obklopený řádky obsahujícími pouze tři spojovníky. Za blokem metadat pak následuje 
+text dokumentu.
+
+V tomto příkladě používáme Markdown, ovšem stejný princip 
+můžeme použít i pro \acro{HTML} soubory produkované pomocí \TeX4ht.
+Místo Markdownu totiž můžeme použít i \acro{HTML}, které získáme z obsahu elementu 
+\verb|<body>|.
+
+Příkaz \texttt{make4ht} obsahuje rozšíření \texttt{staticsite}, které umožňuje generovat \acro{HTML} soubory
+s \acro{YAML} metadaty z \TeX ových dokumentů. Automaticky například přidává
+titulek dokumentu získaný z příkazu \verb|\title| a další metadata. Mějme například 
+následující jednoduchý \TeX ový dokument:
+
+
+\begin{verbatim}
+\documentclass{article}
+\begin{document}
+\title{Hello world test}
+\author{Michal}
+\maketitle
+This is my test post.
+\end{document}
+\end{verbatim}
+
+Tento dokument můžeme zkompilovat do \acro{HTML} s \acro{YAML} preamble pomocí následujícího příkazu:
+\begin{verbatim}
+$ make4ht -f html5+staticsite filename.tex
+\end{verbatim}
+
+Rozšíření \texttt{staticsite} zapneme tím, že jeho název připojíme znaménkem plus za formát souboru 
+ve volbě \texttt{-f}. Soubor bude automaticky pojmenován ve formátu \verb|YYYY-MM-DD-|\meta{název originálu}. 
+Vygenerovaný soubor bude vypadat následovně:
+
+\begin{verbatim}
+---
+meta:
+- charset: ’utf-8’
+- name: ’viewport’
+  content: ’width=device-width,initial-scale=1’
+time: 1626619562
+updated: 1627244699
+styles:
+- ’2021-07-18-hello-world.css’
+title: ’Hello world test’
+---
+<!--  l. 7  --><p class=’indent’>   This is my test post.
+</p>
+\end{verbatim}
+% \end{frame}
+
+Soubor obsahuje různá metadata získaná z \acro{HTML} souboru. Jednak se jedná 
+o obsah elementů \verb|<meta>|, dále časy vytvoření souboru a poslední aktualizace v číselné formě, 
+seznam použitých stylů, titulek atd. Tato metadata můžeme používat v šablonách 
+použitého generátoru webů.
+
+
+
+\subsection{Struktura šablony pro blog}
+
+Šablona má následující strukturu adresářů, která předpokládá použití 
+statického generátoru Jekyll \cite{jekyllrb}:
+
+\begin{verbatim}
+blog/
+.. texposts/
+.... first_post/
+...... first_post.tex
+.... second_post/
+...... second_post.tex
+.. docs/
+.... _posts/
+.... css
+\end{verbatim}
+
+Každý příspěvek na blogu má vlastní podadresář v adresáři \texttt{texposts}. 
+Vygenerované soubory se poté zkopírují do různých podadresářů v adresáři 
+\texttt{docs}, který Jekyll použije jako zdrojový adresář pro sestavení blogu. 
+Například \acro{HTML} soubory pro blog se umístí do podadresáře 
+\verb|_posts| a kaskádové styly do podadresáře \texttt{css}.
+
+Pro start nového blogu je třeba odstranit všechny podadresáře v adresáři \texttt{texposts}
+kromě adresáře \texttt{cookiecutter-post}, který slouží jako šablona pro nové příspěvky.
+
+\begin{verbatim}
+$ find texposts -mindepth 1 -maxdepth 1 -type d \
+  ! -name cookiecutter-post \
+  -exec rm -rf {} +
+$ git add -u texposts
+$ git commit -m "Clean start for a new blog"
+$ git push
+\end{verbatim}
+
+Nové příspěvky pak můžeme přidávat ručně, vytvořením podadresáře v adresáři \texttt{texposts}
+nebo využít šablonu \texttt{cookiecutter-post} pomocí nástroje Cookiecutter \cite{cookiecutter}:
+
+\begin{verbatim}
+$ cd texposts
+$ cookiecutter cookiecutter-post
+\end{verbatim}
+
+Nástroj se zeptá na název příspěvku, autora a další otázky, poté vytvoří nový adresář se základním \TeX ovým souborem.
+Pro změnu výchozích hodnot můžeme upravit soubor \texttt{cookiecutter.json} v adresáři \texttt{cookiecutter-post},
+\TeX ovou šablonu pak můžeme upravit v souboru \verb|{{cookiecutter.project_slug}}| ve stejném adresáři.
+
+Po dokonečení úprav nového příspěvku jej můžeme přidat do repozitáře, ovšem je třeba také vytvořit soubor, který obsahuje 
+timestamp publikace příspěvku. Tento soubor musí mít název \meta{jméno dokumentu}\texttt{.published} a také je třeba přidat jej do repozitáře. 
+Na základě timestampu se vytváří neměnná \acro{URL} příspěvku, neboť Jekyll používá datum v názvu souboru pro generování \acro{URL}.
+Soubor můžeme vytvořit například pomocí následujícího příkazu:
+
+\begin{Verbatim}[commandchars=\|()]
+$ date +%s > |meta(jméno dokumentu).published
+\end{Verbatim}
+
+Další možností je zkompilovat dokument pomocí \texttt{make4ht} s využitím módu \texttt{publish}:
+
+\begin{Verbatim}[commandchars=\|()]
+$ make4ht -m publish |meta(jméno dokumentu).tex
+\end{Verbatim}
+
+Tento příkazh vytvoří soubor s timestampem publikace automaticky a navíc zkopíruje vygenerované \acro{HTML}
+nebo \acro{CSS} soubory do vstupního adresáře pro Jekyll. 
+
+Po přidání nového příspěvku a souboru \texttt{.published} do repozitáře se automaticky spustí GitHub Actions workflow, který aktualizuje blog.
+
+
+\section{Šablona pro prezentace}
+
+Tato šablona~\cite{hoftich:tex4ht-presentation} je určena pro prezentace, které
+potřebují víc než jen samotné snímky. Umožňuje vytvořit nejen prezentaci, ale
+také textovou verzi prezentace ve formátu \acro{HTML} (vizte Obrázek~\ref{fig:handout}). 
+Šablona automaticky vytváří \acro{HTML} verzi článku, která je poté zveřejněna na
+GitHub Pages. Veškeré materiály se generují z jednoho
+zdrojového souboru, čímž se zjednodušuje správa celého projektu a zajišťuje
+se konzistence mezi jednotlivými výstupy.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{img/handout-new.png}
+\caption{Ukázka článku z prezentace v \protect\acro{HTML} formátu}
+\label{fig:handout}
+\end{figure}
+
+Součástí projektu je několik souborů, které jsou používané pro generování
+různých výstupů prezentace.
+Soubor \texttt{slides.tex} slouží ke generování hlavní prezentace ve formátu
+Beamer a obsahuje vše, co se zobrazuje během přednášky. Pro vytvoření textové,
+čtenářsky přívětivé verze prezentace je určen \texttt{handout.tex}, který je
+formátován jako klasický článek. Kromě obsahu viditelného na snímcích zahrnuje
+i doplňující poznámky a komentáře a je koncipován tak, aby byl samostatně
+srozumitelný i pro ty, kteří prezentaci neviděli. Samotný obsah prezentace je
+uložen v souboru \texttt{presentation.tex}. Text uvnitř prostředí
+\verb|\begin{frame}...\end{frame}| se vkládá jak do prezentace, tak do
+článku, zatímco materiál mimo toto prostředí se nezobrazuje na snímcích, ale
+zůstává součástí textové verze. Díky tomu může článek obsahovat podrobnější
+vysvětlení nebo komentáře bez narušení struktury prezentace. Soubory
+\texttt{preamble.tex} a \texttt{config.cfg} doplňují konfiguraci: první z nich
+obsahuje balíčky a definice příkazů používané v prezentaci a sdílené v obou výstupech, zatímco druhý
+slouží jako konfigurační soubor pro \TeX4ht a umožňuje upravit například \acro{CSS}
+stylování webové verze nebo redefinice \LaTeX{}ových příkazů.
+
+
+Obecně by mělo stačit upravovat obsah souboru \texttt{presentation.tex}, který 
+obsahuje jak slidy pro Beamer, tak i poznámky pro článek. V souboru
+\texttt{preamble.tex} můžeme přidat další balíčky nebo vlastní příkazy
+a v \texttt{config.cfg} můžeme upravit styly webové verze článku. 
+
+Obsah slidu s textovým popisem pro článek může vypadat například takto:
+
+\begin{verbatim}
+\begin{frame}[fragile]{Nadpis slidu}
+\begin{itemize}
+\item bod 1
+\item bod 2
+\end{itemize}
+\end{frame}
+
+Zde je textový popis mimo prostředí \texttt{frame}.
+Zobrazí se pouze ve článku.
+\end{verbatim}
+
+
+Obsah uvnitř bloku \verb|\begin{frame}...\end{frame}| se zahrne
+do prezentace i článku, ale následující odstavec -- mimo toto prostředí -- 
+se zobrazí pouze v článku.
+
+Pokud chceme obsah mimo prostředí \texttt{frame} zahrnout jak do prezentace, tak do článku,
+můžeme použít příkaz \verb|\mode|:
+
+
+\begin{verbatim}
+\mode<beamer|article>{
+\title{Strukturovaná šablona prezentace}
+\author{Michal Hoftich}
+\maketitle}
+\end{verbatim}
+
+Příkaz \verb|\|\verb+mode<beamer|article>{...}+ umožňuje zahrnout obsah, který se má
+zobrazit jak v prezentaci, tak v handoutu. To se může hodit například pro titulní stranu
+nebo obsah prezentace.
+
+
+\begingroup
+\sloppy
+\printbibliography
+\endgroup
+
+\begin{summary}
+The article presents a set of templates for the \TeX 4ht tool, which serves to convert
+\LaTeX\ documents into \acro{HTML}. These templates greatly simplify the publication of various
+types of documents on the web and bring modern capabilities for processing and automation.
+
+The first template is intended for converting book-style documents into a web format.
+It allows the text to be divided into individual chapters with automatically generated
+navigation and support for responsive design, making the result easily readable even on
+mobile devices.
+
+The second template is used for creating statically generated blogs. Each post is written
+as a separate \LaTeX\ document, which is converted to \acro{HTML} using \TeX 4ht. Subsequently,
+these articles are processed by a static site generator such as Jekyll, which takes care
+of assembling the entire blog, creating indexes, archives, and other navigation elements.
+
+The third template focuses on converting presentations created in the Beamer environment
+into so-called handouts -- overview materials for the audience. The result is a readable
+and well-structured web document suitable for sharing after the lecture.
+
+All templates are designed to work within GitHub Actions. This means that the documents
+can be automatically compiled and published online whenever a change is made in the
+repository. This approach ensures that the web version of the document is always up to date.
+
+\keywords: \TeX 4ht, \LaTeX, \acro{HTML}, Jekyll, Beamer, GitHub Actions
+\end{summary}
+\end{document}
