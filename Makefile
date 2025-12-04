@@ -46,8 +46,9 @@ endef
 
 images: FORCE
 	$(DOCKER) build . -f Dockerfile.TL2020 -t texlive/texlive:TL2020-historic-with-cache
-	$(DOCKER) build . -f Dockerfile.TL2025.extract-citations -t texlive/texlive:TL2025-historic-with-cache-xml
 	$(DOCKER) build . -f Dockerfile.TL2025 -t texlive/texlive:TL2025-historic-with-cache
+	$(DOCKER) build . -f Dockerfile.TL2025.extract-citations -t texlive/texlive:TL2025-historic-with-cache-xml
+	$(DOCKER) build . -f Dockerfile.TL2025.lohit-devanagari  -t texlive/texlive:TL2025-historic-with-cache-sanskrit
 
 bul.pdf: bul.tex $(FONTS) FORCE
 	$(LATEXMK) -c $<
