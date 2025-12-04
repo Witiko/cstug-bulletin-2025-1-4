@@ -1,0 +1,423 @@
+%%
+%% Copyright (C) 2013 by:
+%% Josef Kleber
+%% <josef.kleber@gmx.de>
+%%
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%%
+%%    http://www.latex-project.org/lppl.txt
+%%
+%% and version 1.3 or later is part of all distributions of LaTeX version
+%% 2003/12/01 or later.
+%%
+%% This work has the LPPL maintenance status "author-maintained".
+%%
+%% The Current Maintainer of this work is Josef Kleber.
+%%
+%% This work consists of all files listed in manifest.txt.
+%%
+% for more infos see:
+% http://en.wikipedia.org/wiki/Battleship_%28puzzle%29
+% http://de.wikipedia.org/wiki/Bimaru
+%
+\ProvidesPackage{battleship}[2013/02/23 battleship.sty v1.2 - Josef Kleber (C) 2013]%
+%
+\RequirePackage{logicpuzzle}%
+\tikzstyle{island} = [fill=yellow!30,draw, decorate, decoration={random steps,segment length=2.7pt,amplitude=1.7pt}]%
+%
+% options
+\newcommand*\BS@width{6cm}%
+\newcommand*\BS@fontsize\Large%
+\newcommand*\BS@rows{5}%
+\newcommand*\BS@columns{5}%
+\newcommand*\BS@scale{1}%
+\newcommand*\BS@bgcolor{}%
+\newcommand*\BS@shipcolor{green}%
+\newcommand*\BS@title{}%
+\newcommand*\BS@titleindent{0.75cm}%
+\newcommand*\BS@titlewidth{5.15cm}%
+\newcommand*\BS@SB@indent{0.75cm}%
+\newcommand*\BS@SB@width{5.15cm}%
+\newcommand*\BS@SB@shipboxscale{1}%
+%
+\newcounter{BS@rows}%
+\newcounter{BS@columns}%
+%
+\setcounter{BS@rows}{\BS@rows}%
+\setcounter{BS@columns}{\BS@columns}%
+\stepcounter{BS@rows}%
+\stepcounter{BS@columns}%
+%
+\define@key{battleship.sty}{rows}[5]%
+{%
+  \renewcommand*\BS@rows{#1}%
+}%
+%
+\define@key{battleship.sty}{columns}[5]%
+{%
+  \renewcommand*\BS@columns{#1}%
+}%
+%
+\define@key{battleship.sty}{shipcolor}[green]%
+{%
+  \renewcommand*\BS@shipcolor{#1}%
+}%
+%
+\define@key{battleship.sty}{scale}[1]%
+{%
+  \renewcommand*\BS@scale{#1}%
+}%
+%
+\define@key{battleship.sty}{counterstyle}[none]%
+{%
+  \renewcommand*\LP@counterstyle{#1}%
+}%
+%
+\define@key{battleship.sty}{bgcolor}[]%
+{%
+  \renewcommand*\BS@bgcolor{#1}%
+}%
+%
+\define@choicekey*{battleship.sty}{fontsize}[\BS@fontsize\nr]{tiny,scriptsize,footnotesize,small,normalsize,large,Large,LARGE,huge,Huge}[Large]%
+{%
+  \ifcase\nr\relax%
+    \renewcommand*\BS@fontsize{\tiny}%
+  \or%
+    \renewcommand*\BS@fontsize{\scriptsize}%
+  \or%
+    \renewcommand*\BS@fontsize{\footnotesize}%
+  \or%
+    \renewcommand*\BS@fontsize{\small}%
+  \or%
+    \renewcommand*\BS@fontsize{\normalsize}%
+  \or%
+    \renewcommand*\BS@fontsize{\large}%
+  \or%
+    \renewcommand*\BS@fontsize{\Large}%
+  \or%
+    \renewcommand*\BS@fontsize{\LARGE}%
+  \or%
+    \renewcommand*\BS@fontsize{\huge}%
+  \or%
+    \renewcommand*\BS@fontsize{\Huge}%
+  \fi%
+}%
+%
+\define@key{battleship.sty}{width}[6cm]%
+{%
+  \renewcommand*\BS@width{#1}%
+}%
+%
+\define@key{battleship.sty}{title}[]%
+{%
+  \renewcommand*\BS@title{#1}%
+}%
+%
+\define@key{battleship.sty}{titleindent}[0.75cm]%
+{%
+  \renewcommand*\BS@titleindent{#1}%
+}%
+%
+\define@key{battleship.sty}{titlewidth}[5.15cm]%
+{%
+  \renewcommand*\BS@titlewidth{#1}%
+}%
+%
+\define@key{battleship.sty}{sbindent}[0.75cm]%
+{%
+  \renewcommand*\BS@SB@indent{#1}%
+}%
+%
+\define@key{battleship.sty}{sbwidth}[5.15cm]%
+{%
+  \renewcommand*\BS@SB@width{#1}%
+}%
+%
+\define@key{battleship.sty}{sbshipscale}[1]%
+{%
+  \renewcommand*\BS@SB@shipboxscale{#1}%
+}%
+%
+\define@key{battleship}{rows}%
+{%
+  \renewcommand*\BS@rows{#1}%
+}%
+%
+\define@key{battleship}{columns}%
+{%
+  \renewcommand*\BS@columns{#1}%
+}%
+%
+\define@key{battleship}{shipcolor}%
+{%
+  \renewcommand*\BS@shipcolor{#1}%
+}%
+%
+\define@key{battleship}{scale}%
+{%
+  \renewcommand*\BS@scale{#1}%
+}%
+%
+\define@key{battleship}{bgcolor}%
+{%
+  \renewcommand*\BS@bgcolor{#1}%
+}%
+%
+\define@key{battleship}{counterstyle}%
+{%
+  \renewcommand*\LP@counterstyle{#1}%
+}%
+%
+\define@choicekey*{battleship}{fontsize}[\BS@fontsize\nr]{tiny,scriptsize,footnotesize,small,normalsize,large,Large,LARGE,huge,Huge}[Large]%
+{%
+  \ifcase\nr\relax%
+    \renewcommand*\BS@fontsize{\tiny}%
+  \or%
+    \renewcommand*\BS@fontsize{\scriptsize}%
+  \or%
+    \renewcommand*\BS@fontsize{\footnotesize}%
+  \or%
+    \renewcommand*\BS@fontsize{\small}%
+  \or%
+    \renewcommand*\BS@fontsize{\normalsize}%
+  \or%
+    \renewcommand*\BS@fontsize{\large}%
+  \or%
+    \renewcommand*\BS@fontsize{\Large}%
+  \or%
+    \renewcommand*\BS@fontsize{\LARGE}%
+  \or%
+    \renewcommand*\BS@fontsize{\huge}%
+  \or%
+    \renewcommand*\BS@fontsize{\Huge}%
+  \fi%
+}%
+%
+\define@key{battleship}{width}%
+{%
+  \renewcommand*\BS@width{#1}%
+}%
+%
+\define@key{battleship}{title}%
+{%
+  \renewcommand*\BS@title{#1}%
+}%
+%
+\define@key{battleship}{titleindent}%
+{%
+  \renewcommand*\BS@titleindent{#1}%
+}%
+%
+\define@key{battleship}{titlewidth}%
+{%
+  \renewcommand*\BS@titlewidth{#1}%
+}%
+%
+\define@key{battleship}{sbindent}%
+{%
+  \renewcommand*\BS@SB@indent{#1}%
+}%
+%
+\define@key{battleship}{sbwidth}%
+{%
+  \renewcommand*\BS@SB@width{#1}%
+}%
+%
+\define@key{battleship}{sbshipscale}%
+{%
+  \renewcommand*\BS@SB@shipboxscale{#1}%
+}%
+%
+\ExecuteOptionsX{rows,columns,width,fontsize,shipcolor,scale,bgcolor,counterstyle,title,titleindent,titlewidth,sbindent,sbwidth,sbshipscale}%
+%
+\ProcessOptionsX\relax%
+%
+\gdef\BS@shipbox{}%
+%
+\newcommand*\Ship{\tikz[scale=\BS@scale]\draw[scale=.36,fill=\BS@shipcolor] (0,0) circle (1);}%
+\newcommand*\ShipC{\tikz[scale=\BS@scale]\draw[scale=.36,fill=\BS@shipcolor] (0,0)--(0,2)--(2,2)--(2,0)--cycle;}%
+\newcommand*\ShipT{\tikz[scale=\BS@scale]\draw[scale=.36,fill=\BS@shipcolor](2,1)--(2,0)--(0,0)--(0,1) arc (180:0:1);}%
+\newcommand*\ShipB{\tikz[scale=\BS@scale]\draw[scale=.36,fill=\BS@shipcolor](2,1)--(2,2)--(0,2)--(0,1) arc (180:360:1);}%
+\newcommand*\ShipL{\tikz[scale=\BS@scale]\draw[scale=.36,fill=\BS@shipcolor](1,2)--(2,2)--(2,0)--(1,0) arc (270:90:1);}%
+\newcommand*\ShipR{\tikz[scale=\BS@scale]\draw[scale=.36,fill=\BS@shipcolor](1,2)--(0,2)--(0,0)--(1,0) arc (270:450:1);}%
+\newcommand*\Island{\tikz[scale=\BS@scale]\draw[scale=.36,island] (0,0) rectangle (2,2);}%
+\newcommand*\Water{\tikz[scale=\BS@scale]\draw[scale=.36,fill,blue!40] (1,1) circle (0.2);}%
+% versions for \shipbox without second scale
+\newcommand*\@Ship{\tikz\draw[scale=.144,fill=\BS@shipcolor] (0,0) circle (1);}%
+\newcommand*\@ShipC{\tikz\draw[scale=.144,fill=\BS@shipcolor] (0,0)--(0,2)--(2,2)--(2,0)--cycle;}%
+\newcommand*\@ShipT{\tikz\draw[scale=.144,fill=\BS@shipcolor](2,1)--(2,0)--(0,0)--(0,1) arc (180:0:1);}%
+\newcommand*\@ShipB{\tikz\draw[scale=.144,fill=\BS@shipcolor](2,1)--(2,2)--(0,2)--(0,1) arc (180:360:1);}%
+\newcommand*\@ShipL{\tikz\draw[scale=.144,fill=\BS@shipcolor](1,2)--(2,2)--(2,0)--(1,0) arc (270:90:1);}%
+\newcommand*\@ShipR{\tikz\draw[scale=.144,fill=\BS@shipcolor](1,2)--(0,2)--(0,0)--(1,0) arc (270:450:1);}%
+%
+\newcommand*\BS@printship[1]%
+{%
+  \ifthenelse{\equal{#1}{1}}{\scalebox{\BS@SB@shipboxscale}{\@Ship}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{2}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{3}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{4}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{5}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{6}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{7}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{8}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{9}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+  \ifthenelse{\equal{#1}{10}}{\scalebox{\BS@SB@shipboxscale}{\@ShipL\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipC\,\@ShipR}\space\allowbreak}{}%
+}%
+%
+\newcommand*\BS@printshipbox[1]%
+{% \expandafters needed because csv list is stored in macro
+  \expandafter\forcsvlist\expandafter\BS@printship\expandafter{#1}%
+}%
+%
+\newcommand*\shipH[1]%
+{%
+  \LP@setcolumncontents{#1}{1}{\value{BS@rows}}{\BS@fontsize}%
+}%
+%
+\newcommand*\shipV[1]%
+{%
+  \LP@setrowcontents{#1}{0}{1}{\BS@fontsize}%
+}%
+%
+\newcommand*\placesegment[3]%
+{%
+  \LP@ingrid{#1}{#2}{\BS@columns}{\BS@rows}{battleship}%
+  \LP@setcellcontent{#1}{#2}{#3}%
+}%
+%
+\let\ship\placesegment%
+%
+\newcommand*\placeisland[2]%
+{%
+  \LP@ingrid{#1}{#2}{\BS@columns}{\BS@rows}{battleship}%
+  \LP@setcellcontent{#1}{#2}{\Island}%
+}%
+%
+\newcommand*\placewater[2]%
+{%
+  \LP@ingrid{#1}{#2}{\BS@columns}{\BS@rows}{battleship}%
+  \LP@setcellcontent{#1}{#2}{\Water}%
+}%
+%
+\newcommand*\shipbox[2][]%
+{%
+  \setkeys{shipbox}{#1}%
+  \gdef\BS@shipbox{#2}%
+}%
+%
+\newcommand*\placeship[4]%
+{%
+  \setcounter{LP@counti}{#4}% length
+  \ifnum\value{LP@counti}<1%
+    \PackageError{battleship}%
+                 {ship length < 1}%
+                 {The length of your ship should be at least 1}%
+  \fi%
+  \ifnum\value{LP@counti}>10%
+    \PackageError{battleship}%
+                 {ship length > 10}%
+                 {The supported max length of ships is 10!}%
+  \fi%
+  \ifnum\value{LP@counti}=1%
+    \placesegment{#2}{#3}{\Ship}%
+  \else%
+    \setcounter{LP@whiledo}{\value{LP@counti}}%
+    \addtocounter{LP@whiledo}{-2}% length of middle ship
+    \ifthenelse{\equal{#1}{V}}%
+    {%
+      \placesegment{#2}{#3}{\ShipB}%
+      \setcounter{LP@countii}{#3}%
+      \whiledo{\value{LP@whiledo}>0}%
+      {%
+        \addtocounter{LP@whiledo}{-1}%
+        \stepcounter{LP@countii}%
+        \placesegment{#2}{\theLP@countii}{\ShipC}%
+      }%
+      \stepcounter{LP@countii}%
+      \placesegment{#2}{\theLP@countii}{\ShipT}%
+    }%
+    {%
+      \ifthenelse{\equal{#1}{H}}%
+      {%
+        \placesegment{#2}{#3}{\ShipL}%
+        \setcounter{LP@counti}{#2}%
+        \whiledo{\value{LP@whiledo}>0}%
+        {%
+          \addtocounter{LP@whiledo}{-1}%
+          \stepcounter{LP@counti}%
+          \placesegment{\theLP@counti}{#3}{\ShipC}%
+        }%
+        \stepcounter{LP@counti}%
+        \placesegment{\theLP@counti}{#3}{\ShipR}%
+      }%
+      {\PackageError{battleship}%
+                    {invalid direction (H/V)}%
+                    {You can place your ship only\MessageBreak%
+                     horizontally (H) or vertically (V)!}%
+      }%
+    }%
+  \fi%
+}%
+%
+\newcommand*\battleshipsetup[1]%
+{%
+  \setkeys{battleship.sty}{#1}%
+}%
+%
+\newcommand{\classicgame}[1]%
+{%
+  \begin{center}%
+    \begin{battleship}[rows=10,columns=10,width=6.5cm,title=Me,sbindent=0.65cm,titleindent=0.55cm,titlewidth=5.7cm,sbwidth=5.7cm,scale=0.59,fontsize=normalsize]%
+      \shipV{J,I,H,G,F,E,D,C,B,A}%
+      \shipH{1,2,3,4,5,6,7,8,9,10}%
+      \shipbox{#1}%
+    \end{battleship}%
+    \hspace{1cm}%
+    \begin{battleship}[rows=10,columns=10,width=6.5cm,title=Enemy,sbindent=0.65cm,titleindent=0.55cm,titlewidth=5.7cm,sbwidth=5.7cm,scale=0.59,fontsize=normalsize]%
+      \shipV{J,I,H,G,F,E,D,C,B,A}%
+      \shipH{1,2,3,4,5,6,7,8,9,10}%
+    \end{battleship}%
+  \end{center}%
+  \par\vspace{1cm}%
+  \begin{center}%
+    \begin{battleship}[rows=10,columns=10,width=6.5cm,title=Me,sbindent=0.65cm,titleindent=0.55cm,titlewidth=5.7cm,sbwidth=5.7cm,scale=0.59,fontsize=normalsize]%
+      \shipV{J,I,H,G,F,E,D,C,B,A}%
+      \shipH{1,2,3,4,5,6,7,8,9,10}%
+      \shipbox{#1}%
+    \end{battleship}%
+    \hspace{1cm}%
+    \begin{battleship}[rows=10,columns=10,width=6.5cm,title=Enemy,sbindent=0.65cm,titleindent=0.55cm,titlewidth=5.7cm,sbwidth=5.7cm,scale=0.59,fontsize=normalsize]%
+      \shipV{J,I,H,G,F,E,D,C,B,A}%
+      \shipH{1,2,3,4,5,6,7,8,9,10}%
+    \end{battleship}%
+  \end{center}%
+}%
+%
+\newenvironment{battleship}[1][]%
+{%
+  \setkeys{battleship}{#1}%
+  \shipbox{}% clear shipbox
+  \setcounter{BS@rows}{\BS@rows}%
+  \setcounter{BS@columns}{\BS@columns}%
+  \stepcounter{BS@rows}%
+  \stepcounter{BS@columns}%
+  \begin{minipage}[t]{\BS@width}%
+    \ifthenelse{\equal{\BS@title}{}}%
+    {\par\enspace\par}% empty
+    {\enspace\par\noindent\hspace{\BS@titleindent}\parbox{\BS@titlewidth}{\strut\LP@titleformat\BS@title}\vspace{3mm}\par}%
+    \begin{tikzpicture}[scale=\BS@scale]%
+      \LP@drawbackground{1}{1}{\BS@columns}{\BS@rows}{\BS@bgcolor}%
+      \LP@drawgrid{1}{1}{\BS@columns}{\BS@rows}{1cm}%
+}%
+{%
+    \end{tikzpicture}%
+    \LP@drawcounter{\LP@counterstyle}%
+    \par\hbadness=10000\medskip\noindent\hspace{\BS@SB@indent}\begin{minipage}{\BS@SB@width}{\hbadness=10000\RaggedRight\BS@printshipbox{\BS@shipbox}}\end{minipage}%
+    \stepcounter{LP@puzzlecounter}%
+  \end{minipage}%
+}%
+%
+\endinput%

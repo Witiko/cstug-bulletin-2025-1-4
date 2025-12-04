@@ -1,0 +1,338 @@
+\documentclass{csbulletin}
+\selectlanguage{slovak}
+\usepackage[utf8]{inputenc}
+\usepackage[all]{nowidow}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=iso-numeric,
+  sortlocale=sk,
+  autolang=other,
+  bibencoding=UTF8,
+  currentlang=true,
+]{biblatex}
+\addbibresource{example.bib}
+\usepackage[
+  implicit=false,
+  hidelinks,
+]{hyperref}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{Scrabble}
+\usepackage{maze}
+\usepackage{chessboard, skak}
+\usepackage{battleship}
+
+\begin{document}
+
+\title{Vybrané \TeX ovské balíčky z rodiny games}
+\EnglishTitle{Chosen \TeX{} packages from the games family}
+\author{Branislav Hitzinger}
+\podpis{Branislav Hitzinger, brano4242@gmail.com}
+\maketitle[1ex]
+
+\selectlanguage{slovak}
+
+\begin{abstract}
+    Pre mnohých ľudí je \TeX{} nástroj na písanie dokumentov, prípadne prípravu čistého odborného textu. Široká ponuka balíčkov, ktoré boli k \TeX u počas jeho existencie vytvorené, umožňuje ale vysádzanie mnohých iných vecí než len čistého textu. V tomto referáte sa pozrieme na zopár takýchto ,,nevšedných`` balíčkov zameraných na vysádzanie diagramov a stavov rôznych hier.
+\end{abstract}
+\klucoveslova: Scrabble, Battleship, Maze, hracia plocha
+
+\section{Predstavenie rodiny games}
+Ako už samotný názov napovedá, rodina \emph{games} sa zameriava na vysádzanie rôznych spoločenských a stolných hier. Patrí sem viac ako 90 balíčkov ponúkajúcich podporu pre vykresľovanie hracích plôch, zaznamenávanie ťahov v hre, či vykresľovanie figúrok. Medzi základné balíčky patria napríklad \emph{chess} a \emph{chessboard} na sádzanie šachovníc alebo \emph{crossword} určený na tvorbu krížoviek~\cite{chessboarddoc,crossworddoc}.
+\begin{minipage}{0.4\linewidth}
+    \def\mylist{Ke1, qe2, kf3, Ra2, Pb6, pb7}
+    \setchessboard{smallboard, showmover=false, setpieces=\mylist}
+    \chessboard
+    \\
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+    \def\mylist{Ra1, Nb1, Bc1, Qd1, Ke1, Bf1, Ng1, Rh1, Pa2, Pb2, Pc2, Pd2, Pe2, Pf2, Pg2, Ph2, ra8, nb8, bc8, qd8, ke8, bf8, ng8, rh8, pa7, pb7, pc7, pd7, pe7, pf7, pg7, ph7}
+    \setchessboard{smallboard, showmover=false, setpieces=\mylist}
+    \chessboard
+\end{minipage}
+\\
+Okrem týchto všeobecne známych hier obsahuje rodina \emph{games} tiež podporu aj pre menej známe (alebo menej očakávané) hry, na ktoré sa pozrieme bližšie.
+
+\section{Scrabble}
+Scrabble \cite{rulesscrabble} je spoločenská hra zameraná na skladanie slov z obmedzeného počtu písmen. Hráč ukladá žetóny s písmenami na štvorcovú plochu rozdelenú do mriežky $15\times15$ políčok. Niektoré políčka sú špeciálne označené a prinášajú väčší bodový zisk. \TeX ovský balíček \emph{Scrabble} \cite{scrabbledoc} ponúka práve podporu vykresľovania takejto plochy a žetónov na ňu uložených.
+
+\subsection{Vykresľovanie plochy}
+\hfill\\
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \ScrabbleBoard[Scale=0.4]
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        Základný vzhľad plochy vytvorenej príkazom \verb=\ScrabbleBoard=. Prednastavený jazyk nápisov na políčkach je angličtina
+    \end{minipage}
+    \hfill
+\end{minipage}
+
+\bigskip
+
+Vzhľad plochy je nastaviteľný -- balíček podporuje 4 rôzne jazyky (angličtina, francúzština, nemčina a španielčina), v ktorých môžu byť vypísané nápisy na políčkach. Veľkosti samotnej plochy či nápisov na políčkach sú tiež nastaviteľné, pomocou parametrov \emph{Scale} a \emph{ScaleLabels}. Tiež sú možné kozmetické úpravy, ako odstránenie vonkajšieho tmavého okraja, či úplné odstránenie popisov políčok.
+Príklady vzhľadov plochy pre rôzne vstupné parametre:
+\vfill
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \ScrabbleBoard<DE>[Scale=0.3,Border=false]
+        \\
+        \verb|\ScrabbleBoard<DE>[Border=false]|
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \ScrabbleBoard[Scale=0.3,Labels=false]
+        \\
+        \verb|\ScrabbleBoard[Labels=false]|
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+
+\subsection{Ukladanie slov na plochu}
+Okrem vykresľovania samotnej plochy podporuje balíček \emph{Scrabble} aj kreslenie plochy s uloženými slovami. Hodnoty jednotlivých písmen sú určené zvoleným jazykom. V prípade zvolenia nemčiny (DE) alebo španielčiny (ES) sú k dispozícii okrem základných 26 typov písmen aj špeciálne písmená \emph{Ö, Ä, Ü, CH, Ñ, RR, LL}. Z implementačných dôvodov sú tieto písmená kódované číslicami (čiže napríklad na vysádzanie slova ZÄHNE využijeme príkaz \verb=\ScrabbleWord[Z1HNE]=). Žolík (prázdny žetón, ktorý nahrádza akékoľvek písmeno) je kódovaný hviezdičkou (*).
+
+Na vykresľovanie slov na plochu je použité prostredie \verb=EnvScrabble=, v ktorom sa slová ukladajú príkazom \verb=\ScrabblePutWord=. Tento príkaz má 2 povinné parametre a jeden nepovinný -- povinnými sú slovo, ktoré chceme uložiť, a súradnice, na ktorých začína (súradnice $(1,1)$ sú v ľavom dolnom rohu plochy). Nepovinným parametrom je orientácia slova -- ak ju neuvedieme, slovo sa píše do riadku, ak uvedieme parameter [V], slovo sa píše do stĺpca smerom dole (vertical). Samotné uloženie slova môže potom vyzerať takto:\\\\
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{EnvScrabble}[Scale=0.35]
+            \ScrabblePutWord{latex}{6, 8}
+            \ScrabblePutWord[V]{board}{7, 10}
+        \end{EnvScrabble}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \verb=\begin{EnvScrabble}=\\
+        \verb=\ScrabblePutWord{latex}{6,8}=\\
+        \verb=\ScrabblePutWord[V]{board}{7,10}=\\
+        \verb=\end{EnvScrabble}=
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+
+\subsection{Vykresľovanie slov v texte}
+Balíček \emph{Scrabble} ponúka okrem podpory kreslenia rôznych stavov hry Scrabble aj možnosť používať slová zložené zo Scrabble žetónov v regulárnom texte. Na toto slúži príkaz \verb=\ScrabbleWord=, ktorým vieme vložiť \ScrabbleWord{slovo} do textu. Tento príkaz tiež ponúka rôzne možnosti úpravy vzhľadu žetónov -- či už ide o farbu pozadia alebo písmen, veľkosť a font písma alebo možnosť nastaviť šírku medzery medzi žetónmi. Na ilustráciu:\\\\
+\setlength{\tabcolsep}{0pt}
+\begin{tabular}{ p{0.2\textwidth} p{0.6\textwidth} }
+    \ScrabbleWord{latex}\newline
+    \ScrabbleWord[Colback=teal!5,Colfonte=orange]{latex}\newline
+    \ScrabbleWord[Offset=1pt,Colback=orange!50]{latex}
+& 
+    \verb|\ScrabbleWord{latex}|
+    \verb|\ScrabbleWord[Colback=teal!5,Colfonte=orange]{latex}|
+    \verb|\ScrabbleWord[Offset=1pt,Colback=orange!50]{latex}|
+\end{tabular}
+
+\subsection{Súhrn}
+Balíček \emph{Scrabble} je intuitívny na použitie. Má jednoduchú základnú syntax, pričom výsledok je stále bohato upraviteľný podľa vlastných predstáv, ak to užívateľ potrebuje. Dá sa vhodne využiť na zaznamenávanie priebehu hry alebo na uloženie jej momentálneho stavu. Vďaka možnosti vykresľovania samostatných slov do textu s rôznymi úpravami vzhľadu je tiež veľmi jednoduché urobiť si prehľad o tom, kto dané slovo uložil a v akom poradí boli slová ukladané (z čoho je potenciálne možné zrekonštruovať celý priebeh hry aj po istom čase).
+
+Jednou nevýhodou môže byť obmedzená podpora jazykov -- pre hru v inom jazyku než jednom zo štyroch spomínaných by bolo prinajmenšom potrebné upraviť hodnoty jednotlivých písmen a vo väčšine prípadov aj pridať podporu pre prácu s~lokálnou diakritikou (napríklad slová ako \emph{štrk}, \emph{štvrť}, \emph{předem} alebo \emph{létá} sa nedajú s použitím balíčka \emph{Scrabble} napísať).
+
+Balíček taktiež nekontroluje počet použitých písmen voči dostupnému množstvu písmen (čiže je napríklad možné napísať slovo \ScrabbleWord{xetex}, aj keď by bol v~celej hre k dispozícii len jeden žetón X).
+
+\section{Battleship}
+Battleship (v slovenčine tiež niekedy známa pod názvom Námorná flotila alebo Námorná bitka) je logická hra, v ktorej je úlohou hráča umiestniť určené lode do mriežky tak, aby sa žiadne dve lode nedotýkali (ani diagonálne) a zároveň mali jednotlivé stĺpce a riadky požadovaný počet políčok zaplnených loďami. Balíček \emph{battleship} \cite{battleshipdoc} ponúka podporu vykreslenia mriežky a počiatočných umiestnení častí lodí, ako aj vykreslenie samotných lodí, ktoré majú byť umiestnené.
+\vfill
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{battleship}[scale=0.5, sbindent=0cm, shipcolor=orange]
+            \placesegment{4}{1}{\ShipR}
+            \shipH{4, 1, 2, 2, 2}
+            \shipV{3, 1, 4, 0, 3}
+            \shipbox{3, 3, 2, 2, 1}
+        \end{battleship}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{battleship}[scale=0.5, rows=10, columns=10, sbindent=1cm, shipcolor=blue]
+            \placesegment{1}{7}{\Ship}
+            \placesegment{3}{4}{\ShipL}
+            \placesegment{4}{6}{\Ship}
+            \placesegment{5}{2}{\ShipL}
+            \placesegment{8}{5}{\ShipC}
+            \placesegment{9}{8}{\ShipL}
+            \placeisland{2}{2}
+            \placeisland{4}{10}
+            \placeisland{10}{4}
+            \shipH{1,1,1,4,2,3,1,3,1,3}
+            \shipV{1,4,1,5,1,2,1,3,1,1}
+            \shipbox{4,3,3,2,2,2,1,1}
+        \end{battleship}
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+
+Základný prístup k vykresľovaniu je použitie prostredia \verb=battleship=, ku ktorému ponúka balíček množstvo spôsobov úprav (nastavenie počtu riadkov~/~stĺpcov, šírku políčka, farbu lodí a ďalšie). Ukladanie lodí na plochu sa potom delí na dva prístupy.
+\subsection{Ukladanie lodí po častiach}
+Tento spôsob slúži hlavne na vysádzanie zadania hry. Na uloženie do jedného políčka slúži príkaz \verb=placesegment=, ktorý má 3 parametre. Prvé dva sú súradnice (stĺpec a riadok, pozícia $(1, 1)$ je v ľavom dolnom rohu plochy), posledným je typ časti lode (\emph{ShipR, ShipL, ShipB, ShipT, ShipC, Ship} pre pravý, ľavý, dolný alebo horný koniec lode, stredovú časť (štvorec) alebo samostatný kruh pre loď dĺžky~1).
+\vfill
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{battleship}[scale=0.5, sbindent=0cm]
+            \placesegment{4}{1}{\ShipR}
+            \placesegment{1}{1}{\ShipB}
+            \placesegment{4}{3}{\ShipC}
+            \shipH{4, 1, 2, 2, 2}
+            \shipV{3, 1, 4, 0, 3}
+            \shipbox{3, 3, 2, 2, 1}
+        \end{battleship}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \verb=\begin{battleship}=\\
+        \verb=\placesegment{4}{1}{ShipR}=\\
+        \verb=\placesegment{1}{1}{ShipB}=\\
+        \verb=\placesegment{4}{3}{ShipC}=\\
+        \verb=\shipH{4,1,2,2,2}=\\
+        \verb=\shipV{3,1,4,0,3}=\\
+        \verb=\shipbox{3,3,2,2,1}=\\
+        \verb=\end{battleship}=
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+
+\subsection{Ukladanie celých lodí}
+Druhý spôsob vykresľovania lodí do mriežky je ukladanie celých lodí. Tento spôsob slúži na pohodlnejšie vysádzanie riešenia hry. Tu sa miesto príkazu \verb=placesegment= používa príkaz \verb=placeship=, ktorý má až štyri parametre. Prvým je orientácia lode (V = zvislá, vertikálna; H = vodorovná, horizontálna), druhý a tretí parameter určujú súradnicu začiatku lode (stĺpec a riadok) a posledný parameter určuje dĺžku lode počítanú v kladnom smere osi (čiže doprava alebo hore, podľa orientácie).
+\vfill
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{battleship}[scale=0.5]
+            \placeship{H}{3}{1}{2}
+            \placeship{V}{1}{1}{3}
+            \placeship{H}{3}{3}{3}
+            \placeship{H}{1}{5}{2}
+            \placeship{V}{5}{5}{1}
+            \shipH{4, 1, 2, 2, 2}
+            \shipV{3, 1, 4, 0, 3}
+        \end{battleship}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+            \verb=\begin{battleship}=\\
+            \verb=\placeship{H}{3}{1}{2}=\\
+            \verb=\placeship{V}{1}{1}{3}=\\
+            \verb=\placeship{H}{3}{3}{3}=\\
+            \verb=\placeship{H}{1}{5}{2}=\\
+            \verb=\placeship{V}{5}{5}{1}=\\
+            \verb=\shipH{4,1,2,2,2}=\\
+            \verb=\shipV{3,1,4,0,3}=\\
+            \verb=\end{battleship}=
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+\subsection{Značenie ,,vody``}
+Pri riešení tohoto typu logických hier je častou praktikou značiť si ,,určite prázdne`` políčka (na ktorých už podľa pravidiel nemôže byť nič umiestnené), prípadne sa takéto políčka objavujú aj v zadaní. Pre ich vyznačenie ponúka balíček \emph{battleship} príkaz \verb=placewater=, ktorý na políčko mriežky uloží modrú bodku. Balíček taktiež obsahuje príkaz \verb=placeisland=, ktorý miesto indikátoru vody uloží indikátor ostrova (ich funkcia je rovnaká, záleží len na preferencii užívateľa).\\\\
+\begin{minipage}{\linewidth}
+    \centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{battleship}[sbindent=2cm]
+            \placeship{V}{1}{2}{2}
+            \placeship{H}{3}{1}{3}
+            \placewater{1}{1}
+            \placewater{2}{1}
+            \placewater{4}{2}
+            \placewater{4}{3}
+            \placewater{4}{4}
+            \placewater{4}{5}
+            \shipH{3, 1, 2, 1, 2}
+            \shipV{3, 1, 1, 1, 3}
+            \shipbox{3, 2}
+        \end{battleship}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{battleship}[sbindent=2cm]
+            \placeship{V}{1}{2}{2}
+            \placeship{H}{3}{1}{3}
+            \placeisland{1}{1}
+            \placeisland{2}{1}
+            \placeisland{4}{2}
+            \placeisland{4}{3}
+            \placeisland{4}{4}
+            \placeisland{4}{5}
+            \shipH{3, 1, 2, 1, 2}
+            \shipV{3, 1, 1, 1, 3}
+            \shipbox{3, 2}
+        \end{battleship}
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+
+\subsection{Súhrn}
+Balíček \emph{battleship} ponúka intuitívny a ľahko ovládateľný spôsob vysádzania predstavenej logickej hry, či už ide o zadanie alebo riešenie. Vďaka možnosti pokladať časti lode do mriežky sa dá tiež veľmi jednoducho vysádzať postupné riešenie (po krokoch, prípadne s komentármi povedľa). Na druhej strane, možnosť položiť celú loď ponúka pohodlné vysádzanie finálneho riešenia, kedy si užívateľ nemusí dávať pozor na použitie správnych kociek na zostavenie celej lode.\\
+
+
+\section{Maze}
+Balíček \emph{maze} \cite{mazedoc} slúži na vykresľovanie náhodných bludísk. Bludiská sú vždy štvorcové a začiatok je vždy v ľavom dolnom rohu, zatiaľ čo koniec je v pravom hornom rohu. Vždy je tiež zabezpečené, že riešenie bludiska existuje.
+\subsection{Parametre bludiska}
+Príkaz na vykreslenie bludiska je \verb=maze=, ktorý má 2 parametre. Prvý parameter určuje hustotu\footnote{Odporúčanie na hustotu stien je okrem prehľadnosti bludiska tiež kvôli výpočetnej zložitosti. Čím vyššie číslo, tým dlhšie trvá bludisko vygenerovať a už bludiská s hustotou okolo 70 môžu trvať niekoľko minút.} stien vo vnútri bludiska a musí byť celé kladné číslo medzi 2 a~1000 (vrátane), pričom odporúčaná hodnota je od 20 do 50. Druhý parameter je voliteľný a určuje takzvaný \emph{seed} -- číslo, ktoré ovláda náhodnosť pri generovaní bludiska. Ak ostane tento parameter nevyplnený, bludisko bude pri každom vygenerovaní iné (ako \emph{seed} sa zoberie momentálny čas). Ináč sa bude bludisko generovať podľa určeného čísla, čiže bude vždy rovnaké.
+\vfill
+\begin{minipage}{\linewidth}
+\centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+            \maze{5}
+            \verb=\maze{5}=
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \centering
+            \maze{10}
+            \verb=\maze{10}=
+    \end{minipage}
+    \hfill
+    \hfill
+    % \hfill
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+\centering
+    \begin{minipage}{0.4\linewidth}
+        \centering
+            \maze{20}
+            \verb=\maze{20}=
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \centering
+            \maze{40}   
+            \verb=\maze{40}=
+    \end{minipage}
+    \hfill
+    \hfill
+\end{minipage}
+\vfill
+% \emph{poznámka: odporúčanie na hustotu stien je okrem prehľadnosti bludiska tiež kvôli výpočetnej zložitosti. Čím vyššie číslo, tým dlhšie trvá bludisko vygenerovať a už bludiská s hustotou okolo 70 môžu trvať niekoľko minút}
+
+\subsection{Súhrn}
+Balíček \emph{maze} ponúka jednoduchý spôsob tvorby bludísk. Z hľadiska kozmetických úprav neponúka zďaleka tak veľa možností ako dva predchádzajúce balíčky, ale svoju očakávanú funkcionalitu napĺňa.
+
+\printbibliography
+
+\begin{summary}
+For many people, \TeX{} is mainly a tool for writing scientific documents or creating complex texts. However, over the years of \TeX{}'s existence, various packages have been created that extend its functionality beyond typesetting text. In this article, we will take a look at a couple of these packages that focus on typesetting various diagrams and board states for different games.
+\keywords: Scrabble, Battleship, Maze, game board
+\end{summary}
+\end{document}
