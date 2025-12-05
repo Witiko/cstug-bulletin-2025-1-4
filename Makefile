@@ -86,7 +86,7 @@ bul-blok-margins-%mm.pdf: bul-margins-%mm.pdf
 	$(PDFTK) $< cat 2-r2 output $@
 
 PAGETOTAL  = $$(( 1 + 9 + 15 + 10 + 8 + 5 ))
-COLORPAGES = $$(( 0 + 2 +  4 +  6 + 5 + 4 ))
+COLORPAGES = $$(( 0 + 2 +  5 +  6 + 5 + 4 ))
 
 test:
 	(( $$(pdfinfo bul.pdf     | grep 'Pages:' | awk '{print $$2}') == $(PAGETOTAL) + 4))
