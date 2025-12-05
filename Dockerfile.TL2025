@@ -1,4 +1,4 @@
-FROM texlive/texlive:latest@sha256:ff38d031c19f8978f945ed99f4694df0aa1fb315b98738bef3a37fcaefc6a72d
+FROM texlive/texlive:latest
 RUN luaotfload-tool -u || true
 RUN cp "$(find /usr/local/texlive -name texlive-fontconfig.conf)" /etc/fonts/conf.d/09-texlive-fonts.conf || true
 RUN fc-cache -fsv
