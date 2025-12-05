@@ -40,8 +40,8 @@ jobs:
             bul-web.pdf
             bul-obalka-margins-*mm.pdf
             bul-blok-margins-*mm.pdf
-#     - name: Validate PDF documents
-#       run: make test
+      - name: Validate PDF documents
+        run: make test
       - name: Upload PDF documents as a release
         if: github.ref == 'refs/heads/main'
         uses: marvinpinto/action-automatic-releases@latest
