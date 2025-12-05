@@ -284,7 +284,7 @@ V predchádzajúcich verziách bolo nutné využívať neobmedzený shell escape
 
 Bezpečné odovzdávanie dát medzi \LaTeX om a Pythonom využíva štruktúrované súbory (Python literal format), spracovávané pomocou balíka latex2pydata. Tento formát umožňuje efektívnu komunikáciu a znižuje potrebu práce s dočasnými súbormi~\cite[sekcia~2.2]{mintedv3}.
 
-Inštalácia tretej verzie balíka sa výrazne zjednodušila. Balík obsahuje \LaTeX ové makrá, samotný spustiteľný súbor \texttt{latexminted} a všetky potrebné pythonové knižnice (vrátane Pygments). Používateľ tak nemusí inštalovať Python ani Pygments samostatne, ani upravovať systémovú premennú PATH. Inštalácia je teda rovnaká ako pri bežných \LaTeX ových balíkoch~\cite[sekcia~3]{mintedv3}.
+Inštalácia tretej verzie balíka sa výrazne zjednodušila. Balík obsahuje \LaTeX ové makrá, samotný spustiteľný súbor \texttt{latexminted} a všetky potrebné pythonové knižnice (vrátane Pygments). Používateľ tak nemusí inštalovať Python ani Pygments samostatne ani upravovať systémovú premennú \texttt{PATH}. Inštalácia je teda rovnaká ako pri bežných \LaTeX ových balíkoch~\cite[sekcia~3]{mintedv3}.
 
 Pred treťou verziou balíka, ak sa počas spúšťania \texttt{pygmentize} vyskytla chyba, zobrazili sa v \LaTeX ovom logu surové Python chyby. V novej verzii sa chybové hlásenia konvertujú z Pythonu do formátu zrozumiteľného pre \LaTeX, doplnia sa o číslo riadku a vypíšu sa ako štandardná \LaTeX ová chyba. Nový parameter \texttt{debug} umožňuje uchovávať dočasné súbory a zapisovať dodatočné informácie do logu na podrobnejšie ladenie~\cite[sekcia~4]{mintedv3}.
 

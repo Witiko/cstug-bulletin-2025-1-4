@@ -115,7 +115,7 @@ vkládaly tagy výstupních formátů.
 obrázků tvořených pomocí balíčků Ti$k$Z nebo PSTricks.
 
 Více informací o \TeX4ht a jeho základním použití naleznete v mém starším článku ve \emph{Zpravodaji}~\autocite{hoftich2018-tex4ht}. 
-V tomto článku se zaměřím na pokročilejší možnosti využití \TeX4ht a představení šablon pro publikaci dokumentů na webu s využitím GitHub Actions.
+V tomto článku se zaměřím na pokročilejší možnosti využití \TeX4ht a na představení šablon pro publikaci dokumentů na webu s využitím GitHub Actions.
 
 
 % \subsection{GitHub Actions}
@@ -132,8 +132,8 @@ kompilaci dokumentů pomocí \TeX4ht a jejich publikování na webu.
 
 Šablony pro \TeX4ht, které dále představím, jsou navrženy tak, aby fungovaly v rámci GitHub Actions. To
 znamená, že dokumenty mohou být automaticky zkompilovány a publikovány online
-pokaždé, když dojde ke změně v repozitáři. Tento přístup zajišťuje, že je
-webová verze dokumentu vždy aktuální.
+pokaždé, když dojde ke změně v repozitáři. Tento přístup zajišťuje, že
+webová verze dokumentu je vždy aktuální.
 
 
 
@@ -193,7 +193,7 @@ $ make4ht -lj index -a debug -d out handout.tex
 \end{verbatim}
 
 Tento příkaz vytvoří \acro{HTML} soubory v adresáři \texttt{out} pomocí volby \texttt{-d out}. 
-Volba \texttt{-lj index} je zkratkou pro volby \texttt{--lua} která vyvolá kompilaci Lua\TeX em a \texttt{--jobname index}, která  nastaví název výstupního \acro{HTML} souboru na \texttt{index.html}.
+Volba \texttt{-\kern0pt lj index} je zkratkou pro volby \texttt{--lua}, která vyvolá kompilaci Lua\TeX em, a \texttt{--jobname index}, která  nastaví název výstupního \acro{HTML} souboru na \texttt{index.html}.
 Akce \texttt{peaceiris\-/actions-gh-pages} poté zveřejní všechny soubory v adresáři 
 \texttt{out}, což je  specifikované nastavením vlastnosti \texttt{publish\_dir} ve workflow souboru.
 
@@ -219,7 +219,7 @@ prezentace a pomáhá předejít nefunkčním odkazům kvůli neshodě názvů s
 
 Po každém nahrání změn  můžete zkontrolovat záložku
 \texttt{Actions} ve svém GitHub repozitáři (vizte Obrázek~\ref{fig:github-actions}). 
-Zobrazuje stav \textit{workflow}, včetně
+Zobrazuje stav workflow včetně
 informace o úspěšném dokončení nebo případných chybách.
 
 \begin{figure}
@@ -255,7 +255,7 @@ Výstupní soubory vytvořené pomocí \texttt{make4ht} budou dostupné na adres
 
 Aby se \acro{HTML} verze dokumentu zobrazila správně, je třeba v nastavení GitHub repozitáře
 nastavit GitHub Pages tak, aby používala větev \texttt{gh-pages} jako zdroj pro publikování (vizte Obrázek~\ref{fig:github-pages}).
-Tuto větev používá akce \texttt{peaceiris/actions-gh-pages} pro publikování výstupních souborů.
+Tuto větev používá akce \texttt{peaceiris/actions\discretionary{}{-}{-}gh-pages} pro publikování výstupních souborů.
 Díky tomu, že se používá samostatná větev, zůstává hlavní větev \texttt{main} čistá a obsahuje pouze zdrojové \TeX ové soubory.
 
 
@@ -332,7 +332,7 @@ Pro nečíslované kapitoly, například rejstřík nebo seznam literatury, se v
 \end{table}
 
 
-Problém nastane, pokud změníme pořadí kapitol nebo přidáme kapitolu novou. Odkazy z externích webů na sekce jednotlivých kapitol mohou přestat fungovat, 
+Problém nastane, pokud změníme pořadí kapitol nebo přidáme kapitolu novou. Odkazy z externích webů na sekce jednotlivých kapitol mohou přestat fungovat, nebo budou odkazovat jinam, 
 protože se jejich obsah přesune do jiného souboru. Abychom tomu předešli, můžeme využít jiné způsoby pojmenování souborů.
 \TeX4ht nabízí dvě možnosti, jak pojmenovat soubory na základě názvů kapitol. První z nich je \texttt{sec-filename}, druhá
 \texttt{sec-slugname}. Jejich použití ukazuje Tabulka~\ref{tab:chapter-filenames}. Z hlediska použitelnosti na webu je lepší volba \texttt{sec-slugname}.
@@ -557,7 +557,7 @@ $ git commit -m "Clean start for a new blog"
 $ git push
 \end{verbatim}
 
-Nové příspěvky pak můžeme přidávat ručně, vytvořením podadresáře v adresáři \texttt{texposts}
+Nové příspěvky pak můžeme přidávat ručně vytvořením podadresáře v adresáři \texttt{texposts},
 nebo využít šablonu \texttt{cookiecutter-post} pomocí nástroje Cookiecutter \cite{cookiecutter}:
 
 \begin{verbatim}
@@ -565,11 +565,11 @@ $ cd texposts
 $ cookiecutter cookiecutter-post
 \end{verbatim}
 
-Nástroj se zeptá na název příspěvku, autora a další otázky, poté vytvoří nový adresář se základním \TeX ovým souborem.
+\textls[-11]{Nástroj se zeptá na název příspěvku, autora a další informace a poté vytvoří} nový adresář se základním \TeX ovým souborem.
 Pro změnu výchozích hodnot můžeme upravit soubor \texttt{cookiecutter.json} v adresáři \texttt{cookiecutter-post},
 \TeX ovou šablonu pak můžeme upravit v souboru \verb|{{cookiecutter.project_slug}}| ve stejném adresáři.
 
-Po dokonečení úprav nového příspěvku jej můžeme přidat do repozitáře, ovšem je třeba také vytvořit soubor, který obsahuje 
+Po dokončení úprav nového příspěvku jej můžeme přidat do repozitáře, ovšem je třeba také vytvořit soubor, který obsahuje 
 timestamp publikace příspěvku. Tento soubor musí mít název \meta{jméno dokumentu}\texttt{.published} a také je třeba přidat jej do repozitáře. 
 Na základě timestampu se vytváří neměnná \acro{URL} příspěvku, neboť Jekyll používá datum v názvu souboru pro generování \acro{URL}.
 Soubor můžeme vytvořit například pomocí následujícího příkazu:
@@ -584,7 +584,7 @@ Další možností je zkompilovat dokument pomocí \texttt{make4ht} s využitím
 $ make4ht -m publish |meta(jméno dokumentu).tex
 \end{Verbatim}
 
-Tento příkazh vytvoří soubor s timestampem publikace automaticky a navíc zkopíruje vygenerované \acro{HTML}
+Tento příkaz vytvoří soubor s timestampem publikace automaticky a navíc zkopíruje vygenerované \acro{HTML}
 nebo \acro{CSS} soubory do vstupního adresáře pro Jekyll. 
 
 Po přidání nového příspěvku a souboru \texttt{.published} do repozitáře se automaticky spustí GitHub Actions workflow, který aktualizuje blog.

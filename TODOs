@@ -1,7 +1,8 @@
 - [x] Report BibLaTeX 3.21+ not working with `\usepackage[implicit=false]{hyperref}`: https://github.com/plk/biblatex/issues/1457
-- [ ] Implement feedback from the proofreader and other editors.
+- [x] Implement feedback from the proofreader and other editors.
 - [ ] Check the numbers of colored pages in the CI.
 - [ ] Update `csbulobalka.sty` in <https://ctan.org/pkg/csbulletin/>.
+- [ ] Report the fix of `Scrabble.sty` in `hitzinger-games/`.
 - [ ] Add XML metadata and check them in the CI.
-- [ ] Do a digital release at https//bulletin.cstug.cz/ and DML-CZ.
+- [ ] Do a digital release at https//bulletin.cstug.cz/, DML-CZ, and CSTUG SVN.
 - [ ] Announce the release at tex-eds@tug.org, secretariat@gutenberg-asso.fr, secretary@ntg.nl, and adelheid@dante.de.

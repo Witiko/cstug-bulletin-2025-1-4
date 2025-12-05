@@ -47,7 +47,7 @@ Konkrétně se podíváme na webové rozhraní pro tvorbu \ConTeXt ových dokume
 \begin{abstract}
 Matematická a~informatická komunita má povědomí především o~formátech plain \TeX{} a \LaTeX . Existuje však spousta dalších a~zajímavých alternativních \TeX ových formátů. Jedním z~nich je například \ConTeXt , jehož vývoji v~posledních letech se budeme věnovat podrobněji v~tomto článku.
 
-Konkrétně se podíváme na webové rozhraní pro tvorbu \ConTeXt ových dokumentů, jazyk \acro{XML} pro sazbu matematiky a mechanismus ,,column sets`` pro pokročilou práci se sloupci. Dále zmíníme modul pro tvorbu statistických schémat, přemostění mezi značkovacím jazykem AsciiDoc a~\ConTeXt em a v~neposlední řadě zmíníme netradiční způsoby signalizace průběhu překladu dokumentu.
+Konkrétně se podíváme na webové rozhraní pro tvorbu \ConTeXt ových dokumentů, jazyk \acro{XML} pro sazbu matematiky a mechanismus column sets pro pokročilou práci se sloupci. Dále zmíníme modul pro tvorbu statistických schémat, přemostění mezi značkovacím jazykem AsciiDoc a~\ConTeXt em a v~neposlední řadě zmíníme netradiční způsoby signalizace průběhu překladu dokumentu.
 \oldlooseness=-1
 \end{abstract}
 
@@ -237,7 +237,7 @@ Druhým a preferovanějším typem značkování je obsahové značkování. To 
 
 \section{Práce se sloupci}
 % https://www.pragma-ade.nl/general/manuals/columnsets.pdf
-Column sets \cite{columnsets} je mechanismus \ConTeXt u, který umožňuje rozložení textových i~grafických prvků na stránce do sloupců. Konkrétně jde o~prostředí, které umožňuje volbou volitelných parametrů v hranatých závorkách nejen běžné vysazení do dvou nebo více sloupců, ale i pokročilé rozvržení jako například různý počet sloupců na lichých a sudých stránkách, sloupce s~různou šířkou na každé straně, oblasti přesahující více sloupců (tzv. \uv{spans}), barevné pozadí sloupců, automatickou nebo manuální změnu zalomení sloupce či stránky, číslování řádků apod.
+Column sets \cite{columnsets} je mechanismus \ConTeXt u, který umožňuje rozložení textových i~grafických prvků na stránce do sloupců. Konkrétně jde o~prostředí, které umožňuje volbou volitelných parametrů v hranatých závorkách nejen běžné vysazení do dvou nebo více sloupců, ale i pokročilé rozvržení, jako je například různý počet sloupců na lichých a sudých stránkách, sloupce s~různou šířkou na každé straně, oblasti přesahující více sloupců (tzv. \uv{spans}), barevné pozadí sloupců, automatickou nebo manuální změnu zalomení sloupce či stránky, číslování řádků apod.
 \oldlooseness=-1
 
 \medskip
@@ -386,7 +386,7 @@ ValentinE-typo \cite{valentine} je nástroj, jehož cílem je usnadnit vstup do 
 
 Proces přípravy dokumentů ve~ValentinE-typo zahrnuje napsání textu v~AsciiDocu v~libovolném textovém editoru na jakémkoliv zařízení, konverzi AsciiDocu do \ConTeXt u a~závěrečné přeložení \ConTeXt ového souboru do \acro{PDF}.
 
-V praxi stačí stáhnout nejnovější verzi \href{https://rubyinstaller.org}{Ruby+Devkit} a nainstalovat knihovnu AsciiDoctor příkazem \texttt{gem install asciidoctor}. Následně překonvertujeme \meta{soubor}\texttt{.adoc} v jazyce AsciiDoc příkazem \texttt{asciidoctor -r }\meta{knihovna}\texttt{.rb -b context }\meta{soubor}\texttt{.adoc}, přičemž \meta{knihovnu}\texttt{.rb} nahradíme cestou k výstupní knihovně\iffalse\footnote{Knihovny typo-library udávají, jak se mají prvky jazyka AsciiDoc (nadpisy, odstavce, seznamy atd.) převést do formátu \ConTeXt u (makra, prostředí, barvy atd.).}\fi\ jako např. \href{https://gitlab.com/valentine4743416/ValentinE-typo/-/blob/main/caelius/caelius.rb}{\texttt{caelius.rb}}. Výsledný \meta{soubor}\texttt{.tex} přeložíme \ConTeXt em.
+V praxi stačí stáhnout nejnovější verzi \href{https://rubyinstaller.org}{Ruby+Devkit} a nainstalovat knihovnu AsciiDoctor příkazem \texttt{gem install asciidoctor}. Následně překonvertujeme \meta{soubor}\texttt{.adoc} v jazyce AsciiDoc příkazem \texttt{asciidoctor -r }\meta{knihovna}\texttt{.rb -b context }\meta{soubor}\texttt{.adoc}, přičemž \meta{knihovnu}\texttt{.rb} nahradíme cestou k výstupní knihovně\iffalse\footnote{Knihovny typo-library udávají, jak se mají prvky jazyka AsciiDoc (nadpisy, odstavce, seznamy atd.) převést do formátu \ConTeXt u (makra, prostředí, barvy atd.).}\fi, např. \href{https://gitlab.com/valentine4743416/ValentinE-typo/-/blob/main/caelius/caelius.rb}{\texttt{caelius.rb}}. Výsledný \meta{soubor}\texttt{.tex} přeložíme \ConTeXt em.
 
 \medskip
 

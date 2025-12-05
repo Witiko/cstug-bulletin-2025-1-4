@@ -39,7 +39,7 @@
 \klucoveslova: Scrabble, Battleship, Maze, hracia plocha
 
 \section{Predstavenie rodiny games}
-Ako už samotný názov napovedá, rodina \emph{games} sa zameriava na vysádzanie rôznych spoločenských a stolných hier. Patrí sem viac ako 90 balíčkov ponúkajúcich podporu pre vykresľovanie hracích plôch, zaznamenávanie ťahov v hre, či vykresľovanie figúrok. Medzi základné balíčky patria napríklad \emph{chess} a \emph{chessboard} na sádzanie šachovníc alebo \emph{crossword} určený na tvorbu krížoviek~\cite{chessboarddoc,crossworddoc}.
+Ako už samotný názov napovedá, rodina \emph{games} sa zameriava na vysádzanie rôznych spoločenských a stolných hier. Patrí sem viac ako 90 balíčkov ponúkajúcich podporu pre vykresľovanie hracích plôch, zaznamenávanie ťahov v hre či vykresľovanie figúrok. Medzi základné balíčky patria napríklad \emph{chess} a \emph{chessboard} na sádzanie šachovníc alebo \emph{crossword} určený na tvorbu krížoviek~\cite{chessboarddoc,crossworddoc}.
 \begin{minipage}{0.4\linewidth}
     \def\mylist{Ke1, qe2, kf3, Ra2, Pb6, pb7}
     \setchessboard{smallboard, showmover=false, setpieces=\mylist}
@@ -75,7 +75,7 @@ Scrabble \cite{rulesscrabble} je spoločenská hra zameraná na skladanie slov z
 
 \bigskip
 
-Vzhľad plochy je nastaviteľný -- balíček podporuje 4 rôzne jazyky (angličtina, francúzština, nemčina a španielčina), v ktorých môžu byť vypísané nápisy na políčkach. Veľkosti samotnej plochy či nápisov na políčkach sú tiež nastaviteľné, pomocou parametrov \emph{Scale} a \emph{ScaleLabels}. Tiež sú možné kozmetické úpravy, ako odstránenie vonkajšieho tmavého okraja, či úplné odstránenie popisov políčok.
+Vzhľad plochy je nastaviteľný -- balíček podporuje 4 rôzne jazyky (angličtina, francúzština, nemčina a španielčina), v ktorých môžu byť vypísané nápisy na políčkach. Veľkosti samotnej plochy či nápisov na políčkach sú tiež nastaviteľné, a to pomocou parametrov \emph{Scale} a \emph{ScaleLabels}. Tiež sú možné kozmetické úpravy ako odstránenie vonkajšieho tmavého okraja či úplné odstránenie popisov políčok.
 Príklady vzhľadov plochy pre rôzne vstupné parametre:
 \vfill
 \begin{minipage}{\linewidth}
@@ -137,7 +137,7 @@ Balíček \emph{Scrabble} je intuitívny na použitie. Má jednoduchú základn�
 
 Jednou nevýhodou môže byť obmedzená podpora jazykov -- pre hru v inom jazyku než jednom zo štyroch spomínaných by bolo prinajmenšom potrebné upraviť hodnoty jednotlivých písmen a vo väčšine prípadov aj pridať podporu pre prácu s~lokálnou diakritikou (napríklad slová ako \emph{štrk}, \emph{štvrť}, \emph{předem} alebo \emph{létá} sa nedajú s použitím balíčka \emph{Scrabble} napísať).
 
-Balíček taktiež nekontroluje počet použitých písmen voči dostupnému množstvu písmen (čiže je napríklad možné napísať slovo \ScrabbleWord{xetex}, aj keď by bol v~celej hre k dispozícii len jeden žetón X).
+Balíček taktiež nekontroluje počet použitých písmen voči dostupnému množstvu písmen (čiže je napríklad možné napísať slovo \ScrabbleWord{xetex}, aj keď by bol v~celej hre k dispozícii len jeden žetón \ScrabbleWord{x}).
 
 \section{Battleship}
 Battleship (v slovenčine tiež niekedy známa pod názvom Námorná flotila alebo Námorná bitka) je logická hra, v ktorej je úlohou hráča umiestniť určené lode do mriežky tak, aby sa žiadne dve lode nedotýkali (ani diagonálne) a zároveň mali jednotlivé stĺpce a riadky požadovaný počet políčok zaplnených loďami. Balíček \emph{battleship} \cite{battleshipdoc} ponúka podporu vykreslenia mriežky a počiatočných umiestnení častí lodí, ako aj vykreslenie samotných lodí, ktoré majú byť umiestnené.
@@ -175,7 +175,7 @@ Battleship (v slovenčine tiež niekedy známa pod názvom Námorná flotila ale
     \hfill
 \end{minipage}
 
-Základný prístup k vykresľovaniu je použitie prostredia \verb=battleship=, ku ktorému ponúka balíček množstvo spôsobov úprav (nastavenie počtu riadkov~/~stĺpcov, šírku políčka, farbu lodí a ďalšie). Ukladanie lodí na plochu sa potom delí na dva prístupy.
+Základný prístup k vykresľovaniu je použitie prostredia \verb=battleship=, ku ktorému ponúka balíček množstvo spôsobov úprav (nastavenie počtu riadkov/stĺpcov, šírku políčka, farbu lodí a ďalšie). Ukladanie lodí na plochu sa potom delí na dva prístupy.
 \subsection{Ukladanie lodí po častiach}
 Tento spôsob slúži hlavne na vysádzanie zadania hry. Na uloženie do jedného políčka slúži príkaz \verb=placesegment=, ktorý má 3 parametre. Prvé dva sú súradnice (stĺpec a riadok, pozícia $(1, 1)$ je v ľavom dolnom rohu plochy), posledným je typ časti lode (\emph{ShipR, ShipL, ShipB, ShipT, ShipC, Ship} pre pravý, ľavý, dolný alebo horný koniec lode, stredovú časť (štvorec) alebo samostatný kruh pre loď dĺžky~1).
 \vfill
@@ -281,7 +281,7 @@ Pri riešení tohoto typu logických hier je častou praktikou značiť si ,,ur�
 \end{minipage}
 
 \subsection{Súhrn}
-Balíček \emph{battleship} ponúka intuitívny a ľahko ovládateľný spôsob vysádzania predstavenej logickej hry, či už ide o zadanie alebo riešenie. Vďaka možnosti pokladať časti lode do mriežky sa dá tiež veľmi jednoducho vysádzať postupné riešenie (po krokoch, prípadne s komentármi povedľa). Na druhej strane, možnosť položiť celú loď ponúka pohodlné vysádzanie finálneho riešenia, kedy si užívateľ nemusí dávať pozor na použitie správnych kociek na zostavenie celej lode.\\
+Balíček \emph{battleship} ponúka intuitívny a ľahko ovládateľný spôsob vysádzania predstavenej logickej hry, či už ide o zadanie, alebo riešenie. Vďaka možnosti pokladať časti lode do mriežky sa dá tiež veľmi jednoducho vysádzať postupné riešenie (po krokoch, prípadne s komentármi povedľa). Na druhej strane, možnosť položiť celú loď ponúka pohodlné vysádzanie finálneho riešenia, kedy si užívateľ nemusí dávať pozor na použitie správnych kociek na zostavenie celej lode.\\
 
 
 \section{Maze}
