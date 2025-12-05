@@ -1,0 +1,7 @@
+- [x] Report BibLaTeX 3.21+ not working with `\usepackage[implicit=false]{hyperref}`: https://github.com/plk/biblatex/issues/1457
+- [ ] Implement feedback from the proofreader and other editors.
+- [ ] Check the numbers of colored pages in the CI.
+- [ ] Update `csbulobalka.sty` in <https://ctan.org/pkg/csbulletin/>.
+- [ ] Add XML metadata and check them in the CI.
+- [ ] Do a digital release at https//bulletin.cstug.cz/ and DML-CZ.
+- [ ] Announce the release at tex-eds@tug.org, secretariat@gutenberg-asso.fr, secretary@ntg.nl, and adelheid@dante.de.
