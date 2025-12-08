@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citation_list xmlns:bltx="http://biblatex-biber.sourceforge.net/biblatexml">
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Zdeněk</given_name>
+        <surname>Svoboda</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Tomáš</given_name>
+        <surname>Hála</surname>
+      </person_name>
+    </contributors>
+    <cYear>2023</cYear>
+    <article_title>ConTeXt on Web</article_title>
+    <additionalcontent>
+      <url cited="2025-10-20">https://www.gust.org.pl/bachotex/2023-pl/presentations/thala-1-2023.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.5300/2021-1-4/3</doi>
+  </citation>
+  <citation>
+    <doi>10.5300/2024-1-4/39</doi>
+  </citation>
+  <citation>
+    <doi>10.5300/2006-2-4/1</doi>
+  </citation>
+  <citation>
+    <doi>10.5300/2008-4/200</doi>
+  </citation>
+  <citation>
+    <doi>10.5300/2008-4/209</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Hans</given_name>
+        <surname>Hagen</surname>
+      </person_name>
+    </contributors>
+    <cYear>2015</cYear>
+    <article_title>MathML</article_title>
+    <additionalcontent>
+      <url cited="2025-10-20">https://www.pragma-ade.nl/general/manuals/mmlprime.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Hans</given_name>
+        <surname>Hagen</surname>
+      </person_name>
+    </contributors>
+    <cYear>2016</cYear>
+    <article_title>Columns</article_title>
+    <additionalcontent>
+      <url cited="2025-10-20">https://www.pragma-ade.nl/general/manuals/columnsets.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <journal_title>ConTeXt Group Journal</journal_title>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Tamara</given_name>
+        <surname>Kocurová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Adriana</given_name>
+        <surname>Kašparová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Tomáš</given_name>
+        <surname>Hála</surname>
+      </person_name>
+    </contributors>
+    <first_page>56</first_page>
+    <cYear>2024</cYear>
+    <article_title>Drawing Statistical Charts</article_title>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Tamara</given_name>
+        <surname>Kocurová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Adriana</given_name>
+        <surname>Kašparová</surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>Statistical charts</article_title>
+    <additionalcontent>
+      <url cited="2025-11-21">https://codeberg.org/fiee/context-statistical-charts#statistical-charts</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Tamara</given_name>
+        <surname>Kocurová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Adriana</given_name>
+        <surname>Kašparová</surname>
+      </person_name>
+    </contributors>
+    <cYear>2020</cYear>
+    <article_title>Implementation of Module Drawing Charts for ConTeXt</article_title>
+    <additionalcontent>
+      <url cited="2025-11-21">https://www.thala.cz/manuals/statcharts/presentation-statcharts-2020-tamara-adriana.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Tamara</given_name>
+        <surname>Kocurová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Adriana</given_name>
+        <surname>Kašparová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Tomáš</given_name>
+        <surname>Hála</surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>Drawing statistical charts</article_title>
+    <additionalcontent>
+      <url cited="2025-11-28">https://www.thala.cz/statcharts/statistical-charts.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <journal_title>ConTeXt Group Journal</journal_title>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Tomáš</given_name>
+        <surname>Hála</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Tamara</given_name>
+        <surname>Kocurová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Adriana</given_name>
+        <surname>Kašparová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Hans</given_name>
+        <surname>Hagen</surname>
+      </person_name>
+    </contributors>
+    <first_page>52</first_page>
+    <cYear>2024</cYear>
+    <article_title>A Module for Rounding Values</article_title>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Götz</given_name>
+        <surname>Schnell</surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>ValentinE-typo</article_title>
+    <additionalcontent>
+      <url cited="2025-10-20">http://meeting.contextgarden.net/2024/talks/goetz/ValentinE-typo_GSchnell.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <journal_title>ConTeXt Group Journal</journal_title>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Hans</given_name>
+        <surname>Hagen</surname>
+      </person_name>
+    </contributors>
+    <first_page>41</first_page>
+    <cYear>2024</cYear>
+    <article_title>Flagging</article_title>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-3/tb144hagen-flagging</doi>
+  </citation>
+</citation_list>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citation_list xmlns:bltx="http://biblatex-biber.sourceforge.net/biblatexml">
+  <citation>
+    <doi>10.5300/2018-1-4/11</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>
+          GitHub
+          Docs
+        </surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Quickstart for GitHub Actions</article_title>
+    <additionalcontent>
+      <url>https://docs.github.com/en/actions/get-started/quickstart</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>Xu-Cheng</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>texlive-action: GitHub Action to run arbitrary commands in a TeXLive environment</article_title>
+    <additionalcontent>
+      <url>https://github.com/xu-cheng/texlive-action</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Shohei</given_name>
+        <surname>Ueda</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <surname>Peaceiris</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>actions-gh-pages: GitHub Actions for GitHub Pages (deploy static files)</article_title>
+    <additionalcontent>
+      <url>https://github.com/peaceiris/actions-gh-pages</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Michal</given_name>
+        <surname>Hoftich</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>tex4ht-booksite: Template for web versions of LaTeX books</article_title>
+    <additionalcontent>
+      <url>https://github.com/michal-h21/tex4ht-booksite</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Michal</given_name>
+        <surname>Hoftich</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Testblog: Blogging template for TeX4ht</article_title>
+    <additionalcontent>
+      <url>https://github.com/michal-h21/testblog</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <cYear>2025</cYear>
+    <article_title>Jekyll: Simple, blog-aware, static sites</article_title>
+    <additionalcontent>
+      <url>https://jekyllrb.com/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <cYear>2025</cYear>
+    <article_title>Cookiecutter: A command-line utility that creates projects from project templates</article_title>
+    <additionalcontent>
+      <url>https://github.com/cookiecutter/cookiecutter</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Michal</given_name>
+        <surname>Hoftich</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>tex4ht-presentation: Template for web versions of LaTeX Beamer presentations</article_title>
+    <additionalcontent>
+      <url>https://github.com/michal-h21/tex4ht-presentation</url>
+    </additionalcontent>
+  </citation>
+</citation_list>

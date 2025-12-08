@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article doi="44" language="sk" publication_type="full_text"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <titles>
+    <title>Sadzba zdrojového kódu v <LaTeX/>u pomocou balíka minted</title>
+  </titles>
+  <contributors>
+    <person_name contributor_role="author" sequence="first">
+      <given_name>Filip</given_name>
+      <surname>Blaho</surname>
+    </person_name>
+  </contributors>
+  <pages>
+    <first_page>44</first_page>
+    <last_page>48</last_page>
+  </pages>
+  <additional-content>
+    <abstract>
+      <para>
+        Tento článok poskytuje základný prehľad <LaTeX/>ového balíka minted, ktorý slúži na zvýrazňovanie syntaxe
+        zdrojového kódu v odborných dokumentoch. Balík využíva externú pythonovú knižnicu Pygments, čo umožňuje farebné
+        formátovanie kódu v rôznych programovacích jazykoch s vysokou presnosťou a prispôsobiteľnosťou. Článok detailne
+        popisuje základné použitie balíka, možnosti formátovania a metódy vkladania kódu. Záverečná časť analyzuje
+        aktuálny vývoj balíka so zameraním na verziu 3 a jej bezpečnostné vylepšenia.
+      </para>
+    </abstract>
+    <title>Typesetting Source Code in <LaTeX/> Using the Minted Package</title>
+    <abstract>
+      <para>
+        This article provides a comprehensive overview of the <LaTeX/> package minted, which is used for syntax
+        highlighting of the source code in scholarly documents. The package uses the Python library Pygments, enabling
+        color formatting of code in various programming languages with high accuracy and customization options. The
+        article details the basic usage of the package, formatting options, and methods for inserting code. The final
+        section analyzes the current development of the package, focusing on version 3 and its security enhancements.
+      </para>
+    </abstract>
+  </additional-content>
+  <xi:include href="citations.blaho-sadzba.xml"/>
+</article>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citation_list xmlns:bltx="http://biblatex-biber.sourceforge.net/biblatexml">
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Michal</given_name>
+        <surname>Hoftich</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Publikace LaTeXových dokumentů na web pomocí TeX4ht a GitHub Actions</article_title>
+    <additionalcontent>
+      <url cited="2025-12-04">https://www.kodymirus.cz/presentations/ossconf2025.html</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Petr</given_name>
+        <surname>Sojka</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Zuzana</given_name>
+        <surname>Nevěřilová</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Michal</given_name>
+        <surname>Růžička</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Dávid</given_name>
+        <surname>Lupták</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Vít</given_name>
+        <surname>Starý Novotný</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Tereza</given_name>
+        <surname>Vrabcová</surname>
+      </person_name>
+    </contributors>
+    <article_title>PB029: Zadání zápočtových dokumentů</article_title>
+    <additionalcontent>
+      <url cited="2025-12-04">https://sojka.pages.fi.muni.cz/PB029_web/finalwork/#tex-cstug-article</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>CTAN</surname>
+      </person_name>
+    </contributors>
+    <article_title>Games</article_title>
+    <additionalcontent>
+      <url cited="2025-12-04">https://ctan.org/topic/games</url>
+    </additionalcontent>
+  </citation>
+</citation_list>
