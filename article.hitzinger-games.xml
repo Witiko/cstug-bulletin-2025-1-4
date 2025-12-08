@@ -2,7 +2,7 @@
 <article doi="36" language="sk" publication_type="full_text"
          xmlns:xi="http://www.w3.org/2001/XInclude">
   <titles>
-    <title>Vybrané TeXovské balíčky z rodiny games</title>
+    <title>Vybrané <TeX/>ovské balíčky z rodiny games</title>
   </titles>
   <contributors>
     <person_name contributor_role="author" sequence="first">
@@ -17,17 +17,17 @@
   <additional-content>
     <abstract>
       <para>
-        Pre mnohých ľudí je TeX nástroj na písanie dokumentov, prípadne prípravu čistého odborného textu.
-        Široká ponuka balíčkov, ktoré boli k TeXu počas jeho existencie vytvorené, umožňuje ale vysádzanie mnohých iných vecí
+        Pre mnohých ľudí je <TeX/> nástroj na písanie dokumentov, prípadne prípravu čistého odborného textu.
+        Široká ponuka balíčkov, ktoré boli k <TeX/>u počas jeho existencie vytvorené, umožňuje ale vysádzanie mnohých iných vecí
         než len čistého textu. V tomto referáte sa pozrieme na zopár takýchto „nevšedných“ balíčkov zameraných na vysádzanie
         diagramov a stavov rôznych hier.
       </para>
     </abstract>
-    <title>Selected TeX Packages from the Games Collection</title>
+    <title>Selected <TeX/> Packages from the Games Collection</title>
     <abstract>
       <para>
-        For many people, TeX is mainly a tool for writing scientific documents or creating complex texts. However,
-        over the years of TeX's existence, various packages have been created that extend its functionality beyond
+        For many people, <TeX/> is mainly a tool for writing scientific documents or creating complex texts. However,
+        over the years of <TeX/>'s existence, various packages have been created that extend its functionality beyond
         typesetting text. In this article, we will take a look at a couple of these packages that focus on typesetting
         various diagrams and board states for different games.
       </para>
