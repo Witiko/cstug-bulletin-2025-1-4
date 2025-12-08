@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article doi="1" language="cs" publication_type="full_text"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <titles>
+    <title>Úvodní slovo</title>
+  </titles>
+  <contributors>
+    <person_name contributor_role="author" sequence="first">
+      <given_name>Vít</given_name>
+      <surname>Starý Novotný</surname>
+    </person_name>
+  </contributors>
+  <pages>
+    <first_page>1</first_page>
+    <last_page>1</last_page>
+  </pages>
+  <xi:include href="citations.starynovotny-editorial.xml"/>
+</article>
