@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article doi="36" language="cs" publication_type="full_text"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <titles>
+    <title>Vybrané TeXovské balíčky z rodiny games</title>
+  </titles>
+  <contributors>
+    <person_name contributor_role="author" sequence="first">
+      <given_name>Branislav</given_name>
+      <surname>Hitzinger</surname>
+    </person_name>
+  </contributors>
+  <pages>
+    <first_page>36</first_page>
+    <last_page>43</last_page>
+  </pages>
+  <additional-content>
+    <abstract>
+      <para>
+        Pre mnohých ľudí je TeX nástroj na písanie dokumentov, prípadne prípravu čistého odborného textu.
+        Široká ponuka balíčkov, ktoré boli k TeXu počas jeho existencie vytvorené, umožňuje ale vysádzanie mnohých iných vecí
+        než len čistého textu. V tomto referáte sa pozrieme na zopár takýchto „nevšedných“ balíčkov zameraných na vysádzanie
+        diagramov a stavov rôznych hier.
+      </para>
+    </abstract>
+    <title>Selected TeX Packages from the Games Collection</title>
+    <abstract>
+      <para>
+        The mathematical and computer-science community is familiar with plain TeX and LaTeX, but there are other interesting TeX
+        formats as well. One of them is ConTeXt, whose development we discuss in this article.
+      </para>
+      <para>
+        For many people, TeX is mainly a tool for writing scientific documents or creating complex texts.
+        However, over the years of TeX's existence, various packages have been created that extend its functionality beyond
+        typesetting text. In this article, we will take a look at a couple of these packages that focus on typesetting various
+        diagrams and board states for different games.
+      </para>
+    </abstract>
+  </additional-content>
+  <xi:include href="citations.hitzinger-games.xml"/>
+</article>

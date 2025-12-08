@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citation_list xmlns:bltx="http://biblatex-biber.sourceforge.net/biblatexml">
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Ulrike</given_name>
+        <surname>Fischer</surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>chessboard: A package to print chessboards</article_title>
+    <additionalcontent>
+      <url>https://ctan.org/pkg/chessboard</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Gerd</given_name>
+        <surname>Neugebauer</surname>
+      </person_name>
+    </contributors>
+    <cYear>2022</cYear>
+    <article_title>A LaTeX Package for Typesetting Crossword Puzzles and More</article_title>
+    <additionalcontent>
+      <url>https://ctan.org/pkg/crossword</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>Hasbro</surname>
+      </person_name>
+    </contributors>
+    <cYear>2003</cYear>
+    <article_title>Scrabble game rules</article_title>
+    <additionalcontent>
+      <url>https://www.hasbro.com/common/instruct/Scrabble_(2003).pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Cédric</given_name>
+        <surname>Pierquet</surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>Scrabble package documentation</article_title>
+    <additionalcontent>
+      <url>https://ctan.org/pkg/scrabble</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Josef</given_name>
+        <surname>Kleber</surname>
+      </person_name>
+    </contributors>
+    <cYear>2013</cYear>
+    <article_title>A style file for typesetting Battleship logic puzzles</article_title>
+    <additionalcontent>
+      <url>https://ctan.org/pkg/battleship</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Sicheng</given_name>
+        <surname>Du</surname>
+      </person_name>
+    </contributors>
+    <cYear>2023</cYear>
+    <article_title>The maze package</article_title>
+    <additionalcontent>
+      <url>https://ctan.org/pkg/maze</url>
+    </additionalcontent>
+  </citation>
+</citation_list>
