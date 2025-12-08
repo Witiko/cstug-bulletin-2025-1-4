@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article doi="26" language="cs" publication_type="full_text"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <titles>
+    <title>Co se děje ve světě ConTeXtu</title>
+  </titles>
+  <contributors>
+    <person_name contributor_role="author" sequence="first">
+      <given_name>Jana</given_name>
+      <surname>Slámová</surname>
+    </person_name>
+  </contributors>
+  <pages>
+    <first_page>26</first_page>
+    <last_page>35</last_page>
+  </pages>
+  <additional-content>
+    <abstract>
+      <para>
+        Matematická a informatická komunita má povědomí především o formátech plain TeX a LaTeX.
+        Existuje však spousta dalších a zajímavých alternativních TeXových formátů.
+        Jedním z nich je například ConTeXt, jehož vývoji v posledních letech se budeme věnovat podrobněji v tomto článku.
+      </para>
+      <para>
+        Konkrétně se podíváme na webové rozhraní pro tvorbu ConTeXt ových dokumentů, jazyk XML pro sazbu matematiky,
+        pokročilé práce se sloupci a modul pro zaokrouhlování s návazností na modul pro tvorbu statistických schémat.
+        Dále se budeme zabývat přemostěním mezi AsciiDocem a ConTeXtem, způsoby pro signalizování průběhu překladu dokumentu a v
+        neposlední řadě zmíníme technologie zpřístupňující dokumenty pro čtenáře se speciálními potřebami.
+      </para>
+    </abstract>
+    <title>What Is Happening in the World of ConTeXt</title>
+    <abstract>
+      <para>
+        The mathematical and computer-science community is familiar with plain TeX and LaTeX, but there are other interesting TeX
+        formats as well. One of them is ConTeXt, whose development we discuss in this article.
+      </para>
+      <para>
+        We will explore an online environment for creating ConTeXt documents, an XML language for mathematical typesetting, and
+        advanced column handling. We also introduce a module for statistical charts, a software bridge between AsciiDoc and ConTeXt,
+        and, finally, several ways to signal the progress of a document's compilation.
+      </para>
+    </abstract>
+  </additional-content>
+  <xi:include href="citations.slamova-context.xml"/>
+</article>
