@@ -22,6 +22,7 @@
   </editors>
   <xi:include href="article.starynovotny-editorial.xml"/>
   <xi:include href="article.starynovotny-zprava.xml"/>
+  <xi:include href="article.hoftich-tex4ht.xml"/>
   <links pdfurl="pdf/2025-1-4.pdf" pdfsize="2.8" unit="MiB">
     <prevlink url="bul2024-1-4.shtml">3-4/2023</prevlink>
   </links>

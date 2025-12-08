@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article doi="11" language="cs" publication_type="full_text"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <titles>
+    <title>Publikace LaTeXových dokumentů na webu pomocí TeX4ht a GitHub Actions</title>
+  </titles>
+  <contributors>
+    <person_name contributor_role="author" sequence="first">
+      <given_name>Michal</given_name>
+      <surname>Hoftich</surname>
+    </person_name>
+  </contributors>
+  <pages>
+    <first_page>11</first_page>
+    <last_page>25</last_page>
+  </pages>
+  <additional-content>
+    <abstract>
+      <para>
+        Článek představí sadu šablon pro nástroj TeX4ht, který slouží k převodu
+        LaTeXových dokumentů do HTML. Tyto šablony výrazně usnadňují publikaci různých
+        typů dokumentů na webu a přinášejí možnosti zpracování a automatizace.
+      </para>
+      <para>
+        První šablona je určena pro převod knižních dokumentů do webové podoby.
+        Umožňuje rozdělení textu do jednotlivých kapitol s automaticky generovanou
+        navigací a podporou responzivního designu, takže je výsledek dobře čitelný i na
+        mobilních zařízeních.
+      </para>
+      <para>
+        Druhá šablona slouží k tvorbě staticky generovaných blogů. Každý příspěvek je
+        psán jako samostatný LaTeXový dokument, který je pomocí TeX4ht převeden do
+        HTML. Následně jsou tyto články zpracovány statickým generátorem webů, jako je
+        například Jekyll, který se postará o sestavení celého blogu, vytvoření
+        rozcestníků, archivů a další navigace.
+      </para>
+      <para>
+        Třetí šablona je zaměřena na převod prezentací vytvořených v prostředí Beamer
+        do formy tzv. handoutů – přehledových materiálů pro posluchače. Výsledkem je
+        čitelný a dobře strukturovaný webový dokument vhodný pro sdílení po přednášce.
+      </para>
+      <para>
+        Všechny šablony jsou navrženy tak, aby fungovaly v rámci GitHub Actions. To
+        znamená, že dokumenty mohou být automaticky zkompilovány a publikovány online
+        pokaždé, když dojde ke změně v repozitáři. 
+      </para>
+    </abstract>
+    <title>Publishing LaTeX Documents on the Web Using TeX4ht and GitHub Actions</title>
+    <abstract>
+      <para>
+        The article presents a set of templates for the TeX4ht tool, which serves to convert
+        LaTeX documents into HTML. These templates greatly simplify the publication of various
+        types of documents on the web and bring modern capabilities for processing and automation.
+      </para>
+      <para>
+        The first template is intended for converting book-style documents into a web format.
+        It allows the text to be divided into individual chapters with automatically generated
+        navigation and support for responsive design, making the result easily readable even on
+        mobile devices.
+      </para>
+      <para>
+        The second template is used for creating statically generated blogs. Each post is written
+        as a separate LaTeX document, which is converted to HTML using TeX4ht. Subsequently,
+        these articles are processed by a static site generator such as Jekyll, which takes care
+        of assembling the entire blog, creating indexes, archives, and other navigation elements.
+      </para>
+      <para>
+        The third template focuses on converting presentations created in the Beamer environment
+        into so-called handouts -- overview materials for the audience. The result is a readable
+        and well-structured web document suitable for sharing after the lecture.
+      </para>
+      <para>
+        All templates are designed to work within GitHub Actions. This means that the documents
+        can be automatically compiled and published online whenever a change is made in the
+        repository. This approach ensures that the web version of the document is always up to date.
+      </para>
+    </abstract>
+  </additional-content>
+  <xi:include href="citations.hoftich-tex4ht.xml"/>
+</article>
