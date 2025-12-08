@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article doi="2" language="cs" publication_type="full_text"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <titles>
+    <title>Zpráva z konference TUG 2025</title>
+  </titles>
+  <contributors>
+    <person_name contributor_role="author" sequence="first">
+      <given_name>Vít</given_name>
+      <surname>Starý Novotný</surname>
+    </person_name>
+  </contributors>
+  <pages>
+    <first_page>2</first_page>
+    <last_page>10</last_page>
+  </pages>
+  <additional-content>
+    <abstract>
+      <para>
+        Od pátku 18. do neděle 20. července se v indické Kérale po 14 letech konala konference TUG 2025.
+        Autor přítomného textu se konference aktivně zúčastnil a ve zbytku článku referuje o průběhu konference.
+      </para>
+    </abstract>
+    <title>Report from the TUG 2025 Conference</title>
+    <abstract>
+      <para>
+        From Thursday, July 17, to Sunday, July 20, the TUG 2025 conference was held in Kerala, India, for the first time in 14 years.
+        The author of this article took an active part in the conference and reports on its proceedings.
+      </para>
+    </abstract>
+  </additional-content>
+  <xi:include href="citations.starynovotny-zprava.xml"/>
+</article>

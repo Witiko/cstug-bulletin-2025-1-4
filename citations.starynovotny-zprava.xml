@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citation_list xmlns:bltx="http://biblatex-biber.sourceforge.net/biblatexml">
+  <citation>
+    <contributors>
+      <person_name contributor_role="editor" sequence="first">
+        <given_name>Pavel</given_name>
+        <surname>Stříž</surname>
+      </person_name>
+    </contributors>
+    <cYear>2021</cYear>
+    <isbn media_type="print">978-80-87106-48-8</isbn>
+    <edition_number>2</edition_number>
+    <article_title>Kniha abstraktů dvoukonference TeXperience 2011 a Stakan 2011</article_title>
+    <additionalcontent>
+      <url>https://www.striz.cz/pdf/48kniha-abstraktu.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Pavel</given_name>
+        <surname>Stříž</surname>
+      </person_name>
+    </contributors>
+    <article_title>Učíme (se) ...</article_title>
+    <additionalcontent>
+      <url cited="2012-04-30">https://striz9.fame.utb.cz/texperience/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Petr</given_name>
+        <surname>Sojka</surname>
+      </person_name>
+    </contributors>
+    <cYear>2011</cYear>
+    <article_title>Why TeX math search is more relevant now than ever</article_title>
+    <additionalcontent>
+      <url cited="2025-10-17">http://zeeba.tv/why-tex-math-search-is-more-relevant-now-than-ever/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Karel</given_name>
+        <surname>Skoupý</surname>
+      </person_name>
+    </contributors>
+    <cYear>2011</cYear>
+    <article_title>Data structures in eTeX</article_title>
+    <additionalcontent>
+      <url cited="2025-10-17">http://zeeba.tv/data-structures-in-etex/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Karel</given_name>
+        <surname>Skoupý</surname>
+      </person_name>
+    </contributors>
+    <cYear>2011</cYear>
+    <article_title>Typesetting fancy multilingual phrase books with LuaTeX</article_title>
+    <additionalcontent>
+      <url cited="2025-10-17">http://zeeba.tv/typesetting-fancy-multilingual-phrase-books-with-luatex/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>
+          Vít
+          Starý
+        </given_name>
+        <surname>Novotný</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Static analysis of expl3 programs (10): Expltools goes to India</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://witiko.github.io/Expl3-Linter-10</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Rob</given_name>
+        <surname>Schrauwen</surname>
+      </person_name>
+    </contributors>
+    <article_title>True but Irrelevant</article_title>
+    <additionalcontent>
+      <url>https://www.tug.org/tug2025/av/d1-t01-schrauwen-content/d1-t01-schrauwen-content-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>YouTube</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>TUG 2025: Day 1 Friday Stream, part 2</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://youtu.be/CRYYps0usiA</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Erik</given_name>
+        <surname>Braun</surname>
+      </person_name>
+    </contributors>
+    <article_title>The state of CTAN: 2025</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t02-braun-ctan/d1-t02-braun-ctan-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Vrajarāja</given_name>
+        <surname>Govinda</surname>
+      </person_name>
+    </contributors>
+    <article_title>How we use XeLaTeX at our Ashram</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t03-govinda-ashram/d1-t03-govinda-ashram-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143govinda-ashram</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>YouTube</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>TUG 2025: Day 1 Friday Stream, part 1</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://youtu.be/Eu_qM53tInw</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Jean-Michel</given_name>
+        <surname>Hufflen</surname>
+      </person_name>
+    </contributors>
+    <article_title>What to Teach about (La)TeX</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t04-hufflen-teach/d1-t04-hufflen-teach-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143hufflen-teach</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Frank</given_name>
+        <surname>Mittelbach</surname>
+      </person_name>
+    </contributors>
+    <article_title>How accessible are typical PDFs and how accessible could they be?</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t05-mittelbach-how-accessible/d1-t05-mittelbach-how-accessible-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Ulrike</given_name>
+        <surname>Fischer</surname>
+      </person_name>
+    </contributors>
+    <article_title>Status of the LaTeX Tagged PDF Project, 2025: Tagging of math</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t06-fischer-taggingmath25/d1-t06-fischer-taggingmath25-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143fischer-tagging25</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Ross</given_name>
+        <surname>Moore</surname>
+      </person_name>
+    </contributors>
+    <article_title>Tagging of highly-structured information; case study: Bibliographies, using biblatex</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t07-moore-tagging-biblatex/d1-t07-moore-tagging-biblatex-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143moore-tagging-biblatex</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Radhakrishnan</given_name>
+        <surname>CV</surname>
+      </person_name>
+    </contributors>
+    <article_title>Digital Archiving of Malayalam Content: Problems and Prospects</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t08-radhakrishnan-malayalam-archiving/d1-t08-radhakrishnan-malayalam-archiving-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143radhakrishnan-malayalam-archiving</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Doris</given_name>
+        <surname>Behrendt</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Bernd</given_name>
+        <surname>Busse</surname>
+      </person_name>
+    </contributors>
+    <article_title>LaTeX in the CrypTool Project</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t09-behrendt-cryptool/d1-t09-behrendt-cryptool-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143behrendt-cryptool</doi>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143shaji-tug25</doi>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143rajeesh-tug25</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Rajeesh</given_name>
+        <surname>KV</surname>
+      </person_name>
+    </contributors>
+    <article_title>TUG2025: A retrospective</article_title>
+    <additionalcontent>
+      <url cited="2025-09-20">https://rajeeshknambiar.wordpress.com/2025/08/05/tug2025-a-retrospective/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Rajeesh</given_name>
+        <surname>KV</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Radhakrishnan</given_name>
+        <surname>CV</surname>
+      </person_name>
+    </contributors>
+    <article_title>OpenType font with built-in TeX syntax highlighting</article_title>
+    <additionalcontent>
+      <url cited="2025-09-20">https://tug.org/tug2025/av/d2-t10-rajeesh-colorfont-syntax/d2-t10-rajeesh-colorfont-syntax-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143rajeesh-colorfont-syntax</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>YouTube</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>TUG 2025: Day 2 Saturday Stream</article_title>
+    <additionalcontent>
+      <url cited="2025-09-20">https://youtu.be/ImCoKj_kLw4</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Vít</given_name>
+        <surname>
+          Starý
+          Novotný
+        </surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Expltools: Development tools for expl3 programmers</article_title>
+    <additionalcontent>
+      <url cited="2025-09-26">https://www.tug.org/tug2025/av/d2-t11-starynovotny-expltools/d2-t11-starynovotny-expltools-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Vít</given_name>
+        <surname>
+          Starý
+          Novotný
+        </surname>
+      </person_name>
+    </contributors>
+    <article_title>Expltools: Development tools for expl3 programmers</article_title>
+    <additionalcontent>
+      <url cited="2025-09-26">https://github.com/witiko/expltools-tug25-paper</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Vít</given_name>
+        <surname>
+          Starý
+          Novotný
+        </surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>Valná hromada CSTUG 2024</article_title>
+    <additionalcontent>
+      <url cited="2025-09-26">https://www.cstug.cz/informace/zpravy/2024-11-18-valna-hromada-2024/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Vít</given_name>
+        <surname>
+          Starý
+          Novotný
+        </surname>
+      </person_name>
+    </contributors>
+    <cYear>2024</cYear>
+    <article_title>Frank Mittelbach v Brně</article_title>
+    <additionalcontent>
+      <url cited="2025-09-26">https://www.cstug.cz/informace/zpravy/2024-12-05-frank-mittelbach-v-brne/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Saravanan</given_name>
+        <surname>Murugaiah</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Mukesh</given_name>
+        <surname>Subramaniam</surname>
+      </person_name>
+    </contributors>
+    <article_title>Typographic branches from a (LaTeX2)Word root</article_title>
+    <additionalcontent>
+      <url cited="2025-09-26">https://tug.org/tug2025/av/d2-t12-saravanan-wordconv/d2-t12-saravanan-wordconv-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Salil</given_name>
+        <surname>B.</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <surname>
+          निरंजन
+        </surname>
+      </person_name>
+    </contributors>
+    <article_title>Symbols to improve the processes of construction and comprehension of tables</article_title>
+    <additionalcontent>
+      <url cited="2025-09-26">https://tug.org/tug2025/av/d2-t13-salil-tables/d2-t13-salil-tables-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <article_title>TUG 2025: Program</article_title>
+    <additionalcontent>
+      <url cited="2025-11-27">https://tug.org/tug2025/program.html</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Venkatesan</given_name>
+        <surname>SK</surname>
+      </person_name>
+    </contributors>
+    <article_title>Alphabetic script and logo-syllabic script: A contradiction between form and content</article_title>
+    <additionalcontent>
+      <url cited="2025-10-02">https://www.tug.org/tug2025/av/d2-t14-venkatesan-writing/d2-t14-venkatesan-writing-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143venkatesan-writing</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>
+          The
+          Unicode
+          Consortium
+        </surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <isbn media_type="print">978-1-936213-35-1</isbn>
+    <article_title>The Unicode Standard: Version 17.0 – Core Specification</article_title>
+    <additionalcontent>
+      <url cited="2025-10-02">https://www.unicode.org/versions/Unicode17.0.0/core-spec/</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>
+          Vaishnavi
+          Murthy
+        </given_name>
+        <surname>Yerkadithaya</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Encoding Tulu-Tigalari: A journey to Unicode standardization</article_title>
+    <additionalcontent>
+      <url cited="2025-10-02">https://www.tug.org/tug2025/av/d2-t15-murthy-tulu-tigalari/d2-t15-murthy-tulu-tigalari-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>
+          निरंजन
+        </surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Linguistics with LinguisTiX</article_title>
+    <additionalcontent>
+      <url cited="2025-10-02">https://www.tug.org/tug2025/av/d2-t16-niranjan-linguistix/d2-t16-niranjan-linguistix-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143niranjan-linguistix</doi>
+  </citation>
+  <citation>
+    <article_title>TeX Development Fund: Grants Awarded</article_title>
+    <additionalcontent>
+      <url cited="2025-12-04">https://www.tug.org/tc/devfund/grants.html</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Norman</given_name>
+        <surname>Gray</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Beastie: A new (and the old) language for BibTeX databases</article_title>
+    <additionalcontent>
+      <url cited="2025-10-07">https://tug.org/tug2025/av/d2-t17-gray-beastie/d2-t17-gray-beastie-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143gray-beastie</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Rishikesan</given_name>
+        <surname>
+          T
+          Nair
+        </surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Rajagopal</given_name>
+        <surname>CV</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Apu</given_name>
+        <surname>V</surname>
+      </person_name>
+    </contributors>
+    <article_title>Efficiently managing XML documents with TeX and tagged PDF enabled</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://tug.org/tug2025/av/d3-t19-rishi-xmlfirst/d3-t19-rishi-xmlfirst-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <surname>YouTube</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>TUG 2025: Day 3 Sunday Stream</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://youtu.be/gR3F3GmK0lo</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Erik</given_name>
+        <surname>Nijenhuis</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Xerdi's Documentation Project (XDP) Intertwined Documents</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://tug.org/tug2025/av/d3-t20-nijenhuis-doceng/d3-t20-nijenhuis-doceng-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143nijenhuis-doceng</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Doris</given_name>
+        <surname>Behrendt</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Bernd</given_name>
+        <surname>Busse</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>The LaTeX Village at the Chaos Communication Camp: How it started, how it continues</article_title>
+    <additionalcontent>
+      <url cited="2025-09-19">https://tug.org/tug2025/av/d3-t21-behrendt-ccc/d3-t21-behrendt-ccc-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Veeraraghavan</given_name>
+        <surname>Balasubramanian</surname>
+      </person_name>
+    </contributors>
+    <cYear>2025</cYear>
+    <article_title>Challenges faced by the publishing industry</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://tug.org/tug2025/av/d3-t22-veeraraghavan-challenges/d3-t22-veeraraghavan-challenges-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143balasubramanian-challenges</doi>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143tug25-agm</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Boris</given_name>
+        <surname>Veytsman</surname>
+      </person_name>
+    </contributors>
+    <article_title>A system for editorial comments</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://tug.org/tug2025/av/d3-t23-veytsman-comments/d3-t23-veytsman-comments-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143veytsman-comments</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Rahul</given_name>
+        <surname>
+          Krishnan
+          S
+        </surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Apu</given_name>
+        <surname>V</surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Rishikesan</given_name>
+        <surname>
+          T
+          Nair
+        </surname>
+      </person_name>
+      <person_name contributor_role="author" sequence="additional">
+        <given_name>Rajagopal</given_name>
+        <surname>CV</surname>
+      </person_name>
+    </contributors>
+    <article_title>Implementing tagged and accessible PDF in Neptune</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://tug.org/tug2025/av/d3-t24-rahul-tagged-neptune/d3-t24-rahul-tagged-neptune-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143rahul-neptune-tagged</doi>
+  </citation>
+  <citation>
+    <doi>10.5300/2021-1-4/3</doi>
+  </citation>
+  <citation>
+    <contributors>
+      <person_name contributor_role="author" sequence="first">
+        <given_name>Mathias</given_name>
+        <surname>Jakobsen</surname>
+      </person_name>
+    </contributors>
+    <article_title>Best-effort LaTeX parsing for interactive editing</article_title>
+    <additionalcontent>
+      <url cited="2025-10-08">https://tug.org/tug2025/av/d3-t25-jakobsen-parsing-editing/d3-t25-jakobsen-parsing-editing-slides.pdf</url>
+    </additionalcontent>
+  </citation>
+  <citation>
+    <doi>10.47397/tb/46-2/tb143jakobsen-parsing-editing</doi>
+  </citation>
+</citation_list>

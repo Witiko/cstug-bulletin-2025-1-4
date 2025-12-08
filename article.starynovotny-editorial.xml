@@ -14,5 +14,18 @@
     <first_page>1</first_page>
     <last_page>1</last_page>
   </pages>
+  <additional-content>
+    <abstract>
+      <para>
+        Úvodní slovo shrnuje obsah čísla.
+      </para>
+    </abstract>
+    <title>Editorial</title>
+    <abstract>
+      <para>
+        The editorial presents an overview of the articles from this issue.
+      </para>
+    </abstract>
+  </additional-content>
   <xi:include href="citations.starynovotny-editorial.xml"/>
 </article>
