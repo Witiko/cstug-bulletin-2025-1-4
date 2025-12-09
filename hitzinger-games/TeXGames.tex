@@ -139,6 +139,7 @@ Jednou nevýhodou môže byť obmedzená podpora jazykov -- pre hru v inom jazyk
 Balíček taktiež nekontroluje počet použitých písmen voči dostupnému množstvu písmen (čiže je napríklad možné napísať slovo \ScrabbleWord{xetex}, aj keď by bol v~celej hre k dispozícii len jeden žetón \ScrabbleWord{x}).
 
 \section{Battleship}
+\pgfmathsetseed{23654}  % Consistently produce the same random shapes for islands.
 Battleship (v slovenčine tiež niekedy známa pod názvom Námorná flotila alebo Námorná bitka) je logická hra, v ktorej je úlohou hráča umiestniť určené lode do mriežky tak, aby sa žiadne dve lode nedotýkali (ani diagonálne) a zároveň mali jednotlivé stĺpce a riadky požadovaný počet políčok zaplnených loďami. Balíček battleship \cite{battleshipdoc} ponúka podporu vykreslenia mriežky a počiatočných umiestnení častí lodí, ako aj vykreslenie samotných lodí, ktoré majú byť umiestnené.
 \vfill
 \begin{minipage}{\linewidth}
@@ -294,13 +295,13 @@ Príkaz na vykreslenie bludiska je \verb=maze=, ktorý má 2 parametre. Prvý pa
 \centering
     \begin{minipage}{0.4\linewidth}
         \centering
-            \maze{5}
+            \maze{5}[42]
             \verb=\maze{5}=
     \end{minipage}
     \hfill
     \begin{minipage}{0.4\linewidth}
         \centering
-            \maze{10}
+            \maze{10}[42]
             \verb=\maze{10}=
     \end{minipage}
     \hfill
@@ -312,13 +313,13 @@ Príkaz na vykreslenie bludiska je \verb=maze=, ktorý má 2 parametre. Prvý pa
 \centering
     \begin{minipage}{0.4\linewidth}
         \centering
-            \maze{20}
+            \maze{20}[42]
             \verb=\maze{20}=
     \end{minipage}
     \hfill
     \begin{minipage}{0.4\linewidth}
         \centering
-            \maze{40}   
+            \maze{40}[42]
             \verb=\maze{40}=
     \end{minipage}
     \hfill
