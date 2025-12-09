@@ -48,7 +48,7 @@
       </person_name>
     </contributors>
     <cYear>2011</cYear>
-    <article_title>Data structures in eTeX</article_title>
+    <article_title>Data structures in ε-TeX</article_title>
     <additionalcontent>
       <url cited="2025-10-17">http://zeeba.tv/data-structures-in-etex/</url>
     </additionalcontent>
@@ -91,7 +91,7 @@
     </contributors>
     <article_title>True but Irrelevant</article_title>
     <additionalcontent>
-      <url>https://www.tug.org/tug2025/av/d1-t01-schrauwen-content/d1-t01-schrauwen-content-slides.pdf</url>
+      <url cited="2025-09-19">https://www.tug.org/tug2025/av/d1-t01-schrauwen-content/d1-t01-schrauwen-content-slides.pdf</url>
     </additionalcontent>
   </citation>
   <citation>
@@ -371,9 +371,7 @@
         <surname>B.</surname>
       </person_name>
       <person_name contributor_role="author" sequence="additional">
-        <surname>
-          निरंजन
-        </surname>
+        <surname>निरंजन</surname>
       </person_name>
     </contributors>
     <article_title>Symbols to improve the processes of construction and comprehension of tables</article_title>
@@ -438,9 +436,7 @@
   <citation>
     <contributors>
       <person_name contributor_role="author" sequence="first">
-        <surname>
-          निरंजन
-        </surname>
+        <surname>निरंजन</surname>
       </person_name>
     </contributors>
     <cYear>2025</cYear>

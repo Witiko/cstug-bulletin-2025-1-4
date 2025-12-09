@@ -10,7 +10,7 @@
     <cYear>2024</cYear>
     <article_title>chessboard: A package to print chessboards</article_title>
     <additionalcontent>
-      <url>https://ctan.org/pkg/chessboard</url>
+      <url cited="2025-05-05">https://ctan.org/pkg/chessboard</url>
     </additionalcontent>
   </citation>
   <citation>
@@ -23,7 +23,7 @@
     <cYear>2022</cYear>
     <article_title>A LaTeX Package for Typesetting Crossword Puzzles and More</article_title>
     <additionalcontent>
-      <url>https://ctan.org/pkg/crossword</url>
+      <url cited="2025-01-24">https://ctan.org/pkg/crossword</url>
     </additionalcontent>
   </citation>
   <citation>
@@ -35,7 +35,7 @@
     <cYear>2003</cYear>
     <article_title>Scrabble game rules</article_title>
     <additionalcontent>
-      <url>https://www.hasbro.com/common/instruct/Scrabble_(2003).pdf</url>
+      <url cited="2025-05-05">https://www.hasbro.com/common/instruct/Scrabble_(2003).pdf</url>
     </additionalcontent>
   </citation>
   <citation>
@@ -48,7 +48,7 @@
     <cYear>2024</cYear>
     <article_title>Scrabble package documentation</article_title>
     <additionalcontent>
-      <url>https://ctan.org/pkg/scrabble</url>
+      <url cited="2025-05-05">https://ctan.org/pkg/scrabble</url>
     </additionalcontent>
   </citation>
   <citation>
@@ -61,7 +61,7 @@
     <cYear>2013</cYear>
     <article_title>A style file for typesetting Battleship logic puzzles</article_title>
     <additionalcontent>
-      <url>https://ctan.org/pkg/battleship</url>
+      <url cited="2025-05-05">https://ctan.org/pkg/battleship</url>
     </additionalcontent>
   </citation>
   <citation>
@@ -74,7 +74,7 @@
     <cYear>2023</cYear>
     <article_title>The maze package</article_title>
     <additionalcontent>
-      <url>https://ctan.org/pkg/maze</url>
+      <url cited="2025-05-05">https://ctan.org/pkg/maze</url>
     </additionalcontent>
   </citation>
 </citation_list>
