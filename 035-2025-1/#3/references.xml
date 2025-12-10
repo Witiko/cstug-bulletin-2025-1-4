@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<references>
+  <reference id="1">
+    <prefix>[1]</prefix>
+    <title>Publikování z LaTeXu na web pomocí TeX4ht</title>
+    <authors>
+      <author>Hoftich, Michal</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2018-1-4/11</URL>
+    <number>1</number>
+    <pages>11-21</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2018</year>
+    <suffix>Zpravodaj CSTUG. 2018, 28(1), 11–21.</suffix>
+  </reference>
+  <reference id="2">
+    <prefix>[2]</prefix>
+    <title>Quickstart for GitHub Actions</title>
+    <authors>
+      <author>GitHub</author>
+    </authors>
+    <URL>https://docs.github.com/en/actions/get-started/quickstart</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://docs.github.com/en/actions/get-started/quickstart.</suffix>
+  </reference>
+  <reference id="3">
+    <prefix>[3]</prefix>
+    <title>texlive-action: GitHub Action to run arbitrary commands in a TeXLive environment</title>
+    <authors>
+      <author>Xu-Cheng</author>
+    </authors>
+    <URL>https://github.com/xu-cheng/texlive-action</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://github.com/xu-cheng/texlive-action.</suffix>
+  </reference>
+  <reference id="4">
+    <prefix>[4]</prefix>
+    <title>actions-gh-pages: GitHub Actions for GitHub Pages (deploy static files)</title>
+    <authors>
+      <author>Ueda, Shohei</author>
+      <author>Peaceiris</author>
+    </authors>
+    <URL>https://github.com/peaceiris/actions-gh-pages</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://github.com/peaceiris/actions-gh-pages.</suffix>
+  </reference>
+  <reference id="5">
+    <prefix>[5]</prefix>
+    <title>tex4ht-booksite: Template for web versions of LaTeX books</title>
+    <authors>
+      <author>Hoftich, Michal</author>
+    </authors>
+    <URL>https://github.com/michal-h21/tex4ht-booksite</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://github.com/michal-h21/tex4ht-booksite.</suffix>
+  </reference>
+  <reference id="6">
+    <prefix>[6]</prefix>
+    <title>Testblog: Blogging template for TeX4ht</title>
+    <authors>
+      <author>Hoftich, Michal</author>
+    </authors>
+    <URL>https://github.com/michal-h21/testblog</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://github.com/michal-h21/testblog.</suffix>
+  </reference>
+  <reference id="7">
+    <prefix>[7]</prefix>
+    <title>Jekyll: Simple, blog-aware, static sites</title>
+    <authors>
+      <author>The Jekyll Team</author>
+    </authors>
+    <URL>https://jekyllrb.com/</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://jekyllrb.com/.</suffix>
+  </reference>
+  <reference id="8">
+    <prefix>[8]</prefix>
+    <title>Cookiecutter: A command-line utility that creates projects from project templates</title>
+    <authors>
+      <author>cookiecutter</author>
+    </authors>
+    <URL>https://github.com/cookiecutter/cookiecutter</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://github.com/cookiecutter/cookiecutter.</suffix>
+  </reference>
+  <reference id="9">
+    <prefix>[9]</prefix>
+    <title>tex4ht-presentation: Template for web versions of LaTeX Beamer presentations</title>
+    <authors>
+      <author>Hoftich, Michal</author>
+    </authors>
+    <URL>https://github.com/michal-h21/tex4ht-presentation</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025. [cit. 2025-11-21]. Dostupné z: https://github.com/michal-h21/tex4ht-presentation.</suffix>
+  </reference>
+</references>

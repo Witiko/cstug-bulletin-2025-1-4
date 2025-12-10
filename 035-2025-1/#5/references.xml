@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<references>
+  <reference id="1">
+    <prefix>[1]</prefix>
+    <title>chessboard: A package to print chessboards</title>
+    <authors>
+      <author>Fischer, Ulrike</author>
+    </authors>
+    <URL>https://ctan.org/pkg/chessboard</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024. [cit. 2025-05-05]. Dostupné z: https://ctan.org/pkg/chessboard.</suffix>
+  </reference>
+  <reference id="2">
+    <prefix>[2]</prefix>
+    <title>A LaTeX Package for Typesetting Crossword Puzzles and More</title>
+    <authors>
+      <author>Neugebauer, Gerd</author>
+    </authors>
+    <URL>https://ctan.org/pkg/crossword</URL>
+    <year>2022</year>
+    <suffix>[online]. 2022. [cit. 2025-01-24]. Dostupné z: https://ctan.org/pkg/crossword.</suffix>
+  </reference>
+  <reference id="3">
+    <prefix>[3]</prefix>
+    <title>Scrabble game rules</title>
+    <authors>
+      <author>Hasbro</author>
+    </authors>
+    <URL>https://www.hasbro.com/common/instruct/Scrabble_(2003).pdf</URL>
+    <year>2003</year>
+    <suffix>[online]. 2003. [cit. 2025-05-05]. Dostupné z: https://www.hasbro.com/common/instruct/Scrabble_(2003).pdf.</suffix>
+  </reference>
+  <reference id="4">
+    <prefix>[4]</prefix>
+    <title>Scrabble package documentation</title>
+    <authors>
+      <author>Pierquet, Cédric</author>
+    </authors>
+    <URL>https://ctan.org/pkg/scrabble</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024. [cit. 2025-05-05]. Dostupné z: https://ctan.org/pkg/scrabble.</suffix>
+  </reference>
+  <reference id="5">
+    <prefix>[5]</prefix>
+    <title>A style file for typesetting Battleship logic puzzles</title>
+    <authors>
+      <author>Kleber, Josef</author>
+    </authors>
+    <URL>https://ctan.org/pkg/battleship</URL>
+    <year>2013</year>
+    <suffix>[online]. 2013. [cit. 2025-05-05]. Dostupné z: https://ctan.org/pkg/battleship.</suffix>
+  </reference>
+  <reference id="6">
+    <prefix>[6]</prefix>
+    <title>The maze package</title>
+    <authors>
+      <author>Du, Sicheng</author>
+    </authors>
+    <URL>https://ctan.org/pkg/maze</URL>
+    <year>2023</year>
+    <suffix>[online]. 2023. [cit. 2025-05-05]. Dostupné z: https://ctan.org/pkg/maze.</suffix>
+  </reference>
+</references>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<references>
+  <reference id="1">
+    <prefix>[1]</prefix>
+    <title>Publikace LaTeXových dokumentů na web pomocí TeX4ht a GitHub Actions</title>
+    <authors>
+      <author>Hoftich, Michal</author>
+    </authors>
+    <URL>https://www.kodymirus.cz/presentations/ossconf2025.html</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-02. [cit. 2025-12-04]. Dostupné z: https://www.kodymirus.cz/presentations/ossconf2025.html.</suffix>
+  </reference>
+  <reference id="2">
+    <prefix>[2]</prefix>
+    <title>PB029: Zadání zápočtových dokumentů</title>
+    <authors>
+      <author>Sojka, Petr</author>
+      <author>Nevěřilová, Zuzana</author>
+      <author>Růžička, Michal</author>
+      <author>Lupták, Dávid</author>
+      <author>Starý Novotný, Vít</author>
+      <author>Vrabcová, Tereza</author>
+    </authors>
+    <URL>https://sojka.pages.fi.muni.cz/PB029_web/finalwork/#tex-cstug-article</URL>
+    <suffix>[Referát – odborný článek do Zpravodaje CSTUG] [online]. Fakulta informatiky Masarykovy univerzity [cit. 2025-12-04]. Dostupné z: https://sojka.pages.fi.muni.cz/PB029_web/finalwork/#tex-cstug-article.</suffix>
+  </reference>
+  <reference id="3">
+    <prefix>[3]</prefix>
+    <title>Games</title>
+    <authors>
+      <author>CTAN</author>
+    </authors>
+    <URL>https://ctan.org/topic/games</URL>
+    <suffix>[online]. [cit. 2025-12-04]. Dostupné z: https://ctan.org/topic/games.</suffix>
+  </reference>
+</references>

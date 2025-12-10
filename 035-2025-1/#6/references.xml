@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<references>
+  <reference id="1">
+    <prefix>[1]</prefix>
+    <title>The LaTeX Package minted: Highlighted source code in LaTeX</title>
+    <authors>
+      <author>Poore, Geoffrey M.</author>
+    </authors>
+    <URL>https://tug.ctan.org/macros/latex/contrib/minted/minted.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. CTAN, 2025-05-14. Ver. 3.7.0 [cit. 2025-11-13]. Dostupné z: https://tug.ctan.org/macros/latex/contrib/minted/minted.pdf.</suffix>
+  </reference>
+  <reference id="2">
+    <prefix>[2]</prefix>
+    <title>The shellesc Package</title>
+    <authors>
+      <author>LaTeX project</author>
+    </authors>
+    <URL>http://mirrors.ctan.org/macros/latex/required/tools/shellesc.pdf</URL>
+    <year>2023</year>
+    <suffix>[online]. 2023-07-08. [cit. 2025-11-20]. Dostupné z: http://mirrors.ctan.org/macros/latex/required/tools/shellesc.pdf.</suffix>
+  </reference>
+  <reference id="3">
+    <prefix>[3]</prefix>
+    <title>Typesetting code with syntax highlighting: Introducing minted version 3</title>
+    <authors>
+      <author>Poore, Geoffrey M.</author>
+    </authors>
+    <booktitle>TUGboat</booktitle>
+    <number>1</number>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(1), 54–59.</suffix>
+  </reference>
+</references>

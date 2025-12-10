@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article>
+  <title lang="eng">Selected TeX Packages from the Games Collection</title>
+  <title lang="slo">Vybrané TeXovské balíčky z rodiny games</title>
+  <author order="1">Hitzinger, Branislav</author>
+  <language>slo</language>
+  <summary lang="eng">For many people, TeX is mainly a tool for writing scientific documents or creating complex texts. However, over the years of TeX's existence, various packages have been created that extend its functionality beyond typesetting text. In this article, we will take a look at a couple of these packages that focus on typesetting various diagrams and board states for different games.</summary>
+  <summary lang="slo">Pre mnohých ľudí je TeX nástroj na písanie dokumentov, prípadne prípravu čistého odborného textu. Široká ponuka balíčkov, ktoré boli k TeXu počas jeho existencie vytvorené, umožňuje ale vysádzanie mnohých iných vecí než len čistého textu. V tomto referáte sa pozrieme na zopár takýchto „nevšedných“ balíčkov zameraných na vysádzanie diagramov a stavov rôznych hier.</summary>
+  <lang_summary>slo</lang_summary>
+  <doi>10.5300/2025-1-4/36</doi>
+  <category>informatics</category>
+  <range_pages>36-43</range_pages>
+</article>

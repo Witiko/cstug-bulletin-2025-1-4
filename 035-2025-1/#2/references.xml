@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<references>
+  <reference id="1">
+    <prefix>[1]</prefix>
+    <title>Kniha abstraktů dvoukonference TeXperience 2011 a Stakan 2011</title>
+    <editors>
+      <editor>Stříž, Pavel</editor>
+    </editors>
+    <ISBN>978-80-87106-48-8</ISBN>
+    <URL>https://www.striz.cz/pdf/48kniha-abstraktu.pdf</URL>
+    <edition>2</edition>
+    <year>2021</year>
+    <suffix>2. vyd. Martin Stříž, 2021. ISBN 978-80-87106-48-8. Dostupné také z: https://www.striz.cz/pdf/48kniha-abstraktu.pdf.</suffix>
+  </reference>
+  <reference id="2">
+    <prefix>[2]</prefix>
+    <title>Učíme (se) ...</title>
+    <authors>
+      <author>Stříž, Pavel</author>
+    </authors>
+    <URL>https://striz9.fame.utb.cz/texperience/</URL>
+    <suffix>[online]. [cit. 2012-04-30]. Dostupné z: https://striz9.fame.utb.cz/texperience/. Archiv webu z data citace najdete k datu 2025-09-19 např. na webu https://web.archive.org/.</suffix>
+  </reference>
+  <reference id="3">
+    <prefix>[3]</prefix>
+    <title>Why TeX math search is more relevant now than ever</title>
+    <authors>
+      <author>Sojka, Petr</author>
+    </authors>
+    <URL>http://zeeba.tv/why-tex-math-search-is-more-relevant-now-than-ever/</URL>
+    <year>2011</year>
+    <suffix>[online]. 2011-10-21. [cit. 2025-10-17]. Dostupné z: http://zeeba.tv/why-tex-math-search-is-more-relevant-now-than-ever/.</suffix>
+  </reference>
+  <reference id="4">
+    <prefix>[4]</prefix>
+    <title>Data structures in ε-TeX</title>
+    <authors>
+      <author>Skoupý, Karel</author>
+    </authors>
+    <URL>http://zeeba.tv/data-structures-in-etex/</URL>
+    <year>2011</year>
+    <suffix>[online]. 2011-10-19. [cit. 2025-10-17]. Dostupné z: http://zeeba.tv/data-structures-in-etex/.</suffix>
+  </reference>
+  <reference id="5">
+    <prefix>[5]</prefix>
+    <title>Typesetting fancy multilingual phrase books with LuaTeX</title>
+    <authors>
+      <author>Skoupý, Karel</author>
+    </authors>
+    <URL>http://zeeba.tv/typesetting-fancy-multilingual-phrase-books-with-luatex/</URL>
+    <year>2011</year>
+    <suffix>[online]. 2011-10-20. [cit. 2025-10-17]. Dostupné z: http://zeeba.tv/typesetting-fancy-multilingual-phrase-books-with-luatex/.</suffix>
+  </reference>
+  <reference id="6">
+    <prefix>[6]</prefix>
+    <title>Static analysis of expl3 programs (10): Expltools goes to India</title>
+    <authors>
+      <author>Novotný, Vít Starý</author>
+    </authors>
+    <URL>https://witiko.github.io/Expl3-Linter-10</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-22. [cit. 2025-09-19]. Dostupné z: https://witiko.github.io/Expl3-Linter-10.</suffix>
+  </reference>
+  <reference id="7">
+    <prefix>[7]</prefix>
+    <title>True but Irrelevant</title>
+    <authors>
+      <author>Schrauwen, Rob</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t01-schrauwen-content/d1-t01-schrauwen-content-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t01-schrauwen-content/d1-t01-schrauwen-content-slides.pdf.</suffix>
+  </reference>
+  <reference id="8">
+    <prefix>[8]</prefix>
+    <title>TUG 2025: Day 1 Friday Stream, part 2</title>
+    <authors>
+      <author>YouTube</author>
+    </authors>
+    <URL>https://youtu.be/CRYYps0usiA</URL>
+    <year>2025</year>
+    <suffix>[online]. YouTube, 2025-07-18 [cit. 2025-09-19]. Dostupné z: https://youtu.be/CRYYps0usiA.</suffix>
+  </reference>
+  <reference id="9">
+    <prefix>[9]</prefix>
+    <title>The state of CTAN: 2025</title>
+    <authors>
+      <author>Braun, Erik</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t02-braun-ctan/d1-t02-braun-ctan-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t02-braun-ctan/d1-t02-braun-ctan-slides.pdf.</suffix>
+  </reference>
+  <reference id="10">
+    <prefix>[10]</prefix>
+    <title>How we use XeLaTeX at our Ashram</title>
+    <authors>
+      <author>Govinda, Vrajarāja</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t03-govinda-ashram/d1-t03-govinda-ashram-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t03-govinda-ashram/d1-t03-govinda-ashram-slides.pdf.</suffix>
+  </reference>
+  <reference id="11">
+    <prefix>[11]</prefix>
+    <title>How we use XeLaTeX at our ashram to publish and print multilingual books and documents</title>
+    <authors>
+      <author>Govinda (S. Vinay), Vrajarāja</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143govinda-ashram</URL>
+    <number>2</number>
+    <pages>220-227</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 220–227.</suffix>
+  </reference>
+  <reference id="12">
+    <prefix>[12]</prefix>
+    <title>TUG 2025: Day 1 Friday Stream, part 1</title>
+    <authors>
+      <author>YouTube</author>
+    </authors>
+    <URL>https://youtu.be/Eu_qM53tInw</URL>
+    <year>2025</year>
+    <suffix>[online]. YouTube, 2025-07-18 [cit. 2025-09-19]. Dostupné z: https://youtu.be/Eu_qM53tInw.</suffix>
+  </reference>
+  <reference id="13">
+    <prefix>[13]</prefix>
+    <title>What to Teach about (La)TeX</title>
+    <authors>
+      <author>Hufflen, Jean-Michel</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t04-hufflen-teach/d1-t04-hufflen-teach-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t04-hufflen-teach/d1-t04-hufflen-teach-slides.pdf.</suffix>
+  </reference>
+  <reference id="14">
+    <prefix>[14]</prefix>
+    <title>What to teach about (La)TeX</title>
+    <authors>
+      <author>Hufflen, Jean-Michel</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143hufflen-teach</URL>
+    <number>2</number>
+    <pages>213-219</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 213–219.</suffix>
+  </reference>
+  <reference id="15">
+    <prefix>[15]</prefix>
+    <title>How accessible are typical PDFs and how accessible could they be?</title>
+    <authors>
+      <author>Mittelbach, Frank</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t05-mittelbach-how-accessible/d1-t05-mittelbach-how-accessible-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t05-mittelbach-how-accessible/d1-t05mittelbach-how-accessible-slides.pdf.</suffix>
+  </reference>
+  <reference id="16">
+    <prefix>[16]</prefix>
+    <title>Status of the LaTeX Tagged PDF Project, 2025: Tagging of math</title>
+    <authors>
+      <author>Fischer, Ulrike</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t06-fischer-taggingmath25/d1-t06-fischer-taggingmath25-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t06-fischer-taggingmath25/d1-t06-fischertaggingmath25-slides.pdf.</suffix>
+  </reference>
+  <reference id="17">
+    <prefix>[17]</prefix>
+    <title>News from the LaTeX Tagged PDF project: 2025</title>
+    <authors>
+      <author>Fischer, Ulrike</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143fischer-tagging25</URL>
+    <number>2</number>
+    <pages>244-247</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 244–247.</suffix>
+  </reference>
+  <reference id="18">
+    <prefix>[18]</prefix>
+    <title>Tagging of highly-structured information; case study: Bibliographies, using biblatex</title>
+    <authors>
+      <author>Moore, Ross</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t07-moore-tagging-biblatex/d1-t07-moore-tagging-biblatex-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t07-moore-tagging-biblatex/d1t07-moore-tagging-biblatex-slides.pdf.</suffix>
+  </reference>
+  <reference id="19">
+    <prefix>[19]</prefix>
+    <title>PDF tagging of highly-structured information; case study: bibliographies, using BibLaTeX</title>
+    <authors>
+      <author>Moore, Ross</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143moore-tagging-biblatex</URL>
+    <number>2</number>
+    <pages>248-257</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 248–257.</suffix>
+  </reference>
+  <reference id="20">
+    <prefix>[20]</prefix>
+    <title>Digital Archiving of Malayalam Content: Problems and Prospects</title>
+    <authors>
+      <author>CV, Radhakrishnan</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t08-radhakrishnan-malayalam-archiving/d1-t08-radhakrishnan-malayalam-archiving-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1-t08-radhakrishnan-malayalam-archiving/d1t08-radhakrishnan-malayalam-archiving-slides.pdf.</suffix>
+  </reference>
+  <reference id="21">
+    <prefix>[21]</prefix>
+    <title>Digital archiving of Malayalam content</title>
+    <authors>
+      <author>Radhakrishnan, CV</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143radhakrishnan-malayalam-archiving</URL>
+    <number>2</number>
+    <pages>195-205</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 195–205.</suffix>
+  </reference>
+  <reference id="22">
+    <prefix>[22]</prefix>
+    <title>LaTeX in the CrypTool Project</title>
+    <authors>
+      <author>Behrendt, Doris</author>
+      <author>Busse, Bernd</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d1-t09-behrendt-cryptool/d1-t09-behrendt-cryptool-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-19]. Dostupné z: https://www.tug.org/tug2025/av/d1t09-behrendt-cryptool/d1-t09-behrendt-cryptool-slides.pdf.</suffix>
+  </reference>
+  <reference id="23">
+    <prefix>[23]</prefix>
+    <title>How we use LaTeX in the CrypTool project</title>
+    <authors>
+      <author>Behrendt, Doris</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143behrendt-cryptool</URL>
+    <number>2</number>
+    <pages>206-212</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 206–212.</suffix>
+  </reference>
+  <reference id="24">
+    <prefix>[24]</prefix>
+    <title>TUG meets Trivandrum yet again: 2025</title>
+    <authors>
+      <author>Shaji, Julin</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143shaji-tug25</URL>
+    <number>2</number>
+    <pages>175-180</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 262–266.</suffix>
+  </reference>
+  <reference id="25">
+    <prefix>[25]</prefix>
+    <title>TUG 2025: A personal retrospective</title>
+    <authors>
+      <author>Rajeesh, KV</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143rajeesh-tug25</URL>
+    <number>2</number>
+    <pages>182-185</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 182–185.</suffix>
+  </reference>
+  <reference id="26">
+    <prefix>[26]</prefix>
+    <title>TUG2025: A retrospective</title>
+    <authors>
+      <author>KV, Rajeesh</author>
+    </authors>
+    <URL>https://rajeeshknambiar.wordpress.com/2025/08/05/tug2025-a-retrospective/</URL>
+    <suffix>[online]. [cit. 2025-09-20]. Dostupné z: https://rajeeshknambiar.wordpress.com/2025/08/05/tug2025-aretrospective/.</suffix>
+  </reference>
+  <reference id="27">
+    <prefix>[27]</prefix>
+    <title>OpenType font with built-in TeX syntax highlighting</title>
+    <authors>
+      <author>KV, Rajeesh</author>
+      <author>CV, Radhakrishnan</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d2-t10-rajeesh-colorfont-syntax/d2-t10-rajeesh-colorfont-syntax-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-20]. Dostupné z: https://tug.org/tug2025/av/d2-t10-rajeesh-colorfont-syntax/d2-t10-rajeeshcolorfont-syntax-slides.pdf.</suffix>
+  </reference>
+  <reference id="28">
+    <prefix>[28]</prefix>
+    <title>An OpenType font with built-in TeX syntax highlighting</title>
+    <authors>
+      <author>Rajeesh, KV</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143rajeesh-colorfont-syntax</URL>
+    <number>2</number>
+    <pages>262-266</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 262–266.</suffix>
+  </reference>
+  <reference id="29">
+    <prefix>[29]</prefix>
+    <title>TUG 2025: Day 2 Saturday Stream</title>
+    <authors>
+      <author>YouTube</author>
+    </authors>
+    <URL>https://youtu.be/ImCoKj_kLw4</URL>
+    <year>2025</year>
+    <suffix>[online]. YouTube, 2025-07-19 [cit. 2025-09-20]. Dostupné z: https://youtu.be/ImCoKj_kLw4.</suffix>
+  </reference>
+  <reference id="30">
+    <prefix>[30]</prefix>
+    <title>Expltools: Development tools for expl3 programmers</title>
+    <authors>
+      <author>Starý Novotný, Vít</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d2-t11-starynovotny-expltools/d2-t11-starynovotny-expltools-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-19. [cit. 2025-09-26]. Dostupné z: https://www.tug.org/tug2025/av/d2-t11-starynovotny-expltools/d2-t11starynovotny-expltools-slides.pdf.</suffix>
+  </reference>
+  <reference id="31">
+    <prefix>[31]</prefix>
+    <title>Expltools: Development tools for expl3 programmers</title>
+    <authors>
+      <author>Starý Novotný, Vít</author>
+    </authors>
+    <URL>https://github.com/witiko/expltools-tug25-paper</URL>
+    <suffix>[online]. [cit. 2025-09-26]. Dostupné z: https://github.com/witiko/expltools-tug25-paper. Toto je rozpracovaná verze článku, kterou se autor chystá nabídnout k vydání v čísle 47(1) časopisu TUGboat.</suffix>
+  </reference>
+  <reference id="32">
+    <prefix>[32]</prefix>
+    <title>Valná hromada CSTUG 2024</title>
+    <authors>
+      <author>Starý Novotný, Vít</author>
+    </authors>
+    <URL>https://www.cstug.cz/informace/zpravy/2024-11-18-valna-hromada-2024/</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024-11-18. [cit. 2025-09-26]. Dostupné z: https://www.cstug.cz/informace/zpravy/2024-11-18-valna-hromada-2024/.</suffix>
+  </reference>
+  <reference id="33">
+    <prefix>[33]</prefix>
+    <title>Frank Mittelbach v Brně</title>
+    <authors>
+      <author>Starý Novotný, Vít</author>
+    </authors>
+    <URL>https://www.cstug.cz/informace/zpravy/2024-12-05-frank-mittelbach-v-brne/</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024-12-05. [cit. 2025-09-26]. Dostupné z: https://www.cstug.cz/informace/zpravy/2024-12-05-frank-mittelbach-v-brne/.</suffix>
+  </reference>
+  <reference id="34">
+    <prefix>[34]</prefix>
+    <title>Typographic branches from a (LaTeX2)Word root</title>
+    <authors>
+      <author>Murugaiah, Saravanan</author>
+      <author>Subramaniam, Mukesh</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d2-t12-saravanan-wordconv/d2-t12-saravanan-wordconv-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-26]. Dostupné z: https://tug.org/tug2025/av/d2-t12-saravanan-wordconv/d2-t12saravanan-wordconv-slides.pdf.</suffix>
+  </reference>
+  <reference id="35">
+    <prefix>[35]</prefix>
+    <title>Symbols to improve the processes of construction and comprehension of tables</title>
+    <authors>
+      <author>B., Salil</author>
+      <author>निरंजन</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d2-t13-salil-tables/d2-t13-salil-tables-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-09-26]. Dostupné z: https://tug.org/tug2025/av/d2-t13-salil-tables/d2-t13-salil-tablesslides.pdf.</suffix>
+  </reference>
+  <reference id="36">
+    <prefix>[36]</prefix>
+    <title>TUG 2025: Program</title>
+    <authors>
+      <author>TeX Users Group</author>
+    </authors>
+    <URL>https://tug.org/tug2025/program.html</URL>
+    <suffix>[online]. TeX Users Group [cit. 2025-11-27]. Dostupné z: https://tug.org/tug2025/program.html.</suffix>
+  </reference>
+  <reference id="37">
+    <prefix>[37]</prefix>
+    <title>Alphabetic script and logo-syllabic script: A contradiction between form and content</title>
+    <authors>
+      <author>SK, Venkatesan</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d2-t14-venkatesan-writing/d2-t14-venkatesan-writing-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-10-02]. Dostupné z: https://www.tug.org/tug2025/av/d2-t14-venkatesan-writing/d2-t14venkatesan-writing-slides.pdf.</suffix>
+  </reference>
+  <reference id="38">
+    <prefix>[38]</prefix>
+    <title>Alphabetic vs. logo-syllabic script: A contradiction between form and content</title>
+    <authors>
+      <author>Venkatesan, S.K.</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143venkatesan-writing</URL>
+    <number>2</number>
+    <pages>285-288</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 285–288.</suffix>
+  </reference>
+  <reference id="39">
+    <prefix>[39]</prefix>
+    <title>The Unicode Standard: Version 17.0 – Core Specification</title>
+    <authors>
+      <author>The Unicode Consortium</author>
+    </authors>
+    <ISBN>978-1-936213-35-1</ISBN>
+    <URL>https://www.unicode.org/versions/Unicode17.0.0/core-spec/</URL>
+    <year>2025</year>
+    <suffix>[online]. Unicode Consortium, 2025 [cit. 2025-10-02]. ISBN 978-1-936213-35-1. Dostupné z: https://www.unicode.org/versions/Unicode17.0.0/core-spec/.</suffix>
+  </reference>
+  <reference id="40">
+    <prefix>[40]</prefix>
+    <title>Encoding Tulu-Tigalari: A journey to Unicode standardization</title>
+    <authors>
+      <author>Yerkadithaya, Vaishnavi Murthy</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d2-t15-murthy-tulu-tigalari/d2-t15-murthy-tulu-tigalari-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07. [cit. 2025-10-02]. Dostupné z: https://www.tug.org/tug2025/av/d2-t15-murthy-tulu-tigalari/d2-t15-murthy-tulu-tigalari-slides.pdf.</suffix>
+  </reference>
+  <reference id="41">
+    <prefix>[41]</prefix>
+    <title>Linguistics with LinguisTiX</title>
+    <authors>
+      <author>निरंजन</author>
+    </authors>
+    <URL>https://www.tug.org/tug2025/av/d2-t16-niranjan-linguistix/d2-t16-niranjan-linguistix-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-19. [cit. 2025-10-02]. Dostupné z: https://www.tug.org/tug2025/av/d2-t16-niranjanlinguistix/d2-t16-niranjan-linguistix-slides.pdf.</suffix>
+  </reference>
+  <reference id="42">
+    <prefix>[42]</prefix>
+    <title>Linguistics with LinguisTiX</title>
+    <authors>
+      <author>Niranjan</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143niranjan-linguistix</URL>
+    <number>2</number>
+    <pages>267-270</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 267–270.</suffix>
+  </reference>
+  <reference id="43">
+    <prefix>[43]</prefix>
+    <title>TeX Development Fund: Grants Awarded</title>
+    <authors>
+      <author>TeX Users Group</author>
+    </authors>
+    <URL>https://www.tug.org/tc/devfund/grants.html</URL>
+    <suffix>[online]. TeX Users Group [cit. 2025-12-04]. Dostupné z: https://www.tug.org/tc/devfund/grants.html.</suffix>
+  </reference>
+  <reference id="44">
+    <prefix>[44]</prefix>
+    <title>Beastie: A new (and the old) language for BibTeX databases</title>
+    <authors>
+      <author>Gray, Norman</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d2-t17-gray-beastie/d2-t17-gray-beastie-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-19. [cit. 2025-10-07]. Dostupné z: https://tug.org/tug2025/av/d2-t17-gray-beastie/d2-t17-gray-beastieslides.pdf.</suffix>
+  </reference>
+  <reference id="45">
+    <prefix>[45]</prefix>
+    <title>Beastie: A new (and the old) bibliography processor</title>
+    <authors>
+      <author>Gray, Norman</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143gray-beastie</URL>
+    <number>2</number>
+    <pages>228-234</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 228–234.</suffix>
+  </reference>
+  <reference id="46">
+    <prefix>[46]</prefix>
+    <title>Efficiently managing XML documents with TeX and tagged PDF enabled</title>
+    <authors>
+      <author>T Nair, Rishikesan</author>
+      <author>CV, Rajagopal</author>
+      <author>V, Apu</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t19-rishi-xmlfirst/d3-t19-rishi-xmlfirst-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-10-08]. Dostupné z: https://tug.org/tug2025/av/d3-t19-rishi-xmlfirst/d3-t19-rishi-xmlfirst-slides.pdf.</suffix>
+  </reference>
+  <reference id="47">
+    <prefix>[47]</prefix>
+    <title>TUG 2025: Day 3 Sunday Stream</title>
+    <authors>
+      <author>YouTube</author>
+    </authors>
+    <URL>https://youtu.be/gR3F3GmK0lo</URL>
+    <year>2025</year>
+    <suffix>[online]. YouTube, 2025-07-20 [cit. 2025-10-08]. Dostupné z: https://youtu.be/gR3F3GmK0lo.</suffix>
+  </reference>
+  <reference id="48">
+    <prefix>[48]</prefix>
+    <title>Xerdi's Documentation Project (XDP) Intertwined Documents</title>
+    <authors>
+      <author>Nijenhuis, Erik</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t20-nijenhuis-doceng/d3-t20-nijenhuis-doceng-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-20. [cit. 2025-10-08]. Dostupné z: https://tug.org/tug2025/av/d3-t20-nijenhuis-doceng/d3-t20-nijenhuisdoceng-slides.pdf.</suffix>
+  </reference>
+  <reference id="49">
+    <prefix>[49]</prefix>
+    <title>Xerdi's Documentation Project: Intertwined documents</title>
+    <authors>
+      <author>Nijenhuis, Erik</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143nijenhuis-doceng</URL>
+    <number>2</number>
+    <pages>277-284</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 277–284.</suffix>
+  </reference>
+  <reference id="50">
+    <prefix>[50]</prefix>
+    <title>The LaTeX Village at the Chaos Communication Camp: How it started, how it continues</title>
+    <authors>
+      <author>Behrendt, Doris</author>
+      <author>Busse, Bernd</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t21-behrendt-ccc/d3-t21-behrendt-ccc-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07-20. [cit. 2025-09-19]. Dostupné z: https://tug.org/tug2025/av/d3-t21behrendt-ccc/d3-t21-behrendt-ccc-slides.pdf.</suffix>
+  </reference>
+  <reference id="51">
+    <prefix>[51]</prefix>
+    <title>Challenges faced by the publishing industry</title>
+    <authors>
+      <author>Balasubramanian, Veeraraghavan</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t22-veeraraghavan-challenges/d3-t22-veeraraghavan-challenges-slides.pdf</URL>
+    <year>2025</year>
+    <suffix>[online]. 2025-07. [cit. 2025-10-08]. Dostupné z: https://tug.org/tug2025/av/d3-t22-veeraraghavan-challenges/d3-t22veeraraghavan-challenges-slides.pdf.</suffix>
+  </reference>
+  <reference id="52">
+    <prefix>[52]</prefix>
+    <title>Challenges faced by the publishing industry</title>
+    <authors>
+      <author>Balasubramanian, Veeraraghavan</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143balasubramanian-challenges</URL>
+    <number>2</number>
+    <pages>187-189</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 187–189.</suffix>
+  </reference>
+  <reference id="53">
+    <prefix>[53]</prefix>
+    <title>TUG 2025 Annual General Meeting notes</title>
+    <authors>
+      <author>Hefferon, Jim</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143tug25-agm</URL>
+    <number>2</number>
+    <pages>186-186</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 186.</suffix>
+  </reference>
+  <reference id="54">
+    <prefix>[54]</prefix>
+    <title>A system for editorial comments</title>
+    <authors>
+      <author>Veytsman, Boris</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t23-veytsman-comments/d3-t23-veytsman-comments-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-10-08]. Dostupné z: https://tug.org/tug2025/av/d3-t23veytsman-comments/d3-t23-veytsman-comments-slides.pdf.</suffix>
+  </reference>
+  <reference id="55">
+    <prefix>[55]</prefix>
+    <title>A system for editorial comments</title>
+    <authors>
+      <author>Veytsman, Boris</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143veytsman-comments</URL>
+    <number>2</number>
+    <pages>189-194</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 189–194.</suffix>
+  </reference>
+  <reference id="56">
+    <prefix>[56]</prefix>
+    <title>Implementing tagged and accessible PDF in Neptune</title>
+    <authors>
+      <author>Krishnan S, Rahul</author>
+      <author>V, Apu</author>
+      <author>T Nair, Rishikesan</author>
+      <author>CV, Rajagopal</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t24-rahul-tagged-neptune/d3-t24-rahul-tagged-neptune-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-10-08]. Dostupné z: https://tug.org/tug2025/av/d3-t24-rahul-taggedneptune/d3-t24-rahul-tagged-neptune-slides.pdf.</suffix>
+  </reference>
+  <reference id="57">
+    <prefix>[57]</prefix>
+    <title>Implementing tagged and accessible PDF in Neptune</title>
+    <authors>
+      <author>S, Rahul Krishnan</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143rahul-neptune-tagged</URL>
+    <number>2</number>
+    <pages>258-261</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 258–261.</suffix>
+  </reference>
+  <reference id="58">
+    <prefix>[58]</prefix>
+    <title>Overleaf: Kolaborativní webový editor LaTeXu</title>
+    <authors>
+      <author>Novotný, Vít</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2021-1-4/3</URL>
+    <number>1</number>
+    <pages>3-8</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2021</year>
+    <suffix>Zpravodaj CSTUG. 2021, 31(1–4), 3–8. ISSN 1211-6661.</suffix>
+  </reference>
+  <reference id="59">
+    <prefix>[59]</prefix>
+    <title>Best-effort LaTeX parsing for interactive editing</title>
+    <authors>
+      <author>Jakobsen, Mathias</author>
+    </authors>
+    <URL>https://tug.org/tug2025/av/d3-t25-jakobsen-parsing-editing/d3-t25-jakobsen-parsing-editing-slides.pdf</URL>
+    <suffix>[online]. [cit. 2025-10-08]. Dostupné z: https://tug.org/tug2025/av/d3t25-jakobsen-parsing-editing/d3-t25-jakobsen-parsing-editingslides.pdf.</suffix>
+  </reference>
+  <reference id="60">
+    <prefix>[60]</prefix>
+    <title>Best-effort LaTeX parsing for interactive editing</title>
+    <authors>
+      <author>Jakobsen, Mathias</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-2/tb143jakobsen-parsing-editing</URL>
+    <number>2</number>
+    <pages>270-273</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(2), 270–273.</suffix>
+  </reference>
+</references>

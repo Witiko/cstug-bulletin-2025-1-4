@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<references>
+  <reference id="1">
+    <prefix>[1]</prefix>
+    <title>ConTeXt on Web</title>
+    <authors>
+      <author>Svoboda, Zdeněk</author>
+      <author>Hála, Tomáš</author>
+    </authors>
+    <URL>https://www.gust.org.pl/bachotex/2023-pl/presentations/thala-1-2023.pdf</URL>
+    <year>2023</year>
+    <suffix>[online]. 2023. [cit. 2025-10-20]. Dostupné z: https://www.gust.org.pl/bachotex/2023pl/presentations/thala-1-2023.pdf.</suffix>
+  </reference>
+  <reference id="2">
+    <prefix>[2]</prefix>
+    <title>Overleaf: Kolaborativní webový editor LaTeXu</title>
+    <authors>
+      <author>Novotný, Vít</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2021-1-4/3</URL>
+    <number>1</number>
+    <pages>3-8</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2021</year>
+    <suffix>Zpravodaj CSTUG. 2021, 31(1–4), 3–8. ISSN 1211-6661.</suffix>
+  </reference>
+  <reference id="3">
+    <prefix>[3]</prefix>
+    <title>Overleaf Community Edition: Postup inštalácie a rozdiely oproti Overleaf Professional</title>
+    <authors>
+      <author>Stano, Michal</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2024-1-4/39</URL>
+    <number>1</number>
+    <pages>39-43</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2024</year>
+    <suffix>Zpravodaj CSTUG. 2024, 34(1–4), 39–43. ISSN 1211-6661.</suffix>
+  </reference>
+  <reference id="4">
+    <prefix>[4]</prefix>
+    <title>Exkurze do ConTeXtu</title>
+    <authors>
+      <author>Hagen, Hans</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2006-2-4/1</URL>
+    <number>2</number>
+    <pages>1-195</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2006</year>
+    <suffix>Zpravodaj CSTUG. 2006, 16(2–4), 1–195. ISSN 1211-6661.</suffix>
+  </reference>
+  <reference id="5">
+    <prefix>[5]</prefix>
+    <title>Článek ConTeXtem: tutoriál</title>
+    <authors>
+      <author>Zýka, Vít</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2008-4/200</URL>
+    <number>4</number>
+    <pages>200-208</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2008</year>
+    <suffix>Zpravodaj CSTUG. 2008, 18(4), 200–208. ISSN 1211-6661.</suffix>
+  </reference>
+  <reference id="6">
+    <prefix>[6]</prefix>
+    <title>Logo ConTeXtem: tutoriál</title>
+    <authors>
+      <author>Zýka, Vít</author>
+    </authors>
+    <ISSN>1211-6661</ISSN>
+    <URL>https://dx.doi.org/10.5300/2008-4/209</URL>
+    <number>4</number>
+    <pages>209-211</pages>
+    <publisher>Czech and Slovak TeX Users Group</publisher>
+    <year>2008</year>
+    <suffix>Zpravodaj CSTUG. 2008, 18(4), 209–211. ISSN 1211-6661.</suffix>
+  </reference>
+  <reference id="7">
+    <prefix>[7]</prefix>
+    <title>MathML</title>
+    <authors>
+      <author>Hagen, Hans</author>
+    </authors>
+    <URL>https://www.pragma-ade.nl/general/manuals/mmlprime.pdf</URL>
+    <year>2015</year>
+    <suffix>[online]. 2015. [cit. 2025-10-20]. Dostupné z: https://www.pragma-ade.nl/general/manuals/mmlprime.pdf.</suffix>
+  </reference>
+  <reference id="8">
+    <prefix>[8]</prefix>
+    <title>Columns</title>
+    <authors>
+      <author>Hagen, Hans</author>
+    </authors>
+    <URL>https://www.pragma-ade.nl/general/manuals/columnsets.pdf</URL>
+    <year>2016</year>
+    <suffix>[online]. 2016. [cit. 2025-10-20]. Dostupné z: https://www.pragma-ade.nl/general/manuals/columnsets.pdf.</suffix>
+  </reference>
+  <reference id="9">
+    <prefix>[9]</prefix>
+    <title>Drawing Statistical Charts</title>
+    <authors>
+      <author>Kocurová, Tamara</author>
+      <author>Kašparová, Adriana</author>
+      <author>Hála, Tomáš</author>
+    </authors>
+    <URL>https://articles.contextgarden.net/journal/2024.html</URL>
+    <volume>13</volume>
+    <year>2024</year>
+    <suffix>In: ConTeXt Group Journal [Proceedings 18° ConTEXt meeting]. 2024, sv. 13, s. 56–65. Dostupné také z: https://articles.contextgarden.net/journal/2024.html.</suffix>
+  </reference>
+  <reference id="10">
+    <prefix>[10]</prefix>
+    <title>Statistical charts</title>
+    <authors>
+      <author>Kocurová, Tamara</author>
+      <author>Kašparová, Adriana</author>
+    </authors>
+    <URL>https://codeberg.org/fiee/context-statistical-charts#statistical-charts</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024. [cit. 2025-11-21]. Dostupné z: https://codeberg.org/fiee/context-statistical-charts#statistical-charts.</suffix>
+  </reference>
+  <reference id="11">
+    <prefix>[11]</prefix>
+    <title>Implementation of Module Drawing Charts for ConTeXt</title>
+    <authors>
+      <author>Kocurová, Tamara</author>
+      <author>Kašparová, Adriana</author>
+    </authors>
+    <URL>https://www.thala.cz/manuals/statcharts/presentation-statcharts-2020-tamara-adriana.pdf</URL>
+    <year>2020</year>
+    <suffix>[online]. 2020. [cit. 2025-11-21]. Dostupné z: https://www.thala.cz/manuals/statcharts/presentationstatcharts-2020-tamara-adriana.pdf.</suffix>
+  </reference>
+  <reference id="12">
+    <prefix>[12]</prefix>
+    <title>Drawing statistical charts</title>
+    <authors>
+      <author>Kocurová, Tamara</author>
+      <author>Kašparová, Adriana</author>
+      <author>Hála, Tomáš</author>
+    </authors>
+    <URL>https://www.thala.cz/statcharts/statistical-charts.pdf</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024-04-28. Verze 1.20 [cit. 2025-11-28]. Dostupné z: https://www.thala.cz/statcharts/statistical-charts.pdf.</suffix>
+  </reference>
+  <reference id="13">
+    <prefix>[13]</prefix>
+    <title>A Module for Rounding Values</title>
+    <authors>
+      <author>Hála, Tomáš</author>
+      <author>Kocurová, Tamara</author>
+      <author>Kašparová, Adriana</author>
+      <author>Hagen, Hans</author>
+    </authors>
+    <URL>https://articles.contextgarden.net/journal/2024.html</URL>
+    <volume>13</volume>
+    <year>2024</year>
+    <suffix>In: ConTeXt Group Journal [Proceedings 18° ConTEXt meeting]. 2024, sv. 13, s. 52–55. Dostupné také z: https://articles.contextgarden.net/journal/2024.html.</suffix>
+  </reference>
+  <reference id="14">
+    <prefix>[14]</prefix>
+    <title>ValentinE-typo</title>
+    <authors>
+      <author>Schnell, Götz</author>
+    </authors>
+    <URL>http://meeting.contextgarden.net/2024/talks/goetz/ValentinE-typo_GSchnell.pdf</URL>
+    <year>2024</year>
+    <suffix>[online]. 2024. [cit. 2025-10-20]. Dostupné z: http://meeting.contextgarden.net/2024/talks/goetz/ValentinEtypo_GSchnell.pdf.</suffix>
+  </reference>
+  <reference id="15">
+    <prefix>[15]</prefix>
+    <title>Flagging</title>
+    <authors>
+      <author>Hagen, Hans</author>
+    </authors>
+    <URL>https://articles.contextgarden.net/journal/2024.html</URL>
+    <volume>13</volume>
+    <year>2024</year>
+    <suffix>In: ConTeXt Group Journal [Proceedings 18° ConTeXt meeting]. 2024, sv. 13, s. 41–51. Dostupné také z: https://articles.contextgarden.net/journal/2024.html.</suffix>
+  </reference>
+  <reference id="16">
+    <prefix>[16]</prefix>
+    <title>Flagging</title>
+    <authors>
+      <author>Hagen, Hans</author>
+    </authors>
+    <ISSN>0896-3207</ISSN>
+    <URL>https://dx.doi.org/10.47397/tb/46-3/tb144hagen-flagging</URL>
+    <number>3</number>
+    <pages>404-409</pages>
+    <publisher>TeX Users Group</publisher>
+    <volume>46</volume>
+    <year>2025</year>
+    <suffix>TUGboat. 2025, 46(3), 404–409.</suffix>
+  </reference>
+</references>
