@@ -6,5 +6,6 @@
 - [ ] Report `\texttt{-lj}` not protruding but `\texttt{-l\kern 0pt j}` and \texttt{-gh-pages} to the authors of <https://ctan.org/pkg/microtype>.
 - [x] Add XML metadata and check them in the CI.
 - [x] Do a digital release at <https//bulletin.cstug.cz/> and announce it to CSTUG members.
-- [/] Do a digital release at <https://dml.cz/>, and <https://www.cstug.cz/svn/ZpravodajCSTUG/> and announce the release to <tex-eds@tug.org>, <secretariat@gutenberg-asso.fr>, <secretary@ntg.nl>, <adelheid@dante.de>, and authors.
+- [x] Do a digital release at <https://dml.cz/>, and <https://www.cstug.cz/svn/ZpravodajCSTUG/>.
+- [ ] Announce the release to <tex-eds@tug.org>, <secretariat@gutenberg-asso.fr>, <secretary@ntg.nl>, <adelheid@dante.de>, and authors.
 - [ ] Update the list of articles at <https://sojka.pages.fi.muni.cz/PB029_web/finalwork/#tex-cstug-article>.
