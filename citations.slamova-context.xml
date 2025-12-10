@@ -59,7 +59,6 @@
     </additionalcontent>
   </citation>
   <citation>
-    <journal_title>ConTeXt Group Journal</journal_title>
     <contributors>
       <person_name contributor_role="author" sequence="first">
         <given_name>Tamara</given_name>
@@ -76,7 +75,11 @@
     </contributors>
     <first_page>56</first_page>
     <cYear>2024</cYear>
+    <volume_title>ConTeXt Group Journal</volume_title>
     <article_title>Drawing Statistical Charts</article_title>
+    <additionalcontent>
+      <url>https://articles.contextgarden.net/journal/2024.html</url>
+    </additionalcontent>
   </citation>
   <citation>
     <contributors>
@@ -134,7 +137,6 @@
     </additionalcontent>
   </citation>
   <citation>
-    <journal_title>ConTeXt Group Journal</journal_title>
     <contributors>
       <person_name contributor_role="author" sequence="first">
         <given_name>Tomáš</given_name>
@@ -155,7 +157,11 @@
     </contributors>
     <first_page>52</first_page>
     <cYear>2024</cYear>
+    <volume_title>ConTeXt Group Journal</volume_title>
     <article_title>A Module for Rounding Values</article_title>
+    <additionalcontent>
+      <url>https://articles.contextgarden.net/journal/2024.html</url>
+    </additionalcontent>
   </citation>
   <citation>
     <contributors>
@@ -171,7 +177,6 @@
     </additionalcontent>
   </citation>
   <citation>
-    <journal_title>ConTeXt Group Journal</journal_title>
     <contributors>
       <person_name contributor_role="author" sequence="first">
         <given_name>Hans</given_name>
@@ -180,7 +185,11 @@
     </contributors>
     <first_page>41</first_page>
     <cYear>2024</cYear>
+    <volume_title>ConTeXt Group Journal</volume_title>
     <article_title>Flagging</article_title>
+    <additionalcontent>
+      <url>https://articles.contextgarden.net/journal/2024.html</url>
+    </additionalcontent>
   </citation>
   <citation>
     <doi>10.47397/tb/46-3/tb144hagen-flagging</doi>
