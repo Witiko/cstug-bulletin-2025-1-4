@@ -5,7 +5,6 @@
 - [ ] Report the fix of `Scrabble.sty` in `hitzinger-games/` to the author of <https://ctan.org/pkg/scrabble>.
 - [ ] Report `\texttt{-lj}` not protruding but `\texttt{-l\kern 0pt j}` and \texttt{-gh-pages} to the authors of <https://ctan.org/pkg/microtype>.
 - [x] Add XML metadata and check them in the CI.
-- [ ] Do a digital release at <https//bulletin.cstug.cz/>.
-- [ ] Do a digital release at <https://dml.cz/>, and <https://www.cstug.cz/svn/ZpravodajCSTUG/>.
-- [ ] Announce the release at <tex-eds@tug.org>, <secretariat@gutenberg-asso.fr>, <secretary@ntg.nl>, <adelheid@dante.de>, to CSTUG members, and to authors.
+- [x] Do a digital release at <https//bulletin.cstug.cz/> and announce it to CSTUG members.
+- [ ] Do a digital release at <https://dml.cz/>, and <https://www.cstug.cz/svn/ZpravodajCSTUG/> and announce the release to <tex-eds@tug.org>, <secretariat@gutenberg-asso.fr>, <secretary@ntg.nl>, <adelheid@dante.de>, and authors.
 - [ ] Update the list of articles at <https://sojka.pages.fi.muni.cz/PB029_web/finalwork/#tex-cstug-article>.
