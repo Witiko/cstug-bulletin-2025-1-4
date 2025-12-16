@@ -1,8 +1,12 @@
-- [x] Report BibLaTeX 3.21+ not working with `\usepackage[implicit=false]{hyperref}`: <https://github.com/plk/biblatex/issues/1457>.
+- [x] Report BibLaTeX 3.21+ not working with `\usepackage[implicit=false]{hyperref}`:
+  - <https://github.com/plk/biblatex/issues/1457>
 - [x] Implement feedback from the proofreader and other editors.
 - [x] Check the numbers of colored pages in the CI.
-- [ ] Update `csbulobalka.sty` in <https://ctan.org/pkg/csbulletin/>.
-- [ ] Report the fix of `Scrabble.sty` in `hitzinger-games/` to the author of <https://ctan.org/pkg/scrabble>.
+- [x] Update `csbulobalka.sty` in <https://ctan.org/pkg/csbulletin/>.
+  - [x] Also update <https://www.overleaf.com/project/5c2d2e60690f047e3ac458e5>.
+- [x] Report the fix of `Scrabble.sty` in `hitzinger-games/` to the author of <https://ctan.org/pkg/scrabble>:
+  - <https://github.com/cpierquet/latex-packages/issues/13>
+  - <https://github.com/cpierquet/latex-packages/pull/14>
 - [ ] Report `\texttt{-lj}` not protruding but `\texttt{-l\kern 0pt j}` and \texttt{-gh-pages} to the authors of <https://ctan.org/pkg/microtype>.
 - [x] Add XML metadata and check them in the CI.
 - [x] Do a digital release at <https//bulletin.cstug.cz/> and announce it to CSTUG members.
